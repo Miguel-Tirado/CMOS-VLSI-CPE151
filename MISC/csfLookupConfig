@@ -1,0 +1,2 @@
+SOFTLOAD $(csf_search:mentor.conf)
+ALL

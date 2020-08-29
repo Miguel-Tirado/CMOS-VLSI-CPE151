@@ -1,0 +1,11 @@
+SOFTINCLUDE $SYSTEM_CDS_LIB_DIR/cds.lib
+DEFINE      NCSU_TechLib_tsmc02d    $CDK_DIR/lib/NCSU_TechLib_tsmc02d
+
+--PROCESS018
+DEFINE Project1 /gaia/class/student/tiradom/demo_151/Project1
+DEFINE Project2 /gaia/class/student/tiradom/demo_151/Project2
+DEFINE Project2_NAND /gaia/class/student/tiradom/demo_151/Project2_NAND
+DEFINE 2InNAND /gaia/class/student/tiradom/demo_151/2InNAND
+#Removed by ddDeleteObj: DEFINE inverter /gaia/class/student/tiradom/demo_151/inverter
+DEFINE inverter /gaia/class/student/tiradom/demo_151/inverter
+DEFINE RingOscillator /gaia/class/student/tiradom/demo_151/RingOscillator

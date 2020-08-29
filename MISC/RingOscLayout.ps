@@ -1,0 +1,10265 @@
+%!PS-Adobe-3.0
+%%DocumentFonts: Helvetica Times-Roman Courier
+%%Creator: Cadence Design Systems
+%%EndComments
+%%BeginProlog
+%
+% Start of Cadence ps.prologue -- Version 5.3.1
+% Adobe Postscript Level 2 Color Version.
+/setpacking where
+{
+	/currpack currentpacking def
+	pop true setpacking
+} if
+%******************************************************************************
+% Graphics initialization routine.
+%
+/gis  {
+  0 setgray
+  save
+  mark
+  newpath
+
+%
+% Scale postscripts 72 dpi divided by the plotter resolution set in pap.
+%
+  72 resolution div
+  dup
+  scale
+
+%
+% Move the origin of the plot up and to the right so the plotters margin
+% is observed.
+%
+  offsetX offsetY translate
+
+  /stippleArray 10 array def
+    stippleArray
+     dup    0  <FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+                FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF> put
+     dup    1  <00000000000000000000000000000000
+                00000000000000000000000000000000> put
+     dup    2  <00000000000000000000000000000000
+                00000000000000000000000000000000> put
+     dup    3  <00000000000000000000000000000000
+                00000000000000000000000000000000> put
+     dup    4  <00000000000000000000000000000000
+                00000000000000000000000000000000> put
+     dup    5  <00000000000000000000000000000000
+                00000000000000000000000000000000> put
+     dup    6  <00000000000000000000000000000000
+                00000000000000000000000000000000> put
+     dup    7  <00000000000000000000000000000000
+                00000000000000000000000000000000> put
+     dup    8  <08080404020201018080404020201010
+		08080404020201018080404020201010> put
+            9  <08081414222241418080414122221414
+                08081414222241418080414122221414> put
+
+  /newFont 10 dict def
+  newFont begin
+
+    /FontType 3 def
+    /FontMatrix [1 0 0 1 0 0] def
+    /FontBBox [0 0 1 1] def
+
+    /Encoding 256 array def
+    0 1 255 {Encoding exch /.notdef put} for
+    Encoding
+      dup 48 /0  put
+      dup 49 /1  put
+      dup 50 /2  put
+      dup 51 /3  put
+      dup 52 /4  put
+      dup 53 /5  put
+      dup 54 /6  put
+      dup 55 /7  put
+      dup 56 /8  put
+          57 /9  put
+
+
+    /BuildChar {
+        /char exch def
+        /fontdict exch def
+        /charname fontdict /Encoding get char get def
+
+         1 0 setcharwidth
+
+          16 16 true
+          [16 0 0 -16 -.5 15.50]
+           stippleArray char 48 sub 1 getinterval cvx
+          imagemask
+    } def
+
+  end
+  /StippleFont newFont definefont 66 scalefont setfont
+  /fillChar 0 def
+
+  /ellipsedict 8 dict def
+  ellipsedict /mtrx matrix put
+
+  /xformdict 8 dict def
+  xformdict /xformmtrx matrix put
+
+  /color     0 def
+
+  /lineRed   0 def
+  /lineGreen 0 def
+  /lineBlue  0 def
+
+  /fillRed   0 def
+  /fillGreen 0 def
+  /fillBlue  0 def
+
+  /hatchSet  0 def
+
+  /rht 0 def
+  /rw 0 def
+  /ils 1.0 def
+  /textalign 1 def
+
+} bind def
+
+%******************************************************************************
+% Paper call.  Sets resolution page height and page width.
+%
+/pap {
+    /resolution exch def
+    /pageHeight exch def
+    /pageWidth exch def
+    /offsetY exch def
+    /offsetX exch def
+
+  } bind def
+
+%******************************************************************************
+% Plot is done.
+%
+/gfs  {
+    showpage
+    cleartomark
+    restore
+  } bind def
+
+%******************************************************************************
+% Next Page sequence.
+%
+/nxp  {
+
+    showpage
+    newpath
+
+%
+% Scale postscripts 72 dpi divided by the plotter resolution set in pap.
+%
+    72 resolution div
+    dup
+    scale
+%
+% Move the origin of the plot up and to the right so the plotters margin
+% is observed.
+%
+    offsetX offsetY translate
+    /ils 1.0 def
+    /textalign 1 def
+  } bind def
+
+%******************************************************************************
+% Rotate Plot Sequence.
+%
+/rotp  {
+  pageWidth 0  translate  %% This moves lower left of plot to
+                          %% lower right of page.
+
+  90 rotate    %% rotate plot 90 degs.
+} bind def
+%******************************************************************************
+% Clipping Window
+%
+/clwin  {
+    initclip
+    /y2 exch def
+    /x2 exch def
+    /y1 exch def
+    /x1 exch def
+    newpath
+    x1 y1 moveto
+    x2 y1 lineto
+    x2 y2 lineto
+    x1 y2 lineto
+    closepath
+    clip
+} bind def
+%******************************************************************************
+% These to routines keep track of the bounding box of the shape.
+% This information is used when filling the drawn shape.
+%
+/bblineto {
+  dup dup
+  /cury exch def
+  miny lt {/miny exch def}
+    {dup maxy gt { /maxy exch def }
+           {pop } ifelse } ifelse
+  dup dup
+  minx lt {/minx exch def}
+    {dup maxx gt { /maxx exch def }
+           { pop } ifelse } ifelse
+  cury lineto
+} bind def
+
+/bbmoveto {
+  dup dup
+  /miny exch def /maxy exch def /cury exch def
+  dup dup
+  /minx exch def /maxx exch def
+  cury moveto
+} bind def
+%******************************************************************************
+% Internal ellipical arc routine.
+%    x y xradius yradius startangle endangle ellipse
+%
+/ellipse
+  {
+    /endangle exch def
+    /startangle exch def
+    /yrad exch def
+    /xrad exch def
+    /y exch def
+    /x exch def
+
+    startangle endangle gt {
+      save
+      /tmpangle startangle def
+      /startangle endangle def
+      /endangle tmpangle def
+      restore
+    } if
+
+    ellipsedict begin
+      /savematrix mtrx currentmatrix def
+      x y translate
+      xrad yrad scale
+      0 0 1 startangle endangle arc
+      savematrix setmatrix
+    end
+  } bind def
+%******************************************************************************
+% Resident Font Scale Sequence
+%    x y rfss
+%
+/rfss  {
+    4 2 roll
+    dup
+    3 div
+    add
+    scalefont
+    setfont
+    0 color ne {setLineColor}
+               { 0 setgray } ifelse
+  } bind def
+%******************************************************************************
+% Resident Font End
+%
+%
+/rfe
+{
+/width exch def
+5 1 roll
+moveto
+
+xformdict begin
+/savematrix xformmtrx currentmatrix def
+
+exch 				% rotate mirror to mirror rotate
+matrix rotate concat		% add rotation to current transform matrix
+dup 1 eq
+	{pop 1 -1}		% X mirror
+
+	{2 eq
+		{-1 1}		% Y mirror
+		{1 1}		% No mirror
+	ifelse}
+ifelse matrix scale concat	% add mirror to current transform matrix
+
+
+dup				% duplicate (string)
+length				% replace one of the strings with its length
+dup 0 ne
+{
+	3 -1 roll		% move fixed width flag to top of stack
+	0 eq
+	{			% if flag is false (0) do old string handling
+		/numChr exch def
+		dup stringwidth	%stack  wy,wx,(string)
+		pop
+		width
+		exch sub	%stack  xdiff,ydiff,(string)
+
+		cvi
+		numChr idiv	%stack  xspace,ydiff,(string)
+
+		/xoff exch def
+
+		{		% this is the positioning  function for kshow
+			pop pop
+			xoff
+			0
+			rmoveto
+		}
+
+		exch
+		kshow
+	}
+
+	{			% if flag is true (not 0) just show string
+		pop show
+	}
+	ifelse
+}
+
+{
+	pop pop pop
+}
+ifelse
+      savematrix setmatrix
+    end
+  } bind def
+%******************************************************************************
+% Resident Font Text Alignment
+%
+/rfta {						% <align> rfta
+	/textalign exch def
+} bind def
+%******************************************************************************
+% Resident Font Interline Space
+%
+/rfis {						% <space> rfis
+	/ils exch def
+} bind def
+%******************************************************************************
+% Resident Font Scale
+%
+/rfsc {						% <ht> <rotate> <mirror> rfs
+% What I need to do here is to validate <ht>.  <ht> can not be 0.  If it is 0
+% then make it 1.  To do this I will need to use the roll operation and exch
+% and maybe dup.  The algorithm looks like this:
+% Roll stack to make it look like : <rotate> <mirror> <ht>
+% duplicate <ht> so I can test it.
+% If <ht> is equal to 0 then
+% exchange 1 for <ht>
+% In any case roll stack to make it look like: <ht> <rotate> <mirror>
+% qed.
+%
+	3 -1 roll		% <rotate> <mirror> <ht>
+	dup 0 eq
+	{
+		1 exch pop	% <rotate> <mirror> <ht=1>
+	}
+	if
+	3 1 roll		% <ht> <rotate> <mirror>
+
+	0 color ne
+	{
+		setLineColor
+	}
+	{
+		0 setgray
+	}
+	ifelse
+
+	/tasz 60 def
+	/taln 59 def
+
+	/ta tasz array def
+	/cta ta def
+	/tc 0 def
+	/sa tasz array def
+	/sc 0 def
+} bind def
+%******************************************************************************
+% Resident Font Restricted Text
+%
+/rfrt {						% <height> <width> rfrt
+	/rht exch def
+	/rw exch def
+	% Since restricting one dimension and not the other is not supported
+	% if one dimension is turned off then ensure that both dimensions
+	% are turned off (a value of 0 means no restriction)
+	rht 0 eq rw 0 eq or
+	{
+		/rht 0 def
+		/rw 0 def
+	}
+	if
+} bind def
+%******************************************************************************
+% Resident Font Text Score
+%
+/rfts {						% <score> <start> <end> rfts
+	sc tasz lt
+	{
+		3 -1 roll 3 array astore
+		sa sc 3 -1 roll put
+		/sc sc 1 add def
+	}
+	{
+		pop pop pop
+	} ifelse
+} bind def
+%******************************************************************************
+% Resident Font Text
+%
+/rft {						% (text) rft
+	tc taln gt tc tasz mod 0 eq and
+	{
+		cta /cta tasz array dup def put
+	} if
+
+	tc tasz mod exch cta 3 1 roll sc
+	sa dup length array copy
+	3 array astore put
+
+	/sc 0 def
+	/tc tc 1 add def
+} bind def
+%******************************************************************************
+% Resident Font Complete
+%
+/rfc {						% <x> <y> rfc
+	/cta ta def
+
+	%
+	% If text is restricted or if text alignment is not left, find the
+	% longest text string
+	%
+	/mw 0 def
+	rw 0 ne textalign 3 gt or
+	{
+		%
+		% Find the widest text string
+		%
+		5 index		% <fn> <ht> <rot> <mir> <x> <y> <fn>
+		setfont
+		0 1 tc 1 sub
+		{
+			dup taln gt 1 index tasz mod 0 eq and
+			{
+				/cta cta tasz get def
+			}
+			if
+
+			tasz mod cta exch get 0 get
+			stringwidth pop dup mw gt
+			{
+				/mw exch def null
+			}
+			if
+
+			pop
+		}
+		for
+
+		/cta ta def
+	}
+	if
+
+	%
+	% Operand stack:		<fn> <ht> <rot> <mir> <x> <y>
+	% Check for restricted text
+	%
+	rw 0 ne
+	{
+
+		%
+		% Compute font scale factors
+		%
+		6 -2 roll pop		% <rot> <mir> <x> <y> <fn>
+		rw mw div
+		rht tc div dup ils mul 0.5 add cvi /tht exch def
+		matrix scale makefont	% <rot> <mir> <x> <y> <fn>
+		/mw rw def
+	}
+	{
+		6 -2 roll		% <rot> <mir> <x> <y> <fn> <ht>
+		dup 0 eq		% Test if height is 0
+		{			% change to 1 if it is
+                	1 exch pop	% <rot> <mir> <x> <y> <fn> <1>
+		}
+		if
+		dup ils mul 0.5 add cvi /tht exch def
+		dup mw mul /mw exch def scalefont
+	}
+	ifelse
+
+	setfont				% <rot> <mir> <x> <y>
+
+	moveto			% <rot> <mir>
+
+	xformdict begin
+		/savematrix xformmtrx currentmatrix def
+
+		exch matrix rotate concat
+		dup 1 eq
+		{
+			pop 1.0 -1.0		% x mirror
+		}
+		{
+			2 eq
+			{
+				-1.0 1.0	% y mirror
+			}
+			{
+				1.0 1.0		% no mirror
+			}
+			ifelse
+		}
+		ifelse
+		matrix scale concat
+
+		currentpoint
+
+		%
+		% Adjust origin for text alignment. For lc (4), cc (5), and uc
+		% (6) move left by width / 2. For lr (7), cr (8), and ur (9)
+		% move left by width. For cl (2), cc (5), and cr (8) move down
+		% by height / 2. For ul (3), uc (6), and ur (9) move down by
+		% height.
+		%
+		textalign 2 eq textalign 5 eq or textalign 8 eq or
+		{
+			tht tc mul 2 div sub
+		} if
+		textalign 3 eq textalign 6 eq or textalign 9 eq or
+		{
+			tht tc mul sub
+		} if
+		/oy exch def
+
+		textalign 3 gt textalign 7 lt and
+		{
+			mw 2 div sub
+		} if
+		textalign 6 gt textalign 10 lt and
+		{
+			mw sub
+		} if
+		/ox exch def
+
+		0 1 tc 1 sub
+		{
+			dup taln gt 1 index tasz mod 0 eq and
+			{
+				/cta cta tasz get def
+			}
+			if
+
+			cta exch tasz mod get aload pop
+			dup 3 -1 roll	% (str) [score] [score] <cnt>
+			0 1 3 -1 roll 1 sub	% (str) [score] [score] 0 1 <cnt>
+			{
+				newpath ox oy moveto
+				get aload pop pop exch	% ... <len> <start>
+				dup 0 exch		% ... <len> <start> 0 <s
+				5 index 3 1 roll	% ... (str) 0 <start>
+				getinterval		% ... <len> <start> (.)
+				stringwidth pop tht rmoveto
+				3 index			% ... <len> <start> (str)
+				3 1 roll exch		% ... (str) <start> <len>
+%				dup 3 1 roll
+%				sub
+				getinterval stringwidth pop
+				0 rlineto stroke
+				dup
+			}
+			for
+			pop pop
+			ox oy moveto
+			show
+
+			%
+			% Move origin for next line
+			%
+			/oy oy tht sub def
+		}
+		for
+
+		savematrix setmatrix
+	end
+	pop					% throw away the "0"
+} bind def
+%******************************************************************************
+% Draw line sequence.
+%
+/dls  {
+  newpath
+  moveto
+  rlineto
+  gsave
+  0 color ne { setLineColor }
+             { 0 setgray } ifelse
+  stroke
+  grestore
+} bind def
+%******************************************************************************
+% Draw line to.
+%
+/dlt  {
+  newpath
+  gsave
+  0 color ne { setLineColor }
+             { 0 setgray } ifelse
+  moveto
+} bind def
+%******************************************************************************
+%
+/dslt  {
+  newpath
+  gsave
+  0 color ne { setLineColor }
+             { 0 setgray } ifelse
+  moveto
+} bind def
+%******************************************************************************
+%
+/dlv  {
+  rlineto
+} bind def
+%******************************************************************************
+%
+/dle  {
+  stroke
+  grestore
+} bind def
+%******************************************************************************
+% Move to.
+/mps {
+  newpath
+  moveto
+} bind def
+%******************************************************************************
+%
+% Draw Box Unfilled
+%    x1 y1 x2 y2 dbu
+%
+/dbu  {
+    0 color ne { setLineColor } if
+    newpath
+    moveto
+    dup 0 rlineto
+    0 3 -1 roll
+    rlineto
+    neg 0 rlineto
+    closepath
+    stroke
+  } bind def
+%******************************************************************************
+%
+% Draw Box Filled
+%    x1 y1 x2 y2 dbf
+%
+/dbf  {
+    /y2 exch def
+    /x2 exch def
+    /y1 exch def
+    /x1 exch def
+    newpath
+    x1 y1 bbmoveto
+    x2 y1 bblineto
+    x2 y2 bblineto
+    x1 y2 bblineto
+    closepath
+    gsave
+    0 color ne { setFillColor } if
+    clip fillpath grestore
+  } bind def
+%******************************************************************************
+% Draw Box Solid
+%    x1 y1 x2 y2 dsb
+%
+/dbs  {
+    /y2 exch def
+    /x2 exch def
+    /y1 exch def
+    /x1 exch def
+    newpath
+    x1 y1 moveto
+    x2 y1 lineto
+    x2 y2 lineto
+    x1 y2 lineto
+    closepath
+    gsave
+    0 color ne { setFillColor }
+               { 0 setgray } ifelse
+    fill grestore
+    0 color ne { setLineColor } if stroke
+  } bind def
+
+%******************************************************************************
+% Draw Polygon Begin
+%    x y dpb
+%
+/dpb  {
+    newpath bbmoveto
+  } bind def
+
+%******************************************************************************
+% Draw Polygon Unfilled
+%    x y dpu
+%
+/dpu  {
+      closepath
+      gsave
+      0 color ne { setLineColor } if
+      stroke
+      grestore
+   } bind def
+
+%******************************************************************************
+% Draw Polygon Filled
+%    x y dpf
+%
+/dpf  {
+    closepath
+    gsave
+    0 color ne { setFillColor } if
+    clip fillpath grestore
+  } bind def
+
+%******************************************************************************
+% Draw Polygon Solid
+%    x y dps
+%
+/dps  {
+    closepath
+    gsave
+    0 color ne { setFillColor }
+               { 0 setgray } ifelse
+    fill grestore
+    0 color ne { setLineColor } if stroke
+  } bind def
+
+%******************************************************************************
+% Draw Polygon Vertex
+%    x y dpv
+%
+/dpv  {
+    bblineto
+  } bind def
+
+%******************************************************************************
+% Draw Circle Unfilled
+%    x y radius dcu
+%
+/dcu  {
+    /radius exch def
+    /y exch def
+    /x exch def
+
+    newpath
+    x y radius radius 0 360 ellipse
+    gsave
+    0 color ne { setLineColor } if
+    stroke
+    grestore
+  } bind def
+%******************************************************************************
+% Draw Circle Filled
+%    x y radius dcs
+%
+/dcf  {
+    /radius exch def
+    /y exch def
+    /x exch def
+    /minx x radius sub def
+    /miny y radius sub def
+    /maxx x radius add def
+    /maxy y radius add def
+
+    newpath
+    x y radius radius 0 360 ellipse
+    gsave
+    0 color ne { setFillColor } if
+    clip fillpath
+    grestore
+  } bind def
+
+%******************************************************************************
+% Draw Circle Solid
+%    x y radius dcs
+%
+/dcs  {
+    /radius exch def
+    /y exch def
+    /x exch def
+
+          newpath
+    x y radius radius 0 360 ellipse
+    gsave
+    0 color ne { setFillColor }
+               { 0 setgray } ifelse
+    fill grestore
+    0 color ne {setLineColor} if stroke
+  } bind def
+%******************************************************************************
+% Draw Ellipse Unfilled
+%    x y xradius yradius deu
+%
+/delu  {
+    /yradius exch def
+    /xradius exch def
+    /y exch def
+    /x exch def
+
+    newpath
+    x y xradius yradius 0 360 ellipse
+    gsave
+    0 color ne { setLineColor } if
+    stroke
+    grestore
+  } bind def
+%******************************************************************************
+% Draw Ellipse Filled
+%    x y xradius yradius def
+%
+/delf  {
+    /yradius exch def
+    /xradius exch def
+    /y exch def
+    /x exch def
+    /minx x xradius sub def
+    /miny y yradius sub def
+    /maxx x xradius add def
+    /maxy y yradius add def
+
+    newpath
+    x y xradius yradius 0 360 ellipse
+    gsave
+    0 color ne { setFillColor } if
+    clip fillpath
+    grestore
+  } bind def
+
+%******************************************************************************
+% Draw Ellipse Solid
+%    x y xradius yradius des
+%
+/dels  {
+    /yradius exch def
+    /xradius exch def
+    /y exch def
+    /x exch def
+
+    newpath
+    x y xradius yradius 0 360 ellipse
+    gsave
+    0 color ne { setFillColor }
+               { 0 setgray } ifelse
+
+    fill grestore
+    0 color ne {setLineColor} if stroke
+  } bind def
+%******************************************************************************
+% Draw Arc Unfilled
+%    x y xradius yradius startangle endangle das
+%
+/dau  { newpath ellipse
+        gsave
+        0 color ne { setLineColor } if
+        stroke
+        grestore
+      } bind def
+%******************************************************************************
+% Line Define Code.
+%
+/setlinedash {
+    1 index length 11 gt
+    {exch dup length 11 sub 11 getinterval exch } if
+    setdash
+  } bind def
+
+/lpb    {
+    pop
+    [
+    /offset 0 def
+    /offcount 0 def
+    /oncount 0 def
+  } bind def
+
+/lpon  {
+    /oncount exch def
+    pop
+    oncount
+  } bind def
+
+/lpoff  {
+    /offcount exch def
+    pop
+    oncount 0 eq
+    {/offset offcount def }
+    { offcount } ifelse
+  } bind def
+
+/lpe  {
+    /linewidth exch def
+    pop
+    offset 0 ne
+    { offset } if ] 0 setlinedash
+    linewidth dup 1 eq {pop 0} if setlinewidth
+  } bind def
+
+/sls    { pop } bind def
+
+/ssls  { [] 0 setdash
+          1 setlinewidth
+        } bind def
+
+%******************************************************************************
+% Fill pattern define code.
+%
+/fillpath  {
+    0 color ne { setFillColor } if
+    /str 1 string def
+    /minx minx 66 div
+    truncate 66 mul def
+    /miny miny 66 div
+    truncate 66 mul def
+
+          /fillLine maxx minx sub cvi 66 idiv 1 add string def
+
+          0 1 fillLine length 1 sub {
+            fillLine exch fillChar str cvs cvi 48 add put
+          } for
+
+          minx
+          miny 66 maxy
+            { exch dup 3 -1 roll moveto fillLine show
+          } for pop
+
+    hatchSet 1 eq {0 color ne { setLineColor } if stroke} if
+} bind def
+
+
+/fds  { pop /currchar 30 def} bind def
+/fdf   {
+    exch
+    /char exch def
+    /stipple stippleArray char get def
+    stipple exch currchar
+    exch putinterval
+    stippleArray char stipple put
+    /currchar currchar 2 sub def
+  } bind def
+/fde  {
+    pop
+  } bind def
+/sfp  {
+    /fillChar exch def
+    /hatchSet 0 def
+    fillChar 8 ge {/hatchSet 1 def} if
+    /StippleFont findfont 66 scalefont setfont
+  } bind def
+/setLineColor {
+  lineRed    1000 div
+  lineGreen  1000 div
+  lineBlue   1000 div
+  setrgbcolor
+} bind def
+
+/setFillColor {
+  fillRed    1000 div
+  fillGreen  1000 div
+  fillBlue   1000 div
+  setrgbcolor
+} bind def
+
+/slc {
+  /lineBlue  exch def
+  /lineGreen exch def
+  /lineRed   exch def
+  /color 1 def
+  lineBlue 1000 eq {lineGreen 1000 eq {lineRed 1000 eq {
+    /lineBlue  0 def
+    /lineGreen 0 def
+    /lineRed   0 def
+  } if} if} if
+} bind def
+
+/sfc {
+  /fillBlue  exch def
+  /fillGreen exch def
+  /fillRed   exch def
+  /color 1 def
+  fillBlue 1000 eq {fillGreen 1000 eq {fillRed 1000 eq {
+    /fillBlue  0 def
+    /fillGreen 0 def
+    /fillRed   0 def
+  } if} if} if
+} bind def
+%******************************************************************************
+%
+% End of Cadence ps.prologue
+%
+%******************************************************************************
+/setpacking where
+{
+	pop currpack setpacking
+} if
+%%EndProlog
+/#copies 1 def
+0 0 38400 52800 4800 pap
+%%Page: cds 1
+gis
+rotp
+1 15077 52771 23323 clwin
+0 15077 52774 23323 clwin
+0 15075 52774 23325 clwin
+1 fds
+1 <8888> fdf
+1 <4444> fdf
+1 <2222> fdf
+1 <1111> fdf
+1 <8888> fdf
+1 <4444> fdf
+1 <2222> fdf
+1 <1111> fdf
+1 <8888> fdf
+1 <4444> fdf
+1 <2222> fdf
+1 <1111> fdf
+1 <8888> fdf
+1 <4444> fdf
+1 <2222> fdf
+1 <1111> fdf
+1 fde
+1 sfp
+0 800 400 slc
+0 800 400 sfc
+ssls
+47303 21736 48296 22482 dbf
+746 993 47303 21736 dbu
+47117 18508 48607 21736 dbf
+3228 1490 47117 18508 dbu
+2600 21736 3593 22482 dbf
+746 993 2600 21736 dbu
+2413 18508 3903 21736 dbf
+3228 1490 2413 18508 dbu
+4090 21736 5083 22482 dbf
+746 993 4090 21736 dbu
+3903 18508 5394 21736 dbf
+3228 1491 3903 18508 dbu
+5580 21736 6573 22482 dbf
+746 993 5580 21736 dbu
+5394 18508 6884 21736 dbf
+3228 1490 5394 18508 dbu
+7070 21736 8063 22482 dbf
+746 993 7070 21736 dbu
+6884 18508 8374 21736 dbf
+3228 1490 6884 18508 dbu
+8560 21736 9553 22482 dbf
+746 993 8560 21736 dbu
+8374 18508 9864 21736 dbf
+3228 1490 8374 18508 dbu
+10050 21736 11044 22482 dbf
+746 994 10050 21736 dbu
+9864 18508 11354 21736 dbf
+3228 1490 9864 18508 dbu
+11540 21736 12534 22482 dbf
+746 994 11540 21736 dbu
+11354 18508 12844 21736 dbf
+3228 1490 11354 18508 dbu
+13030 21736 14024 22482 dbf
+746 994 13030 21736 dbu
+12844 18508 14334 21736 dbf
+3228 1490 12844 18508 dbu
+14520 21736 15514 22482 dbf
+746 994 14520 21736 dbu
+14334 18508 15824 21736 dbf
+3228 1490 14334 18508 dbu
+16011 21736 17004 22482 dbf
+746 993 16011 21736 dbu
+15824 18508 17314 21736 dbf
+3228 1490 15824 18508 dbu
+17501 21736 18494 22482 dbf
+746 993 17501 21736 dbu
+17314 18508 18805 21736 dbf
+3228 1491 17314 18508 dbu
+18991 21736 19984 22482 dbf
+746 993 18991 21736 dbu
+18805 18508 20295 21736 dbf
+3228 1490 18805 18508 dbu
+20481 21736 21474 22482 dbf
+746 993 20481 21736 dbu
+20295 18508 21785 21736 dbf
+3228 1490 20295 18508 dbu
+21971 21736 22964 22482 dbf
+746 993 21971 21736 dbu
+21785 18508 23275 21736 dbf
+3228 1490 21785 18508 dbu
+23461 21736 24455 22482 dbf
+746 994 23461 21736 dbu
+23275 18508 24765 21736 dbf
+3228 1490 23275 18508 dbu
+24951 21736 25945 22482 dbf
+746 994 24951 21736 dbu
+24765 18508 26255 21736 dbf
+3228 1490 24765 18508 dbu
+26441 21736 27435 22482 dbf
+746 994 26441 21736 dbu
+26255 18508 27745 21736 dbf
+3228 1490 26255 18508 dbu
+27931 21736 28925 22482 dbf
+746 994 27931 21736 dbu
+27745 18508 29235 21736 dbf
+3228 1490 27745 18508 dbu
+29422 21736 30415 22482 dbf
+746 993 29422 21736 dbu
+29235 18508 30725 21736 dbf
+3228 1490 29235 18508 dbu
+30912 21736 31905 22482 dbf
+746 993 30912 21736 dbu
+30725 18508 32216 21736 dbf
+3228 1491 30725 18508 dbu
+32402 21736 33395 22482 dbf
+746 993 32402 21736 dbu
+32216 18508 33706 21736 dbf
+3228 1490 32216 18508 dbu
+33892 21736 34885 22482 dbf
+746 993 33892 21736 dbu
+33706 18508 35196 21736 dbf
+3228 1490 33706 18508 dbu
+35382 21736 36375 22482 dbf
+746 993 35382 21736 dbu
+35196 18508 36686 21736 dbf
+3228 1490 35196 18508 dbu
+36872 21736 37866 22482 dbf
+746 994 36872 21736 dbu
+36686 18508 38176 21736 dbf
+3228 1490 36686 18508 dbu
+38362 21736 39356 22482 dbf
+746 994 38362 21736 dbu
+38176 18508 39666 21736 dbf
+3228 1490 38176 18508 dbu
+39852 21736 40846 22482 dbf
+746 994 39852 21736 dbu
+39666 18508 41156 21736 dbf
+3228 1490 39666 18508 dbu
+41342 21736 42336 22482 dbf
+746 994 41342 21736 dbu
+41156 18508 42646 21736 dbf
+3228 1490 41156 18508 dbu
+42833 21736 43826 22482 dbf
+746 993 42833 21736 dbu
+42646 18508 44136 21736 dbf
+3228 1490 42646 18508 dbu
+44323 21736 45316 22482 dbf
+746 993 44323 21736 dbu
+44136 18508 45626 21736 dbf
+3228 1490 44136 18508 dbu
+2 fds
+2 <aaaa> fdf
+2 <7777> fdf
+2 <aaaa> fdf
+2 <dddd> fdf
+2 <aaaa> fdf
+2 <7777> fdf
+2 <aaaa> fdf
+2 <dddd> fdf
+2 <aaaa> fdf
+2 <7777> fdf
+2 <aaaa> fdf
+2 <dddd> fdf
+2 <aaaa> fdf
+2 <7777> fdf
+2 <aaaa> fdf
+2 <dddd> fdf
+2 fde
+2 sfp
+0 800 400 slc
+0 800 400 sfc
+47489 21985 48110 22233 dbf
+248 621 47489 21985 dbu
+47489 16118 48234 17359 dbf
+1241 745 47489 16118 dbu
+2786 21985 3407 22233 dbf
+248 621 2786 21985 dbu
+2786 16118 3531 17359 dbf
+1241 745 2786 16118 dbu
+4276 21985 4897 22233 dbf
+248 621 4276 21985 dbu
+4276 16118 5021 17359 dbf
+1241 745 4276 16118 dbu
+5766 21985 6387 22233 dbf
+248 621 5766 21985 dbu
+5766 16118 6511 17359 dbf
+1241 745 5766 16118 dbu
+7256 21985 7877 22233 dbf
+248 621 7256 21985 dbu
+7256 16118 8001 17359 dbf
+1241 745 7256 16118 dbu
+8746 21985 9367 22233 dbf
+248 621 8746 21985 dbu
+8746 16118 9491 17359 dbf
+1241 745 8746 16118 dbu
+10236 21985 10857 22233 dbf
+248 621 10236 21985 dbu
+10236 16118 10981 17359 dbf
+1241 745 10236 16118 dbu
+11727 21985 12347 22233 dbf
+248 620 11727 21985 dbu
+11727 16118 12472 17359 dbf
+1241 745 11727 16118 dbu
+13217 21985 13838 22233 dbf
+248 621 13217 21985 dbu
+13217 16118 13962 17359 dbf
+1241 745 13217 16118 dbu
+14707 21985 15328 22233 dbf
+248 621 14707 21985 dbu
+14707 16118 15452 17359 dbf
+1241 745 14707 16118 dbu
+16197 21985 16818 22233 dbf
+248 621 16197 21985 dbu
+16197 16118 16942 17359 dbf
+1241 745 16197 16118 dbu
+17687 21985 18308 22233 dbf
+248 621 17687 21985 dbu
+17687 16118 18432 17359 dbf
+1241 745 17687 16118 dbu
+19177 21985 19798 22233 dbf
+248 621 19177 21985 dbu
+19177 16118 19922 17359 dbf
+1241 745 19177 16118 dbu
+20667 21985 21288 22233 dbf
+248 621 20667 21985 dbu
+20667 16118 21412 17359 dbf
+1241 745 20667 16118 dbu
+22157 21985 22778 22233 dbf
+248 621 22157 21985 dbu
+22157 16118 22902 17359 dbf
+1241 745 22157 16118 dbu
+23647 21985 24268 22233 dbf
+248 621 23647 21985 dbu
+23647 16118 24392 17359 dbf
+1241 745 23647 16118 dbu
+25137 21985 25758 22233 dbf
+248 621 25137 21985 dbu
+25137 16118 25883 17359 dbf
+1241 746 25137 16118 dbu
+26628 21985 27248 22233 dbf
+248 620 26628 21985 dbu
+26628 16118 27373 17359 dbf
+1241 745 26628 16118 dbu
+28118 21985 28739 22233 dbf
+248 621 28118 21985 dbu
+28118 16118 28863 17359 dbf
+1241 745 28118 16118 dbu
+29608 21985 30229 22233 dbf
+248 621 29608 21985 dbu
+29608 16118 30353 17359 dbf
+1241 745 29608 16118 dbu
+31098 21985 31719 22233 dbf
+248 621 31098 21985 dbu
+31098 16118 31843 17359 dbf
+1241 745 31098 16118 dbu
+32588 21985 33209 22233 dbf
+248 621 32588 21985 dbu
+32588 16118 33333 17359 dbf
+1241 745 32588 16118 dbu
+34078 21985 34699 22233 dbf
+248 621 34078 21985 dbu
+34078 16118 34823 17359 dbf
+1241 745 34078 16118 dbu
+35568 21985 36189 22233 dbf
+248 621 35568 21985 dbu
+35568 16118 36313 17359 dbf
+1241 745 35568 16118 dbu
+37058 21985 37679 22233 dbf
+248 621 37058 21985 dbu
+37058 16118 37803 17359 dbf
+1241 745 37058 16118 dbu
+38548 21985 39169 22233 dbf
+248 621 38548 21985 dbu
+38548 16118 39294 17359 dbf
+1241 746 38548 16118 dbu
+40039 21985 40659 22233 dbf
+248 620 40039 21985 dbu
+40039 16118 40784 17359 dbf
+1241 745 40039 16118 dbu
+41529 21985 42150 22233 dbf
+248 621 41529 21985 dbu
+41529 16118 42274 17359 dbf
+1241 745 41529 16118 dbu
+43019 21985 43640 22233 dbf
+248 621 43019 21985 dbu
+43019 16118 43764 17359 dbf
+1241 745 43019 16118 dbu
+44509 21985 45130 22233 dbf
+248 621 44509 21985 dbu
+44509 16118 45254 17359 dbf
+1241 745 44509 16118 dbu
+1000 502 0 slc
+1000 502 0 sfc
+47489 15590 48110 15838 dbf
+248 621 47489 15590 dbu
+47489 18880 48234 21364 dbf
+2484 745 47489 18880 dbu
+2786 15590 3407 15838 dbf
+248 621 2786 15590 dbu
+2786 18880 3531 21364 dbf
+2484 745 2786 18880 dbu
+4276 15590 4897 15838 dbf
+248 621 4276 15590 dbu
+4276 18880 5021 21364 dbf
+2484 745 4276 18880 dbu
+5766 15590 6387 15838 dbf
+248 621 5766 15590 dbu
+5766 18880 6511 21364 dbf
+2484 745 5766 18880 dbu
+7256 15590 7877 15838 dbf
+248 621 7256 15590 dbu
+7256 18880 8001 21364 dbf
+2484 745 7256 18880 dbu
+8746 15590 9367 15838 dbf
+248 621 8746 15590 dbu
+8746 18880 9491 21364 dbf
+2484 745 8746 18880 dbu
+10236 15590 10857 15838 dbf
+248 621 10236 15590 dbu
+10236 18880 10981 21364 dbf
+2484 745 10236 18880 dbu
+11727 15590 12347 15838 dbf
+248 620 11727 15590 dbu
+11727 18880 12472 21364 dbf
+2484 745 11727 18880 dbu
+13217 15590 13838 15838 dbf
+248 621 13217 15590 dbu
+13217 18880 13962 21364 dbf
+2484 745 13217 18880 dbu
+14707 15590 15328 15838 dbf
+248 621 14707 15590 dbu
+14707 18880 15452 21364 dbf
+2484 745 14707 18880 dbu
+16197 15590 16818 15838 dbf
+248 621 16197 15590 dbu
+16197 18880 16942 21364 dbf
+2484 745 16197 18880 dbu
+17687 15590 18308 15838 dbf
+248 621 17687 15590 dbu
+17687 18880 18432 21364 dbf
+2484 745 17687 18880 dbu
+19177 15590 19798 15838 dbf
+248 621 19177 15590 dbu
+19177 18880 19922 21364 dbf
+2484 745 19177 18880 dbu
+20667 15590 21288 15838 dbf
+248 621 20667 15590 dbu
+20667 18880 21412 21364 dbf
+2484 745 20667 18880 dbu
+22157 15590 22778 15838 dbf
+248 621 22157 15590 dbu
+22157 18880 22902 21364 dbf
+2484 745 22157 18880 dbu
+23647 15590 24268 15838 dbf
+248 621 23647 15590 dbu
+23647 18880 24392 21364 dbf
+2484 745 23647 18880 dbu
+25137 15590 25758 15838 dbf
+248 621 25137 15590 dbu
+25137 18880 25883 21364 dbf
+2484 746 25137 18880 dbu
+26628 15590 27248 15838 dbf
+248 620 26628 15590 dbu
+26628 18880 27373 21364 dbf
+2484 745 26628 18880 dbu
+28118 15590 28739 15838 dbf
+248 621 28118 15590 dbu
+28118 18880 28863 21364 dbf
+2484 745 28118 18880 dbu
+29608 15590 30229 15838 dbf
+248 621 29608 15590 dbu
+29608 18880 30353 21364 dbf
+2484 745 29608 18880 dbu
+31098 15590 31719 15838 dbf
+248 621 31098 15590 dbu
+31098 18880 31843 21364 dbf
+2484 745 31098 18880 dbu
+32588 15590 33209 15838 dbf
+248 621 32588 15590 dbu
+32588 18880 33333 21364 dbf
+2484 745 32588 18880 dbu
+34078 15590 34699 15838 dbf
+248 621 34078 15590 dbu
+34078 18880 34823 21364 dbf
+2484 745 34078 18880 dbu
+35568 15590 36189 15838 dbf
+248 621 35568 15590 dbu
+35568 18880 36313 21364 dbf
+2484 745 35568 18880 dbu
+37058 15590 37679 15838 dbf
+248 621 37058 15590 dbu
+37058 18880 37803 21364 dbf
+2484 745 37058 18880 dbu
+38548 15590 39169 15838 dbf
+248 621 38548 15590 dbu
+38548 18880 39294 21364 dbf
+2484 746 38548 18880 dbu
+40039 15590 40659 15838 dbf
+248 620 40039 15590 dbu
+40039 18880 40784 21364 dbf
+2484 745 40039 18880 dbu
+41529 15590 42150 15838 dbf
+248 621 41529 15590 dbu
+41529 18880 42274 21364 dbf
+2484 745 41529 18880 dbu
+43019 15590 43640 15838 dbf
+248 621 43019 15590 dbu
+43019 18880 43764 21364 dbf
+2484 745 43019 18880 dbu
+44509 15590 45130 15838 dbf
+248 621 44509 15590 dbu
+44509 18880 45254 21364 dbf
+2484 745 44509 18880 dbu
+0 800 400 slc
+0 800 400 sfc
+496 869 47365 21861 dbu
+1552 993 47365 15962 dbu
+496 869 2662 21861 dbu
+1552 993 2662 15962 dbu
+496 869 4152 21861 dbu
+1552 993 4152 15962 dbu
+496 869 5642 21861 dbu
+1552 993 5642 15962 dbu
+496 869 7132 21861 dbu
+1552 993 7132 15962 dbu
+496 869 8622 21861 dbu
+1552 994 8622 15962 dbu
+496 869 10112 21861 dbu
+1552 994 10112 15962 dbu
+496 870 11602 21861 dbu
+1552 994 11602 15962 dbu
+496 870 13092 21861 dbu
+1552 994 13092 15962 dbu
+496 869 14583 21861 dbu
+1552 993 14583 15962 dbu
+496 869 16073 21861 dbu
+1552 993 16073 15962 dbu
+496 869 17563 21861 dbu
+1552 993 17563 15962 dbu
+496 869 19053 21861 dbu
+1552 993 19053 15962 dbu
+496 869 20543 21861 dbu
+1552 993 20543 15962 dbu
+496 869 22033 21861 dbu
+1552 994 22033 15962 dbu
+496 869 23523 21861 dbu
+1552 994 23523 15962 dbu
+496 870 25013 21861 dbu
+1552 994 25013 15962 dbu
+496 870 26503 21861 dbu
+1552 994 26503 15962 dbu
+496 869 27994 21861 dbu
+1552 993 27994 15962 dbu
+496 869 29484 21861 dbu
+1552 993 29484 15962 dbu
+496 869 30974 21861 dbu
+1552 993 30974 15962 dbu
+496 869 32464 21861 dbu
+1552 993 32464 15962 dbu
+496 869 33954 21861 dbu
+1552 993 33954 15962 dbu
+496 869 35444 21861 dbu
+1552 993 35444 15962 dbu
+496 869 36934 21861 dbu
+1552 994 36934 15962 dbu
+496 870 38424 21861 dbu
+1552 994 38424 15962 dbu
+496 870 39914 21861 dbu
+1552 994 39914 15962 dbu
+496 869 41405 21861 dbu
+1552 993 41405 15962 dbu
+496 869 42895 21861 dbu
+1552 993 42895 15962 dbu
+496 869 44385 21861 dbu
+1552 993 44385 15962 dbu
+1000 502 0 slc
+1000 502 0 sfc
+496 869 47365 15466 dbu
+2794 993 47365 18725 dbu
+496 869 2662 15466 dbu
+2794 993 2662 18725 dbu
+496 869 4152 15466 dbu
+2794 993 4152 18725 dbu
+496 869 5642 15466 dbu
+2794 993 5642 18725 dbu
+496 869 7132 15466 dbu
+2794 993 7132 18725 dbu
+496 869 8622 15466 dbu
+2794 994 8622 18725 dbu
+496 869 10112 15466 dbu
+2794 994 10112 18725 dbu
+496 870 11602 15466 dbu
+2794 994 11602 18725 dbu
+496 870 13092 15466 dbu
+2794 994 13092 18725 dbu
+496 869 14583 15466 dbu
+2794 993 14583 18725 dbu
+496 869 16073 15466 dbu
+2794 993 16073 18725 dbu
+496 869 17563 15466 dbu
+2794 993 17563 18725 dbu
+496 869 19053 15466 dbu
+2794 993 19053 18725 dbu
+496 869 20543 15466 dbu
+2794 993 20543 18725 dbu
+496 869 22033 15466 dbu
+2794 994 22033 18725 dbu
+496 869 23523 15466 dbu
+2794 994 23523 18725 dbu
+496 870 25013 15466 dbu
+2794 994 25013 18725 dbu
+496 870 26503 15466 dbu
+2794 994 26503 18725 dbu
+496 869 27994 15466 dbu
+2794 993 27994 18725 dbu
+496 869 29484 15466 dbu
+2794 993 29484 18725 dbu
+496 869 30974 15466 dbu
+2794 993 30974 18725 dbu
+496 869 32464 15466 dbu
+2794 993 32464 18725 dbu
+496 869 33954 15466 dbu
+2794 993 33954 18725 dbu
+496 869 35444 15466 dbu
+2794 993 35444 18725 dbu
+496 869 36934 15466 dbu
+2794 994 36934 18725 dbu
+496 870 38424 15466 dbu
+2794 994 38424 18725 dbu
+496 870 39914 15466 dbu
+2794 994 39914 18725 dbu
+496 869 41405 15466 dbu
+2794 993 41405 18725 dbu
+496 869 42895 15466 dbu
+2794 993 42895 18725 dbu
+496 869 44385 15466 dbu
+2794 993 44385 18725 dbu
+3 fds
+3 <aaaa> fdf
+3 <5555> fdf
+3 <aaaa> fdf
+3 <5555> fdf
+3 <aaaa> fdf
+3 <5555> fdf
+3 <aaaa> fdf
+3 <5555> fdf
+3 <aaaa> fdf
+3 <5555> fdf
+3 <aaaa> fdf
+3 <5555> fdf
+3 <aaaa> fdf
+3 <5555> fdf
+3 <aaaa> fdf
+3 <5555> fdf
+3 fde
+3 sfp
+1000 0 0 slc
+1000 0 0 sfc
+47365 17887 47800 18011 dbf
+124 435 47365 17887 dbu
+47800 15962 47924 21519 dbf
+5557 124 47800 15962 dbu
+47117 17825 47365 18073 dbf
+248 248 47117 17825 dbu
+47800 15962 47924 17514 dbf
+1552 124 47800 15962 dbu
+47800 18725 47924 21519 dbf
+2794 124 47800 18725 dbu
+2662 17887 3096 18011 dbf
+124 434 2662 17887 dbu
+3096 15962 3220 21519 dbf
+5557 124 3096 15962 dbu
+2413 17825 2662 18073 dbf
+248 249 2413 17825 dbu
+3096 15962 3220 17514 dbf
+1552 124 3096 15962 dbu
+3096 18725 3220 21519 dbf
+2794 124 3096 18725 dbu
+4152 17887 4586 18011 dbf
+124 434 4152 17887 dbu
+4586 15962 4711 21519 dbf
+5557 125 4586 15962 dbu
+3903 17825 4152 18073 dbf
+248 249 3903 17825 dbu
+4586 15962 4711 17514 dbf
+1552 125 4586 15962 dbu
+4586 18725 4711 21519 dbf
+2794 125 4586 18725 dbu
+5642 17887 6077 18011 dbf
+124 435 5642 17887 dbu
+6077 15962 6201 21519 dbf
+5557 124 6077 15962 dbu
+5394 17825 5642 18073 dbf
+248 248 5394 17825 dbu
+6077 15962 6201 17514 dbf
+1552 124 6077 15962 dbu
+6077 18725 6201 21519 dbf
+2794 124 6077 18725 dbu
+7132 17887 7567 18011 dbf
+124 435 7132 17887 dbu
+7567 15962 7691 21519 dbf
+5557 124 7567 15962 dbu
+6884 17825 7132 18073 dbf
+248 248 6884 17825 dbu
+7567 15962 7691 17514 dbf
+1552 124 7567 15962 dbu
+7567 18725 7691 21519 dbf
+2794 124 7567 18725 dbu
+8622 17887 9057 18011 dbf
+124 435 8622 17887 dbu
+9057 15962 9181 21519 dbf
+5557 124 9057 15962 dbu
+8374 17825 8622 18073 dbf
+248 248 8374 17825 dbu
+9057 15962 9181 17514 dbf
+1552 124 9057 15962 dbu
+9057 18725 9181 21519 dbf
+2794 124 9057 18725 dbu
+10112 17887 10547 18011 dbf
+124 435 10112 17887 dbu
+10547 15962 10671 21519 dbf
+5557 124 10547 15962 dbu
+9864 17825 10112 18073 dbf
+248 248 9864 17825 dbu
+10547 15962 10671 17514 dbf
+1552 124 10547 15962 dbu
+10547 18725 10671 21519 dbf
+2794 124 10547 18725 dbu
+11602 17887 12037 18011 dbf
+124 435 11602 17887 dbu
+12037 15962 12161 21519 dbf
+5557 124 12037 15962 dbu
+11354 17825 11602 18073 dbf
+248 248 11354 17825 dbu
+12037 15962 12161 17514 dbf
+1552 124 12037 15962 dbu
+12037 18725 12161 21519 dbf
+2794 124 12037 18725 dbu
+13092 17887 13527 18011 dbf
+124 435 13092 17887 dbu
+13527 15962 13651 21519 dbf
+5557 124 13527 15962 dbu
+12844 17825 13092 18073 dbf
+248 248 12844 17825 dbu
+13527 15962 13651 17514 dbf
+1552 124 13527 15962 dbu
+13527 18725 13651 21519 dbf
+2794 124 13527 18725 dbu
+14583 17887 15017 18011 dbf
+124 434 14583 17887 dbu
+15017 15962 15141 21519 dbf
+5557 124 15017 15962 dbu
+14334 17825 14583 18073 dbf
+248 249 14334 17825 dbu
+15017 15962 15141 17514 dbf
+1552 124 15017 15962 dbu
+15017 18725 15141 21519 dbf
+2794 124 15017 18725 dbu
+16073 17887 16507 18011 dbf
+124 434 16073 17887 dbu
+16507 15962 16631 21519 dbf
+5557 124 16507 15962 dbu
+15824 17825 16073 18073 dbf
+248 249 15824 17825 dbu
+16507 15962 16631 17514 dbf
+1552 124 16507 15962 dbu
+16507 18725 16631 21519 dbf
+2794 124 16507 18725 dbu
+17563 17887 17997 18011 dbf
+124 434 17563 17887 dbu
+17997 15962 18122 21519 dbf
+5557 125 17997 15962 dbu
+17314 17825 17563 18073 dbf
+248 249 17314 17825 dbu
+17997 15962 18122 17514 dbf
+1552 125 17997 15962 dbu
+17997 18725 18122 21519 dbf
+2794 125 17997 18725 dbu
+19053 17887 19488 18011 dbf
+124 435 19053 17887 dbu
+19488 15962 19612 21519 dbf
+5557 124 19488 15962 dbu
+18805 17825 19053 18073 dbf
+248 248 18805 17825 dbu
+19488 15962 19612 17514 dbf
+1552 124 19488 15962 dbu
+19488 18725 19612 21519 dbf
+2794 124 19488 18725 dbu
+20543 17887 20978 18011 dbf
+124 435 20543 17887 dbu
+20978 15962 21102 21519 dbf
+5557 124 20978 15962 dbu
+20295 17825 20543 18073 dbf
+248 248 20295 17825 dbu
+20978 15962 21102 17514 dbf
+1552 124 20978 15962 dbu
+20978 18725 21102 21519 dbf
+2794 124 20978 18725 dbu
+22033 17887 22468 18011 dbf
+124 435 22033 17887 dbu
+22468 15962 22592 21519 dbf
+5557 124 22468 15962 dbu
+21785 17825 22033 18073 dbf
+248 248 21785 17825 dbu
+22468 15962 22592 17514 dbf
+1552 124 22468 15962 dbu
+22468 18725 22592 21519 dbf
+2794 124 22468 18725 dbu
+23523 17887 23958 18011 dbf
+124 435 23523 17887 dbu
+23958 15962 24082 21519 dbf
+5557 124 23958 15962 dbu
+23275 17825 23523 18073 dbf
+248 248 23275 17825 dbu
+23958 15962 24082 17514 dbf
+1552 124 23958 15962 dbu
+23958 18725 24082 21519 dbf
+2794 124 23958 18725 dbu
+25013 17887 25448 18011 dbf
+124 435 25013 17887 dbu
+25448 15962 25572 21519 dbf
+5557 124 25448 15962 dbu
+24765 17825 25013 18073 dbf
+248 248 24765 17825 dbu
+25448 15962 25572 17514 dbf
+1552 124 25448 15962 dbu
+25448 18725 25572 21519 dbf
+2794 124 25448 18725 dbu
+26503 17887 26938 18011 dbf
+124 435 26503 17887 dbu
+26938 15962 27062 21519 dbf
+5557 124 26938 15962 dbu
+26255 17825 26503 18073 dbf
+248 248 26255 17825 dbu
+26938 15962 27062 17514 dbf
+1552 124 26938 15962 dbu
+26938 18725 27062 21519 dbf
+2794 124 26938 18725 dbu
+27994 17887 28428 18011 dbf
+124 434 27994 17887 dbu
+28428 15962 28552 21519 dbf
+5557 124 28428 15962 dbu
+27745 17825 27994 18073 dbf
+248 249 27745 17825 dbu
+28428 15962 28552 17514 dbf
+1552 124 28428 15962 dbu
+28428 18725 28552 21519 dbf
+2794 124 28428 18725 dbu
+29484 17887 29918 18011 dbf
+124 434 29484 17887 dbu
+29918 15962 30042 21519 dbf
+5557 124 29918 15962 dbu
+29235 17825 29484 18073 dbf
+248 249 29235 17825 dbu
+29918 15962 30042 17514 dbf
+1552 124 29918 15962 dbu
+29918 18725 30042 21519 dbf
+2794 124 29918 18725 dbu
+30974 17887 31408 18011 dbf
+124 434 30974 17887 dbu
+31408 15962 31533 21519 dbf
+5557 125 31408 15962 dbu
+30725 17825 30974 18073 dbf
+248 249 30725 17825 dbu
+31408 15962 31533 17514 dbf
+1552 125 31408 15962 dbu
+31408 18725 31533 21519 dbf
+2794 125 31408 18725 dbu
+32464 17887 32898 18011 dbf
+124 434 32464 17887 dbu
+32898 15962 33023 21519 dbf
+5557 125 32898 15962 dbu
+32216 17825 32464 18073 dbf
+248 248 32216 17825 dbu
+32898 15962 33023 17514 dbf
+1552 125 32898 15962 dbu
+32898 18725 33023 21519 dbf
+2794 125 32898 18725 dbu
+33954 17887 34389 18011 dbf
+124 435 33954 17887 dbu
+34389 15962 34513 21519 dbf
+5557 124 34389 15962 dbu
+33706 17825 33954 18073 dbf
+248 248 33706 17825 dbu
+34389 15962 34513 17514 dbf
+1552 124 34389 15962 dbu
+34389 18725 34513 21519 dbf
+2794 124 34389 18725 dbu
+35444 17887 35879 18011 dbf
+124 435 35444 17887 dbu
+35879 15962 36003 21519 dbf
+5557 124 35879 15962 dbu
+35196 17825 35444 18073 dbf
+248 248 35196 17825 dbu
+35879 15962 36003 17514 dbf
+1552 124 35879 15962 dbu
+35879 18725 36003 21519 dbf
+2794 124 35879 18725 dbu
+36934 17887 37369 18011 dbf
+124 435 36934 17887 dbu
+37369 15962 37493 21519 dbf
+5557 124 37369 15962 dbu
+36686 17825 36934 18073 dbf
+248 248 36686 17825 dbu
+37369 15962 37493 17514 dbf
+1552 124 37369 15962 dbu
+37369 18725 37493 21519 dbf
+2794 124 37369 18725 dbu
+38424 17887 38859 18011 dbf
+124 435 38424 17887 dbu
+38859 15962 38983 21519 dbf
+5557 124 38859 15962 dbu
+38176 17825 38424 18073 dbf
+248 248 38176 17825 dbu
+38859 15962 38983 17514 dbf
+1552 124 38859 15962 dbu
+38859 18725 38983 21519 dbf
+2794 124 38859 18725 dbu
+39914 17887 40349 18011 dbf
+124 435 39914 17887 dbu
+40349 15962 40473 21519 dbf
+5557 124 40349 15962 dbu
+39666 17825 39914 18073 dbf
+248 248 39666 17825 dbu
+40349 15962 40473 17514 dbf
+1552 124 40349 15962 dbu
+40349 18725 40473 21519 dbf
+2794 124 40349 18725 dbu
+41405 17887 41839 18011 dbf
+124 434 41405 17887 dbu
+41839 15962 41963 21519 dbf
+5557 124 41839 15962 dbu
+41156 17825 41405 18073 dbf
+248 249 41156 17825 dbu
+41839 15962 41963 17514 dbf
+1552 124 41839 15962 dbu
+41839 18725 41963 21519 dbf
+2794 124 41839 18725 dbu
+42895 17887 43329 18011 dbf
+124 434 42895 17887 dbu
+43329 15962 43453 21519 dbf
+5557 124 43329 15962 dbu
+42646 17825 42895 18073 dbf
+248 249 42646 17825 dbu
+43329 15962 43453 17514 dbf
+1552 124 43329 15962 dbu
+43329 18725 43453 21519 dbf
+2794 124 43329 18725 dbu
+44385 17887 44819 18011 dbf
+124 434 44385 17887 dbu
+44819 15962 44944 21519 dbf
+5557 125 44819 15962 dbu
+44136 17825 44385 18073 dbf
+248 249 44136 17825 dbu
+44819 15962 44944 17514 dbf
+1552 125 44819 15962 dbu
+44819 18725 44944 21519 dbf
+2794 125 44819 18725 dbu
+4 fds
+4 <1111> fdf
+4 <2222> fdf
+4 <4444> fdf
+4 <8888> fdf
+4 <1111> fdf
+4 <2222> fdf
+4 <4444> fdf
+4 <8888> fdf
+4 <1111> fdf
+4 <2222> fdf
+4 <4444> fdf
+4 <8888> fdf
+4 <1111> fdf
+4 <2222> fdf
+4 <4444> fdf
+4 <8888> fdf
+4 fde
+4 sfp
+0 0 1000 slc
+0 0 1000 sfc
+48110 21985 48979 22233 dbf
+248 869 48110 21985 dbu
+46620 15590 47489 15838 dbf
+248 869 46620 15590 dbu
+45130 15590 45999 15838 dbf
+248 869 45130 15590 dbu
+43640 15590 44509 15838 dbf
+248 869 43640 15590 dbu
+42150 15590 43019 15838 dbf
+248 869 42150 15590 dbu
+40659 15590 41529 15838 dbf
+248 870 40659 15590 dbu
+39169 15590 40039 15838 dbf
+248 870 39169 15590 dbu
+37679 15590 38548 15838 dbf
+248 869 37679 15590 dbu
+36189 15590 37058 15838 dbf
+248 869 36189 15590 dbu
+34699 15590 35568 15838 dbf
+248 869 34699 15590 dbu
+33209 15590 34078 15838 dbf
+248 869 33209 15590 dbu
+31719 15590 32588 15838 dbf
+248 869 31719 15590 dbu
+30229 15590 31098 15838 dbf
+248 869 30229 15590 dbu
+28739 15590 29608 15838 dbf
+248 869 28739 15590 dbu
+27248 15590 28118 15838 dbf
+248 870 27248 15590 dbu
+25758 15590 26628 15838 dbf
+248 870 25758 15590 dbu
+24268 15590 25137 15838 dbf
+248 869 24268 15590 dbu
+22778 15590 23647 15838 dbf
+248 869 22778 15590 dbu
+21288 15590 22157 15838 dbf
+248 869 21288 15590 dbu
+19798 15590 20667 15838 dbf
+248 869 19798 15590 dbu
+18308 15590 19177 15838 dbf
+248 869 18308 15590 dbu
+16818 15590 17687 15838 dbf
+248 869 16818 15590 dbu
+15328 15590 16197 15838 dbf
+248 869 15328 15590 dbu
+13838 15590 14707 15838 dbf
+248 869 13838 15590 dbu
+12347 15590 13217 15838 dbf
+248 870 12347 15590 dbu
+10857 15590 11727 15838 dbf
+248 870 10857 15590 dbu
+9367 15590 10236 15838 dbf
+248 869 9367 15590 dbu
+7877 15590 8746 15838 dbf
+248 869 7877 15590 dbu
+6387 15590 7256 15838 dbf
+248 869 6387 15590 dbu
+4897 15590 5766 15838 dbf
+248 869 4897 15590 dbu
+3407 15590 4276 15838 dbf
+248 869 3407 15590 dbu
+48110 15590 48979 15838 dbf
+248 869 48110 15590 dbu
+48234 17856 48607 18042 dbf
+186 373 48234 17856 dbu
+48234 17856 48607 18042 dbf
+186 373 48234 17856 dbu
+46744 17856 47117 18042 dbf
+186 373 46744 17856 dbu
+45254 17856 45626 18042 dbf
+186 372 45254 17856 dbu
+43764 17856 44136 18042 dbf
+186 372 43764 17856 dbu
+42274 17856 42646 18042 dbf
+186 372 42274 17856 dbu
+40784 17856 41156 18042 dbf
+186 372 40784 17856 dbu
+39294 17856 39666 18042 dbf
+186 372 39294 17856 dbu
+37803 17856 38176 18042 dbf
+186 373 37803 17856 dbu
+36313 17856 36686 18042 dbf
+186 373 36313 17856 dbu
+34823 17856 35196 18042 dbf
+186 373 34823 17856 dbu
+33333 17856 33706 18042 dbf
+186 373 33333 17856 dbu
+31843 17856 32216 18042 dbf
+186 373 31843 17856 dbu
+30353 17856 30725 18042 dbf
+186 372 30353 17856 dbu
+28863 17856 29235 18042 dbf
+186 372 28863 17856 dbu
+27373 17856 27745 18042 dbf
+186 372 27373 17856 dbu
+25883 17856 26255 18042 dbf
+186 372 25883 17856 dbu
+24392 17856 24765 18042 dbf
+186 373 24392 17856 dbu
+22902 17856 23275 18042 dbf
+186 373 22902 17856 dbu
+21412 17856 21785 18042 dbf
+186 373 21412 17856 dbu
+19922 17856 20295 18042 dbf
+186 373 19922 17856 dbu
+18432 17856 18805 18042 dbf
+186 373 18432 17856 dbu
+16942 17856 17314 18042 dbf
+186 372 16942 17856 dbu
+15452 17856 15824 18042 dbf
+186 372 15452 17856 dbu
+13962 17856 14334 18042 dbf
+186 372 13962 17856 dbu
+12472 17856 12844 18042 dbf
+186 372 12472 17856 dbu
+10981 17856 11354 18042 dbf
+186 373 10981 17856 dbu
+9491 17856 9864 18042 dbf
+186 373 9491 17856 dbu
+8001 17856 8374 18042 dbf
+186 373 8001 17856 dbu
+6511 17856 6884 18042 dbf
+186 373 6511 17856 dbu
+5021 17856 5394 18042 dbf
+186 373 5021 17856 dbu
+3531 17856 3903 18042 dbf
+186 372 3531 17856 dbu
+48110 21985 48979 22233 dbf
+248 869 48110 21985 dbu
+46620 21985 47489 22233 dbf
+248 869 46620 21985 dbu
+45130 21985 45999 22233 dbf
+248 869 45130 21985 dbu
+43640 21985 44509 22233 dbf
+248 869 43640 21985 dbu
+42150 21985 43019 22233 dbf
+248 869 42150 21985 dbu
+40659 21985 41529 22233 dbf
+248 870 40659 21985 dbu
+39169 21985 40039 22233 dbf
+248 870 39169 21985 dbu
+37679 21985 38548 22233 dbf
+248 869 37679 21985 dbu
+36189 21985 37058 22233 dbf
+248 869 36189 21985 dbu
+34699 21985 35568 22233 dbf
+248 869 34699 21985 dbu
+33209 21985 34078 22233 dbf
+248 869 33209 21985 dbu
+31719 21985 32588 22233 dbf
+248 869 31719 21985 dbu
+30229 21985 31098 22233 dbf
+248 869 30229 21985 dbu
+28739 21985 29608 22233 dbf
+248 869 28739 21985 dbu
+27248 21985 28118 22233 dbf
+248 870 27248 21985 dbu
+25758 21985 26628 22233 dbf
+248 870 25758 21985 dbu
+24268 21985 25137 22233 dbf
+248 869 24268 21985 dbu
+22778 21985 23647 22233 dbf
+248 869 22778 21985 dbu
+21288 21985 22157 22233 dbf
+248 869 21288 21985 dbu
+19798 21985 20667 22233 dbf
+248 869 19798 21985 dbu
+18308 21985 19177 22233 dbf
+248 869 18308 21985 dbu
+16818 21985 17687 22233 dbf
+248 869 16818 21985 dbu
+15328 21985 16197 22233 dbf
+248 869 15328 21985 dbu
+13838 21985 14707 22233 dbf
+248 869 13838 21985 dbu
+12347 21985 13217 22233 dbf
+248 870 12347 21985 dbu
+10857 21985 11727 22233 dbf
+248 870 10857 21985 dbu
+9367 21985 10236 22233 dbf
+248 869 9367 21985 dbu
+7877 21985 8746 22233 dbf
+248 869 7877 21985 dbu
+6387 21985 7256 22233 dbf
+248 869 6387 21985 dbu
+4897 21985 5766 22233 dbf
+248 869 4897 21985 dbu
+3407 21985 4276 22233 dbf
+248 869 3407 21985 dbu
+47117 17825 47365 18073 dbf
+248 248 47117 17825 dbu
+47489 18880 47737 22233 dbf
+3353 248 47489 18880 dbu
+47489 15590 47737 17359 dbf
+1769 248 47489 15590 dbu
+47489 15590 48110 15838 dbf
+248 621 47489 15590 dbu
+47489 21985 48110 22233 dbf
+248 621 47489 21985 dbu
+47986 16118 48234 21364 dbf
+5246 248 47986 16118 dbu
+47986 17856 48234 18042 dbf
+186 248 47986 17856 dbu
+47117 17825 47365 18073 dbf
+248 248 47117 17825 dbu
+47489 15590 48110 15838 dbf
+248 621 47489 15590 dbu
+47489 21985 48110 22233 dbf
+248 621 47489 21985 dbu
+47489 16118 47737 17359 dbf
+1241 248 47489 16118 dbu
+47986 16118 48234 17359 dbf
+1241 248 47986 16118 dbu
+47489 18880 47737 21364 dbf
+2484 248 47489 18880 dbu
+47986 18880 48234 21364 dbf
+2484 248 47986 18880 dbu
+2103 17794 2413 18104 dbf
+310 310 2103 17794 dbu
+2413 17825 2662 18073 dbf
+248 249 2413 17825 dbu
+2786 18880 3034 22233 dbf
+3353 248 2786 18880 dbu
+2786 15590 3034 17359 dbf
+1769 248 2786 15590 dbu
+2786 15590 3407 15838 dbf
+248 621 2786 15590 dbu
+2786 21985 3407 22233 dbf
+248 621 2786 21985 dbu
+3283 16118 3531 21364 dbf
+5246 248 3283 16118 dbu
+3283 17856 3531 18042 dbf
+186 248 3283 17856 dbu
+2413 17825 2662 18073 dbf
+248 249 2413 17825 dbu
+2786 15590 3407 15838 dbf
+248 621 2786 15590 dbu
+2786 21985 3407 22233 dbf
+248 621 2786 21985 dbu
+2786 16118 3034 17359 dbf
+1241 248 2786 16118 dbu
+3283 16118 3531 17359 dbf
+1241 248 3283 16118 dbu
+2786 18880 3034 21364 dbf
+2484 248 2786 18880 dbu
+3283 18880 3531 21364 dbf
+2484 248 3283 18880 dbu
+3903 17825 4152 18073 dbf
+248 249 3903 17825 dbu
+4276 18880 4524 22233 dbf
+3353 248 4276 18880 dbu
+4276 15590 4524 17359 dbf
+1769 248 4276 15590 dbu
+4276 15590 4897 15838 dbf
+248 621 4276 15590 dbu
+4276 21985 4897 22233 dbf
+248 621 4276 21985 dbu
+4773 16118 5021 21364 dbf
+5246 248 4773 16118 dbu
+4773 17856 5021 18042 dbf
+186 248 4773 17856 dbu
+3903 17825 4152 18073 dbf
+248 249 3903 17825 dbu
+4276 15590 4897 15838 dbf
+248 621 4276 15590 dbu
+4276 21985 4897 22233 dbf
+248 621 4276 21985 dbu
+4276 16118 4524 17359 dbf
+1241 248 4276 16118 dbu
+4773 16118 5021 17359 dbf
+1241 248 4773 16118 dbu
+4276 18880 4524 21364 dbf
+2484 248 4276 18880 dbu
+4773 18880 5021 21364 dbf
+2484 248 4773 18880 dbu
+5394 17825 5642 18073 dbf
+248 248 5394 17825 dbu
+5766 18880 6014 22233 dbf
+3353 248 5766 18880 dbu
+5766 15590 6014 17359 dbf
+1769 248 5766 15590 dbu
+5766 15590 6387 15838 dbf
+248 621 5766 15590 dbu
+5766 21985 6387 22233 dbf
+248 621 5766 21985 dbu
+6263 16118 6511 21364 dbf
+5246 248 6263 16118 dbu
+6263 17856 6511 18042 dbf
+186 248 6263 17856 dbu
+5394 17825 5642 18073 dbf
+248 248 5394 17825 dbu
+5766 15590 6387 15838 dbf
+248 621 5766 15590 dbu
+5766 21985 6387 22233 dbf
+248 621 5766 21985 dbu
+5766 16118 6014 17359 dbf
+1241 248 5766 16118 dbu
+6263 16118 6511 17359 dbf
+1241 248 6263 16118 dbu
+5766 18880 6014 21364 dbf
+2484 248 5766 18880 dbu
+6263 18880 6511 21364 dbf
+2484 248 6263 18880 dbu
+6884 17825 7132 18073 dbf
+248 248 6884 17825 dbu
+7256 18880 7505 22233 dbf
+3353 249 7256 18880 dbu
+7256 15590 7505 17359 dbf
+1769 249 7256 15590 dbu
+7256 15590 7877 15838 dbf
+248 621 7256 15590 dbu
+7256 21985 7877 22233 dbf
+248 621 7256 21985 dbu
+7753 16118 8001 21364 dbf
+5246 248 7753 16118 dbu
+7753 17856 8001 18042 dbf
+186 248 7753 17856 dbu
+6884 17825 7132 18073 dbf
+248 248 6884 17825 dbu
+7256 15590 7877 15838 dbf
+248 621 7256 15590 dbu
+7256 21985 7877 22233 dbf
+248 621 7256 21985 dbu
+7256 16118 7505 17359 dbf
+1241 249 7256 16118 dbu
+7753 16118 8001 17359 dbf
+1241 248 7753 16118 dbu
+7256 18880 7505 21364 dbf
+2484 249 7256 18880 dbu
+7753 18880 8001 21364 dbf
+2484 248 7753 18880 dbu
+8374 17825 8622 18073 dbf
+248 248 8374 17825 dbu
+8746 18880 8995 22233 dbf
+3353 249 8746 18880 dbu
+8746 15590 8995 17359 dbf
+1769 249 8746 15590 dbu
+8746 15590 9367 15838 dbf
+248 621 8746 15590 dbu
+8746 21985 9367 22233 dbf
+248 621 8746 21985 dbu
+9243 16118 9491 21364 dbf
+5246 248 9243 16118 dbu
+9243 17856 9491 18042 dbf
+186 248 9243 17856 dbu
+8374 17825 8622 18073 dbf
+248 248 8374 17825 dbu
+8746 15590 9367 15838 dbf
+248 621 8746 15590 dbu
+8746 21985 9367 22233 dbf
+248 621 8746 21985 dbu
+8746 16118 8995 17359 dbf
+1241 249 8746 16118 dbu
+9243 16118 9491 17359 dbf
+1241 248 9243 16118 dbu
+8746 18880 8995 21364 dbf
+2484 249 8746 18880 dbu
+9243 18880 9491 21364 dbf
+2484 248 9243 18880 dbu
+9864 17825 10112 18073 dbf
+248 248 9864 17825 dbu
+10236 18880 10485 22233 dbf
+3353 249 10236 18880 dbu
+10236 15590 10485 17359 dbf
+1769 249 10236 15590 dbu
+10236 15590 10857 15838 dbf
+248 621 10236 15590 dbu
+10236 21985 10857 22233 dbf
+248 621 10236 21985 dbu
+10733 16118 10981 21364 dbf
+5246 248 10733 16118 dbu
+10733 17856 10981 18042 dbf
+186 248 10733 17856 dbu
+9864 17825 10112 18073 dbf
+248 248 9864 17825 dbu
+10236 15590 10857 15838 dbf
+248 621 10236 15590 dbu
+10236 21985 10857 22233 dbf
+248 621 10236 21985 dbu
+10236 16118 10485 17359 dbf
+1241 249 10236 16118 dbu
+10733 16118 10981 17359 dbf
+1241 248 10733 16118 dbu
+10236 18880 10485 21364 dbf
+2484 249 10236 18880 dbu
+10733 18880 10981 21364 dbf
+2484 248 10733 18880 dbu
+11354 17825 11602 18073 dbf
+248 248 11354 17825 dbu
+11727 18880 11975 22233 dbf
+3353 248 11727 18880 dbu
+11727 15590 11975 17359 dbf
+1769 248 11727 15590 dbu
+11727 15590 12347 15838 dbf
+248 620 11727 15590 dbu
+11727 21985 12347 22233 dbf
+248 620 11727 21985 dbu
+12223 16118 12472 21364 dbf
+5246 249 12223 16118 dbu
+12223 17856 12472 18042 dbf
+186 249 12223 17856 dbu
+11354 17825 11602 18073 dbf
+248 248 11354 17825 dbu
+11727 15590 12347 15838 dbf
+248 620 11727 15590 dbu
+11727 21985 12347 22233 dbf
+248 620 11727 21985 dbu
+11727 16118 11975 17359 dbf
+1241 248 11727 16118 dbu
+12223 16118 12472 17359 dbf
+1241 249 12223 16118 dbu
+11727 18880 11975 21364 dbf
+2484 248 11727 18880 dbu
+12223 18880 12472 21364 dbf
+2484 249 12223 18880 dbu
+12844 17825 13092 18073 dbf
+248 248 12844 17825 dbu
+13217 18880 13465 22233 dbf
+3353 248 13217 18880 dbu
+13217 15590 13465 17359 dbf
+1769 248 13217 15590 dbu
+13217 15590 13838 15838 dbf
+248 621 13217 15590 dbu
+13217 21985 13838 22233 dbf
+248 621 13217 21985 dbu
+13713 16118 13962 21364 dbf
+5246 249 13713 16118 dbu
+13713 17856 13962 18042 dbf
+186 249 13713 17856 dbu
+12844 17825 13092 18073 dbf
+248 248 12844 17825 dbu
+13217 15590 13838 15838 dbf
+248 621 13217 15590 dbu
+13217 21985 13838 22233 dbf
+248 621 13217 21985 dbu
+13217 16118 13465 17359 dbf
+1241 248 13217 16118 dbu
+13713 16118 13962 17359 dbf
+1241 249 13713 16118 dbu
+13217 18880 13465 21364 dbf
+2484 248 13217 18880 dbu
+13713 18880 13962 21364 dbf
+2484 249 13713 18880 dbu
+14334 17825 14583 18073 dbf
+248 249 14334 17825 dbu
+14707 18880 14955 22233 dbf
+3353 248 14707 18880 dbu
+14707 15590 14955 17359 dbf
+1769 248 14707 15590 dbu
+14707 15590 15328 15838 dbf
+248 621 14707 15590 dbu
+14707 21985 15328 22233 dbf
+248 621 14707 21985 dbu
+15203 16118 15452 21364 dbf
+5246 249 15203 16118 dbu
+15203 17856 15452 18042 dbf
+186 249 15203 17856 dbu
+14334 17825 14583 18073 dbf
+248 249 14334 17825 dbu
+14707 15590 15328 15838 dbf
+248 621 14707 15590 dbu
+14707 21985 15328 22233 dbf
+248 621 14707 21985 dbu
+14707 16118 14955 17359 dbf
+1241 248 14707 16118 dbu
+15203 16118 15452 17359 dbf
+1241 249 15203 16118 dbu
+14707 18880 14955 21364 dbf
+2484 248 14707 18880 dbu
+15203 18880 15452 21364 dbf
+2484 249 15203 18880 dbu
+15824 17825 16073 18073 dbf
+248 249 15824 17825 dbu
+16197 18880 16445 22233 dbf
+3353 248 16197 18880 dbu
+16197 15590 16445 17359 dbf
+1769 248 16197 15590 dbu
+16197 15590 16818 15838 dbf
+248 621 16197 15590 dbu
+16197 21985 16818 22233 dbf
+248 621 16197 21985 dbu
+16694 16118 16942 21364 dbf
+5246 248 16694 16118 dbu
+16694 17856 16942 18042 dbf
+186 248 16694 17856 dbu
+15824 17825 16073 18073 dbf
+248 249 15824 17825 dbu
+16197 15590 16818 15838 dbf
+248 621 16197 15590 dbu
+16197 21985 16818 22233 dbf
+248 621 16197 21985 dbu
+16197 16118 16445 17359 dbf
+1241 248 16197 16118 dbu
+16694 16118 16942 17359 dbf
+1241 248 16694 16118 dbu
+16197 18880 16445 21364 dbf
+2484 248 16197 18880 dbu
+16694 18880 16942 21364 dbf
+2484 248 16694 18880 dbu
+17314 17825 17563 18073 dbf
+248 249 17314 17825 dbu
+17687 18880 17935 22233 dbf
+3353 248 17687 18880 dbu
+17687 15590 17935 17359 dbf
+1769 248 17687 15590 dbu
+17687 15590 18308 15838 dbf
+248 621 17687 15590 dbu
+17687 21985 18308 22233 dbf
+248 621 17687 21985 dbu
+18184 16118 18432 21364 dbf
+5246 248 18184 16118 dbu
+18184 17856 18432 18042 dbf
+186 248 18184 17856 dbu
+17314 17825 17563 18073 dbf
+248 249 17314 17825 dbu
+17687 15590 18308 15838 dbf
+248 621 17687 15590 dbu
+17687 21985 18308 22233 dbf
+248 621 17687 21985 dbu
+17687 16118 17935 17359 dbf
+1241 248 17687 16118 dbu
+18184 16118 18432 17359 dbf
+1241 248 18184 16118 dbu
+17687 18880 17935 21364 dbf
+2484 248 17687 18880 dbu
+18184 18880 18432 21364 dbf
+2484 248 18184 18880 dbu
+18805 17825 19053 18073 dbf
+248 248 18805 17825 dbu
+19177 18880 19425 22233 dbf
+3353 248 19177 18880 dbu
+19177 15590 19425 17359 dbf
+1769 248 19177 15590 dbu
+19177 15590 19798 15838 dbf
+248 621 19177 15590 dbu
+19177 21985 19798 22233 dbf
+248 621 19177 21985 dbu
+19674 16118 19922 21364 dbf
+5246 248 19674 16118 dbu
+19674 17856 19922 18042 dbf
+186 248 19674 17856 dbu
+18805 17825 19053 18073 dbf
+248 248 18805 17825 dbu
+19177 15590 19798 15838 dbf
+248 621 19177 15590 dbu
+19177 21985 19798 22233 dbf
+248 621 19177 21985 dbu
+19177 16118 19425 17359 dbf
+1241 248 19177 16118 dbu
+19674 16118 19922 17359 dbf
+1241 248 19674 16118 dbu
+19177 18880 19425 21364 dbf
+2484 248 19177 18880 dbu
+19674 18880 19922 21364 dbf
+2484 248 19674 18880 dbu
+20295 17825 20543 18073 dbf
+248 248 20295 17825 dbu
+20667 18880 20916 22233 dbf
+3353 249 20667 18880 dbu
+20667 15590 20916 17359 dbf
+1769 249 20667 15590 dbu
+20667 15590 21288 15838 dbf
+248 621 20667 15590 dbu
+20667 21985 21288 22233 dbf
+248 621 20667 21985 dbu
+21164 16118 21412 21364 dbf
+5246 248 21164 16118 dbu
+21164 17856 21412 18042 dbf
+186 248 21164 17856 dbu
+20295 17825 20543 18073 dbf
+248 248 20295 17825 dbu
+20667 15590 21288 15838 dbf
+248 621 20667 15590 dbu
+20667 21985 21288 22233 dbf
+248 621 20667 21985 dbu
+20667 16118 20916 17359 dbf
+1241 249 20667 16118 dbu
+21164 16118 21412 17359 dbf
+1241 248 21164 16118 dbu
+20667 18880 20916 21364 dbf
+2484 249 20667 18880 dbu
+21164 18880 21412 21364 dbf
+2484 248 21164 18880 dbu
+21785 17825 22033 18073 dbf
+248 248 21785 17825 dbu
+22157 18880 22406 22233 dbf
+3353 249 22157 18880 dbu
+22157 15590 22406 17359 dbf
+1769 249 22157 15590 dbu
+22157 15590 22778 15838 dbf
+248 621 22157 15590 dbu
+22157 21985 22778 22233 dbf
+248 621 22157 21985 dbu
+22654 16118 22902 21364 dbf
+5246 248 22654 16118 dbu
+22654 17856 22902 18042 dbf
+186 248 22654 17856 dbu
+21785 17825 22033 18073 dbf
+248 248 21785 17825 dbu
+22157 15590 22778 15838 dbf
+248 621 22157 15590 dbu
+22157 21985 22778 22233 dbf
+248 621 22157 21985 dbu
+22157 16118 22406 17359 dbf
+1241 249 22157 16118 dbu
+22654 16118 22902 17359 dbf
+1241 248 22654 16118 dbu
+22157 18880 22406 21364 dbf
+2484 249 22157 18880 dbu
+22654 18880 22902 21364 dbf
+2484 248 22654 18880 dbu
+23275 17825 23523 18073 dbf
+248 248 23275 17825 dbu
+23647 18880 23896 22233 dbf
+3353 249 23647 18880 dbu
+23647 15590 23896 17359 dbf
+1769 249 23647 15590 dbu
+23647 15590 24268 15838 dbf
+248 621 23647 15590 dbu
+23647 21985 24268 22233 dbf
+248 621 23647 21985 dbu
+24144 16118 24392 21364 dbf
+5246 248 24144 16118 dbu
+24144 17856 24392 18042 dbf
+186 248 24144 17856 dbu
+23275 17825 23523 18073 dbf
+248 248 23275 17825 dbu
+23647 15590 24268 15838 dbf
+248 621 23647 15590 dbu
+23647 21985 24268 22233 dbf
+248 621 23647 21985 dbu
+23647 16118 23896 17359 dbf
+1241 249 23647 16118 dbu
+24144 16118 24392 17359 dbf
+1241 248 24144 16118 dbu
+23647 18880 23896 21364 dbf
+2484 249 23647 18880 dbu
+24144 18880 24392 21364 dbf
+2484 248 24144 18880 dbu
+24765 17825 25013 18073 dbf
+248 248 24765 17825 dbu
+25137 18880 25386 22233 dbf
+3353 249 25137 18880 dbu
+25137 15590 25386 17359 dbf
+1769 249 25137 15590 dbu
+25137 15590 25758 15838 dbf
+248 621 25137 15590 dbu
+25137 21985 25758 22233 dbf
+248 621 25137 21985 dbu
+25634 16118 25883 21364 dbf
+5246 249 25634 16118 dbu
+25634 17856 25883 18042 dbf
+186 249 25634 17856 dbu
+24765 17825 25013 18073 dbf
+248 248 24765 17825 dbu
+25137 15590 25758 15838 dbf
+248 621 25137 15590 dbu
+25137 21985 25758 22233 dbf
+248 621 25137 21985 dbu
+25137 16118 25386 17359 dbf
+1241 249 25137 16118 dbu
+25634 16118 25883 17359 dbf
+1241 249 25634 16118 dbu
+25137 18880 25386 21364 dbf
+2484 249 25137 18880 dbu
+25634 18880 25883 21364 dbf
+2484 249 25634 18880 dbu
+26255 17825 26503 18073 dbf
+248 248 26255 17825 dbu
+26628 18880 26876 22233 dbf
+3353 248 26628 18880 dbu
+26628 15590 26876 17359 dbf
+1769 248 26628 15590 dbu
+26628 15590 27248 15838 dbf
+248 620 26628 15590 dbu
+26628 21985 27248 22233 dbf
+248 620 26628 21985 dbu
+27124 16118 27373 21364 dbf
+5246 249 27124 16118 dbu
+27124 17856 27373 18042 dbf
+186 249 27124 17856 dbu
+26255 17825 26503 18073 dbf
+248 248 26255 17825 dbu
+26628 15590 27248 15838 dbf
+248 620 26628 15590 dbu
+26628 21985 27248 22233 dbf
+248 620 26628 21985 dbu
+26628 16118 26876 17359 dbf
+1241 248 26628 16118 dbu
+27124 16118 27373 17359 dbf
+1241 249 27124 16118 dbu
+26628 18880 26876 21364 dbf
+2484 248 26628 18880 dbu
+27124 18880 27373 21364 dbf
+2484 249 27124 18880 dbu
+27745 17825 27994 18073 dbf
+248 249 27745 17825 dbu
+28118 18880 28366 22233 dbf
+3353 248 28118 18880 dbu
+28118 15590 28366 17359 dbf
+1769 248 28118 15590 dbu
+28118 15590 28739 15838 dbf
+248 621 28118 15590 dbu
+28118 21985 28739 22233 dbf
+248 621 28118 21985 dbu
+28614 16118 28863 21364 dbf
+5246 249 28614 16118 dbu
+28614 17856 28863 18042 dbf
+186 249 28614 17856 dbu
+27745 17825 27994 18073 dbf
+248 249 27745 17825 dbu
+28118 15590 28739 15838 dbf
+248 621 28118 15590 dbu
+28118 21985 28739 22233 dbf
+248 621 28118 21985 dbu
+28118 16118 28366 17359 dbf
+1241 248 28118 16118 dbu
+28614 16118 28863 17359 dbf
+1241 249 28614 16118 dbu
+28118 18880 28366 21364 dbf
+2484 248 28118 18880 dbu
+28614 18880 28863 21364 dbf
+2484 249 28614 18880 dbu
+29235 17825 29484 18073 dbf
+248 249 29235 17825 dbu
+29608 18880 29856 22233 dbf
+3353 248 29608 18880 dbu
+29608 15590 29856 17359 dbf
+1769 248 29608 15590 dbu
+29608 15590 30229 15838 dbf
+248 621 29608 15590 dbu
+29608 21985 30229 22233 dbf
+248 621 29608 21985 dbu
+30105 16118 30353 21364 dbf
+5246 248 30105 16118 dbu
+30105 17856 30353 18042 dbf
+186 248 30105 17856 dbu
+29235 17825 29484 18073 dbf
+248 249 29235 17825 dbu
+29608 15590 30229 15838 dbf
+248 621 29608 15590 dbu
+29608 21985 30229 22233 dbf
+248 621 29608 21985 dbu
+29608 16118 29856 17359 dbf
+1241 248 29608 16118 dbu
+30105 16118 30353 17359 dbf
+1241 248 30105 16118 dbu
+29608 18880 29856 21364 dbf
+2484 248 29608 18880 dbu
+30105 18880 30353 21364 dbf
+2484 248 30105 18880 dbu
+30725 17825 30974 18073 dbf
+248 249 30725 17825 dbu
+31098 18880 31346 22233 dbf
+3353 248 31098 18880 dbu
+31098 15590 31346 17359 dbf
+1769 248 31098 15590 dbu
+31098 15590 31719 15838 dbf
+248 621 31098 15590 dbu
+31098 21985 31719 22233 dbf
+248 621 31098 21985 dbu
+31595 16118 31843 21364 dbf
+5246 248 31595 16118 dbu
+31595 17856 31843 18042 dbf
+186 248 31595 17856 dbu
+30725 17825 30974 18073 dbf
+248 249 30725 17825 dbu
+31098 15590 31719 15838 dbf
+248 621 31098 15590 dbu
+31098 21985 31719 22233 dbf
+248 621 31098 21985 dbu
+31098 16118 31346 17359 dbf
+1241 248 31098 16118 dbu
+31595 16118 31843 17359 dbf
+1241 248 31595 16118 dbu
+31098 18880 31346 21364 dbf
+2484 248 31098 18880 dbu
+31595 18880 31843 21364 dbf
+2484 248 31595 18880 dbu
+32216 17825 32464 18073 dbf
+248 248 32216 17825 dbu
+32588 18880 32836 22233 dbf
+3353 248 32588 18880 dbu
+32588 15590 32836 17359 dbf
+1769 248 32588 15590 dbu
+32588 15590 33209 15838 dbf
+248 621 32588 15590 dbu
+32588 21985 33209 22233 dbf
+248 621 32588 21985 dbu
+33085 16118 33333 21364 dbf
+5246 248 33085 16118 dbu
+33085 17856 33333 18042 dbf
+186 248 33085 17856 dbu
+32216 17825 32464 18073 dbf
+248 248 32216 17825 dbu
+32588 15590 33209 15838 dbf
+248 621 32588 15590 dbu
+32588 21985 33209 22233 dbf
+248 621 32588 21985 dbu
+32588 16118 32836 17359 dbf
+1241 248 32588 16118 dbu
+33085 16118 33333 17359 dbf
+1241 248 33085 16118 dbu
+32588 18880 32836 21364 dbf
+2484 248 32588 18880 dbu
+33085 18880 33333 21364 dbf
+2484 248 33085 18880 dbu
+33706 17825 33954 18073 dbf
+248 248 33706 17825 dbu
+34078 18880 34327 22233 dbf
+3353 249 34078 18880 dbu
+34078 15590 34327 17359 dbf
+1769 249 34078 15590 dbu
+34078 15590 34699 15838 dbf
+248 621 34078 15590 dbu
+34078 21985 34699 22233 dbf
+248 621 34078 21985 dbu
+34575 16118 34823 21364 dbf
+5246 248 34575 16118 dbu
+34575 17856 34823 18042 dbf
+186 248 34575 17856 dbu
+33706 17825 33954 18073 dbf
+248 248 33706 17825 dbu
+34078 15590 34699 15838 dbf
+248 621 34078 15590 dbu
+34078 21985 34699 22233 dbf
+248 621 34078 21985 dbu
+34078 16118 34327 17359 dbf
+1241 249 34078 16118 dbu
+34575 16118 34823 17359 dbf
+1241 248 34575 16118 dbu
+34078 18880 34327 21364 dbf
+2484 249 34078 18880 dbu
+34575 18880 34823 21364 dbf
+2484 248 34575 18880 dbu
+35196 17825 35444 18073 dbf
+248 248 35196 17825 dbu
+35568 18880 35817 22233 dbf
+3353 249 35568 18880 dbu
+35568 15590 35817 17359 dbf
+1769 249 35568 15590 dbu
+35568 15590 36189 15838 dbf
+248 621 35568 15590 dbu
+35568 21985 36189 22233 dbf
+248 621 35568 21985 dbu
+36065 16118 36313 21364 dbf
+5246 248 36065 16118 dbu
+36065 17856 36313 18042 dbf
+186 248 36065 17856 dbu
+35196 17825 35444 18073 dbf
+248 248 35196 17825 dbu
+35568 15590 36189 15838 dbf
+248 621 35568 15590 dbu
+35568 21985 36189 22233 dbf
+248 621 35568 21985 dbu
+35568 16118 35817 17359 dbf
+1241 249 35568 16118 dbu
+36065 16118 36313 17359 dbf
+1241 248 36065 16118 dbu
+35568 18880 35817 21364 dbf
+2484 249 35568 18880 dbu
+36065 18880 36313 21364 dbf
+2484 248 36065 18880 dbu
+36686 17825 36934 18073 dbf
+248 248 36686 17825 dbu
+37058 18880 37307 22233 dbf
+3353 249 37058 18880 dbu
+37058 15590 37307 17359 dbf
+1769 249 37058 15590 dbu
+37058 15590 37679 15838 dbf
+248 621 37058 15590 dbu
+37058 21985 37679 22233 dbf
+248 621 37058 21985 dbu
+37555 16118 37803 21364 dbf
+5246 248 37555 16118 dbu
+37555 17856 37803 18042 dbf
+186 248 37555 17856 dbu
+36686 17825 36934 18073 dbf
+248 248 36686 17825 dbu
+37058 15590 37679 15838 dbf
+248 621 37058 15590 dbu
+37058 21985 37679 22233 dbf
+248 621 37058 21985 dbu
+37058 16118 37307 17359 dbf
+1241 249 37058 16118 dbu
+37555 16118 37803 17359 dbf
+1241 248 37555 16118 dbu
+37058 18880 37307 21364 dbf
+2484 249 37058 18880 dbu
+37555 18880 37803 21364 dbf
+2484 248 37555 18880 dbu
+38176 17825 38424 18073 dbf
+248 248 38176 17825 dbu
+38548 18880 38797 22233 dbf
+3353 249 38548 18880 dbu
+38548 15590 38797 17359 dbf
+1769 249 38548 15590 dbu
+38548 15590 39169 15838 dbf
+248 621 38548 15590 dbu
+38548 21985 39169 22233 dbf
+248 621 38548 21985 dbu
+39045 16118 39294 21364 dbf
+5246 249 39045 16118 dbu
+39045 17856 39294 18042 dbf
+186 249 39045 17856 dbu
+38176 17825 38424 18073 dbf
+248 248 38176 17825 dbu
+38548 15590 39169 15838 dbf
+248 621 38548 15590 dbu
+38548 21985 39169 22233 dbf
+248 621 38548 21985 dbu
+38548 16118 38797 17359 dbf
+1241 249 38548 16118 dbu
+39045 16118 39294 17359 dbf
+1241 249 39045 16118 dbu
+38548 18880 38797 21364 dbf
+2484 249 38548 18880 dbu
+39045 18880 39294 21364 dbf
+2484 249 39045 18880 dbu
+39666 17825 39914 18073 dbf
+248 248 39666 17825 dbu
+40039 18880 40287 22233 dbf
+3353 248 40039 18880 dbu
+40039 15590 40287 17359 dbf
+1769 248 40039 15590 dbu
+40039 15590 40659 15838 dbf
+248 620 40039 15590 dbu
+40039 21985 40659 22233 dbf
+248 620 40039 21985 dbu
+40535 16118 40784 21364 dbf
+5246 249 40535 16118 dbu
+40535 17856 40784 18042 dbf
+186 249 40535 17856 dbu
+39666 17825 39914 18073 dbf
+248 248 39666 17825 dbu
+40039 15590 40659 15838 dbf
+248 620 40039 15590 dbu
+40039 21985 40659 22233 dbf
+248 620 40039 21985 dbu
+40039 16118 40287 17359 dbf
+1241 248 40039 16118 dbu
+40535 16118 40784 17359 dbf
+1241 249 40535 16118 dbu
+40039 18880 40287 21364 dbf
+2484 248 40039 18880 dbu
+40535 18880 40784 21364 dbf
+2484 249 40535 18880 dbu
+41156 17825 41405 18073 dbf
+248 249 41156 17825 dbu
+41529 18880 41777 22233 dbf
+3353 248 41529 18880 dbu
+41529 15590 41777 17359 dbf
+1769 248 41529 15590 dbu
+41529 15590 42150 15838 dbf
+248 621 41529 15590 dbu
+41529 21985 42150 22233 dbf
+248 621 41529 21985 dbu
+42025 16118 42274 21364 dbf
+5246 249 42025 16118 dbu
+42025 17856 42274 18042 dbf
+186 249 42025 17856 dbu
+41156 17825 41405 18073 dbf
+248 249 41156 17825 dbu
+41529 15590 42150 15838 dbf
+248 621 41529 15590 dbu
+41529 21985 42150 22233 dbf
+248 621 41529 21985 dbu
+41529 16118 41777 17359 dbf
+1241 248 41529 16118 dbu
+42025 16118 42274 17359 dbf
+1241 249 42025 16118 dbu
+41529 18880 41777 21364 dbf
+2484 248 41529 18880 dbu
+42025 18880 42274 21364 dbf
+2484 249 42025 18880 dbu
+42646 17825 42895 18073 dbf
+248 249 42646 17825 dbu
+43019 18880 43267 22233 dbf
+3353 248 43019 18880 dbu
+43019 15590 43267 17359 dbf
+1769 248 43019 15590 dbu
+43019 15590 43640 15838 dbf
+248 621 43019 15590 dbu
+43019 21985 43640 22233 dbf
+248 621 43019 21985 dbu
+43516 16118 43764 21364 dbf
+5246 248 43516 16118 dbu
+43516 17856 43764 18042 dbf
+186 248 43516 17856 dbu
+42646 17825 42895 18073 dbf
+248 249 42646 17825 dbu
+43019 15590 43640 15838 dbf
+248 621 43019 15590 dbu
+43019 21985 43640 22233 dbf
+248 621 43019 21985 dbu
+43019 16118 43267 17359 dbf
+1241 248 43019 16118 dbu
+43516 16118 43764 17359 dbf
+1241 248 43516 16118 dbu
+43019 18880 43267 21364 dbf
+2484 248 43019 18880 dbu
+43516 18880 43764 21364 dbf
+2484 248 43516 18880 dbu
+44136 17825 44385 18073 dbf
+248 249 44136 17825 dbu
+44509 18880 44757 22233 dbf
+3353 248 44509 18880 dbu
+44509 15590 44757 17359 dbf
+1769 248 44509 15590 dbu
+44509 15590 45130 15838 dbf
+248 621 44509 15590 dbu
+44509 21985 45130 22233 dbf
+248 621 44509 21985 dbu
+45006 16118 45254 21364 dbf
+5246 248 45006 16118 dbu
+45006 17856 45254 18042 dbf
+186 248 45006 17856 dbu
+44136 17825 44385 18073 dbf
+248 249 44136 17825 dbu
+44509 15590 45130 15838 dbf
+248 621 44509 15590 dbu
+44509 21985 45130 22233 dbf
+248 621 44509 21985 dbu
+44509 16118 44757 17359 dbf
+1241 248 44509 16118 dbu
+45006 16118 45254 17359 dbf
+1241 248 45006 16118 dbu
+44509 18880 44757 21364 dbf
+2484 248 44509 18880 dbu
+45006 18880 45254 21364 dbf
+2484 248 45006 18880 dbu
+48607 17794 48917 18104 dbf
+310 310 48607 17794 dbu
+5 fds
+5 <0000> fdf
+5 <1111> fdf
+5 <0000> fdf
+5 <4444> fdf
+5 <0000> fdf
+5 <1111> fdf
+5 <0000> fdf
+5 <4444> fdf
+5 <0000> fdf
+5 <1111> fdf
+5 <0000> fdf
+5 <4444> fdf
+5 <0000> fdf
+5 <1111> fdf
+5 <0000> fdf
+5 <4444> fdf
+5 fde
+5 sfp
+1000 0 1000 slc
+1000 0 1000 sfc
+2103 17794 48917 18104 dbf
+310 46814 2103 17794 dbu
+2103 17794 2413 18104 dbf
+310 310 2103 17794 dbu
+48607 17794 48917 18104 dbf
+310 310 48607 17794 dbu
+502 149 149 slc
+0 0 0 sfc
+47179 17887 47303 18011 dbs
+47551 15652 47675 15776 dbs
+47924 15652 48048 15776 dbs
+47551 22047 47675 22171 dbs
+47924 22047 48048 22171 dbs
+47551 16925 47675 17049 dbs
+47551 16552 47675 16676 dbs
+47551 16180 47675 16304 dbs
+48048 16925 48172 17049 dbs
+48048 16552 48172 16676 dbs
+48048 16180 48172 16304 dbs
+47551 20805 47675 20929 dbs
+47551 20433 47675 20557 dbs
+47551 20060 47675 20184 dbs
+47551 19688 47675 19812 dbs
+47551 19315 47675 19439 dbs
+47551 18943 47675 19067 dbs
+48048 20805 48172 20929 dbs
+48048 20433 48172 20557 dbs
+48048 20060 48172 20184 dbs
+48048 19688 48172 19812 dbs
+48048 19315 48172 19439 dbs
+48048 18943 48172 19067 dbs
+2475 17887 2600 18011 dbs
+2848 15652 2972 15776 dbs
+3220 15652 3345 15776 dbs
+2848 22047 2972 22171 dbs
+3220 22047 3345 22171 dbs
+2848 16925 2972 17049 dbs
+2848 16552 2972 16676 dbs
+2848 16180 2972 16304 dbs
+3345 16925 3469 17049 dbs
+3345 16552 3469 16676 dbs
+3345 16180 3469 16304 dbs
+2848 20805 2972 20929 dbs
+2848 20433 2972 20557 dbs
+2848 20060 2972 20184 dbs
+2848 19688 2972 19812 dbs
+2848 19315 2972 19439 dbs
+2848 18943 2972 19067 dbs
+3345 20805 3469 20929 dbs
+3345 20433 3469 20557 dbs
+3345 20060 3469 20184 dbs
+3345 19688 3469 19812 dbs
+3345 19315 3469 19439 dbs
+3345 18943 3469 19067 dbs
+3966 17887 4090 18011 dbs
+4338 15652 4462 15776 dbs
+4711 15652 4835 15776 dbs
+4338 22047 4462 22171 dbs
+4711 22047 4835 22171 dbs
+4338 16925 4462 17049 dbs
+4338 16552 4462 16676 dbs
+4338 16180 4462 16304 dbs
+4835 16925 4959 17049 dbs
+4835 16552 4959 16676 dbs
+4835 16180 4959 16304 dbs
+4338 20805 4462 20929 dbs
+4338 20433 4462 20557 dbs
+4338 20060 4462 20184 dbs
+4338 19688 4462 19812 dbs
+4338 19315 4462 19439 dbs
+4338 18943 4462 19067 dbs
+4835 20805 4959 20929 dbs
+4835 20433 4959 20557 dbs
+4835 20060 4959 20184 dbs
+4835 19688 4959 19812 dbs
+4835 19315 4959 19439 dbs
+4835 18943 4959 19067 dbs
+5456 17887 5580 18011 dbs
+5828 15652 5952 15776 dbs
+6201 15652 6325 15776 dbs
+5828 22047 5952 22171 dbs
+6201 22047 6325 22171 dbs
+5828 16925 5952 17049 dbs
+5828 16552 5952 16676 dbs
+5828 16180 5952 16304 dbs
+6325 16925 6449 17049 dbs
+6325 16552 6449 16676 dbs
+6325 16180 6449 16304 dbs
+5828 20805 5952 20929 dbs
+5828 20433 5952 20557 dbs
+5828 20060 5952 20184 dbs
+5828 19688 5952 19812 dbs
+5828 19315 5952 19439 dbs
+5828 18943 5952 19067 dbs
+6325 20805 6449 20929 dbs
+6325 20433 6449 20557 dbs
+6325 20060 6449 20184 dbs
+6325 19688 6449 19812 dbs
+6325 19315 6449 19439 dbs
+6325 18943 6449 19067 dbs
+6946 17887 7070 18011 dbs
+7318 15652 7442 15776 dbs
+7691 15652 7815 15776 dbs
+7318 22047 7442 22171 dbs
+7691 22047 7815 22171 dbs
+7318 16925 7442 17049 dbs
+7318 16552 7442 16676 dbs
+7318 16180 7442 16304 dbs
+7815 16925 7939 17049 dbs
+7815 16552 7939 16676 dbs
+7815 16180 7939 16304 dbs
+7318 20805 7442 20929 dbs
+7318 20433 7442 20557 dbs
+7318 20060 7442 20184 dbs
+7318 19688 7442 19812 dbs
+7318 19315 7442 19439 dbs
+7318 18943 7442 19067 dbs
+7815 20805 7939 20929 dbs
+7815 20433 7939 20557 dbs
+7815 20060 7939 20184 dbs
+7815 19688 7939 19812 dbs
+7815 19315 7939 19439 dbs
+7815 18943 7939 19067 dbs
+8436 17887 8560 18011 dbs
+8808 15652 8933 15776 dbs
+9181 15652 9305 15776 dbs
+8808 22047 8933 22171 dbs
+9181 22047 9305 22171 dbs
+8808 16925 8933 17049 dbs
+8808 16552 8933 16676 dbs
+8808 16180 8933 16304 dbs
+9305 16925 9429 17049 dbs
+9305 16552 9429 16676 dbs
+9305 16180 9429 16304 dbs
+8808 20805 8933 20929 dbs
+8808 20433 8933 20557 dbs
+8808 20060 8933 20184 dbs
+8808 19688 8933 19812 dbs
+8808 19315 8933 19439 dbs
+8808 18943 8933 19067 dbs
+9305 20805 9429 20929 dbs
+9305 20433 9429 20557 dbs
+9305 20060 9429 20184 dbs
+9305 19688 9429 19812 dbs
+9305 19315 9429 19439 dbs
+9305 18943 9429 19067 dbs
+9926 17887 10050 18011 dbs
+10298 15652 10423 15776 dbs
+10671 15652 10795 15776 dbs
+10298 22047 10423 22171 dbs
+10671 22047 10795 22171 dbs
+10298 16925 10423 17049 dbs
+10298 16552 10423 16676 dbs
+10298 16180 10423 16304 dbs
+10795 16925 10919 17049 dbs
+10795 16552 10919 16676 dbs
+10795 16180 10919 16304 dbs
+10298 20805 10423 20929 dbs
+10298 20433 10423 20557 dbs
+10298 20060 10423 20184 dbs
+10298 19688 10423 19812 dbs
+10298 19315 10423 19439 dbs
+10298 18943 10423 19067 dbs
+10795 20805 10919 20929 dbs
+10795 20433 10919 20557 dbs
+10795 20060 10919 20184 dbs
+10795 19688 10919 19812 dbs
+10795 19315 10919 19439 dbs
+10795 18943 10919 19067 dbs
+11416 17887 11540 18011 dbs
+11789 15652 11913 15776 dbs
+12161 15652 12285 15776 dbs
+11789 22047 11913 22171 dbs
+12161 22047 12285 22171 dbs
+11789 16925 11913 17049 dbs
+11789 16552 11913 16676 dbs
+11789 16180 11913 16304 dbs
+12285 16925 12409 17049 dbs
+12285 16552 12409 16676 dbs
+12285 16180 12409 16304 dbs
+11789 20805 11913 20929 dbs
+11789 20433 11913 20557 dbs
+11789 20060 11913 20184 dbs
+11789 19688 11913 19812 dbs
+11789 19315 11913 19439 dbs
+11789 18943 11913 19067 dbs
+12285 20805 12409 20929 dbs
+12285 20433 12409 20557 dbs
+12285 20060 12409 20184 dbs
+12285 19688 12409 19812 dbs
+12285 19315 12409 19439 dbs
+12285 18943 12409 19067 dbs
+12906 17887 13030 18011 dbs
+13279 15652 13403 15776 dbs
+13651 15652 13775 15776 dbs
+13279 22047 13403 22171 dbs
+13651 22047 13775 22171 dbs
+13279 16925 13403 17049 dbs
+13279 16552 13403 16676 dbs
+13279 16180 13403 16304 dbs
+13775 16925 13900 17049 dbs
+13775 16552 13900 16676 dbs
+13775 16180 13900 16304 dbs
+13279 20805 13403 20929 dbs
+13279 20433 13403 20557 dbs
+13279 20060 13403 20184 dbs
+13279 19688 13403 19812 dbs
+13279 19315 13403 19439 dbs
+13279 18943 13403 19067 dbs
+13775 20805 13900 20929 dbs
+13775 20433 13900 20557 dbs
+13775 20060 13900 20184 dbs
+13775 19688 13900 19812 dbs
+13775 19315 13900 19439 dbs
+13775 18943 13900 19067 dbs
+14396 17887 14520 18011 dbs
+14769 15652 14893 15776 dbs
+15141 15652 15266 15776 dbs
+14769 22047 14893 22171 dbs
+15141 22047 15266 22171 dbs
+14769 16925 14893 17049 dbs
+14769 16552 14893 16676 dbs
+14769 16180 14893 16304 dbs
+15266 16925 15390 17049 dbs
+15266 16552 15390 16676 dbs
+15266 16180 15390 16304 dbs
+14769 20805 14893 20929 dbs
+14769 20433 14893 20557 dbs
+14769 20060 14893 20184 dbs
+14769 19688 14893 19812 dbs
+14769 19315 14893 19439 dbs
+14769 18943 14893 19067 dbs
+15266 20805 15390 20929 dbs
+15266 20433 15390 20557 dbs
+15266 20060 15390 20184 dbs
+15266 19688 15390 19812 dbs
+15266 19315 15390 19439 dbs
+15266 18943 15390 19067 dbs
+15886 17887 16011 18011 dbs
+16259 15652 16383 15776 dbs
+16631 15652 16756 15776 dbs
+16259 22047 16383 22171 dbs
+16631 22047 16756 22171 dbs
+16259 16925 16383 17049 dbs
+16259 16552 16383 16676 dbs
+16259 16180 16383 16304 dbs
+16756 16925 16880 17049 dbs
+16756 16552 16880 16676 dbs
+16756 16180 16880 16304 dbs
+16259 20805 16383 20929 dbs
+16259 20433 16383 20557 dbs
+16259 20060 16383 20184 dbs
+16259 19688 16383 19812 dbs
+16259 19315 16383 19439 dbs
+16259 18943 16383 19067 dbs
+16756 20805 16880 20929 dbs
+16756 20433 16880 20557 dbs
+16756 20060 16880 20184 dbs
+16756 19688 16880 19812 dbs
+16756 19315 16880 19439 dbs
+16756 18943 16880 19067 dbs
+17377 17887 17501 18011 dbs
+17749 15652 17873 15776 dbs
+18122 15652 18246 15776 dbs
+17749 22047 17873 22171 dbs
+18122 22047 18246 22171 dbs
+17749 16925 17873 17049 dbs
+17749 16552 17873 16676 dbs
+17749 16180 17873 16304 dbs
+18246 16925 18370 17049 dbs
+18246 16552 18370 16676 dbs
+18246 16180 18370 16304 dbs
+17749 20805 17873 20929 dbs
+17749 20433 17873 20557 dbs
+17749 20060 17873 20184 dbs
+17749 19688 17873 19812 dbs
+17749 19315 17873 19439 dbs
+17749 18943 17873 19067 dbs
+18246 20805 18370 20929 dbs
+18246 20433 18370 20557 dbs
+18246 20060 18370 20184 dbs
+18246 19688 18370 19812 dbs
+18246 19315 18370 19439 dbs
+18246 18943 18370 19067 dbs
+18867 17887 18991 18011 dbs
+19239 15652 19363 15776 dbs
+19612 15652 19736 15776 dbs
+19239 22047 19363 22171 dbs
+19612 22047 19736 22171 dbs
+19239 16925 19363 17049 dbs
+19239 16552 19363 16676 dbs
+19239 16180 19363 16304 dbs
+19736 16925 19860 17049 dbs
+19736 16552 19860 16676 dbs
+19736 16180 19860 16304 dbs
+19239 20805 19363 20929 dbs
+19239 20433 19363 20557 dbs
+19239 20060 19363 20184 dbs
+19239 19688 19363 19812 dbs
+19239 19315 19363 19439 dbs
+19239 18943 19363 19067 dbs
+19736 20805 19860 20929 dbs
+19736 20433 19860 20557 dbs
+19736 20060 19860 20184 dbs
+19736 19688 19860 19812 dbs
+19736 19315 19860 19439 dbs
+19736 18943 19860 19067 dbs
+20357 17887 20481 18011 dbs
+20729 15652 20853 15776 dbs
+21102 15652 21226 15776 dbs
+20729 22047 20853 22171 dbs
+21102 22047 21226 22171 dbs
+20729 16925 20853 17049 dbs
+20729 16552 20853 16676 dbs
+20729 16180 20853 16304 dbs
+21226 16925 21350 17049 dbs
+21226 16552 21350 16676 dbs
+21226 16180 21350 16304 dbs
+20729 20805 20853 20929 dbs
+20729 20433 20853 20557 dbs
+20729 20060 20853 20184 dbs
+20729 19688 20853 19812 dbs
+20729 19315 20853 19439 dbs
+20729 18943 20853 19067 dbs
+21226 20805 21350 20929 dbs
+21226 20433 21350 20557 dbs
+21226 20060 21350 20184 dbs
+21226 19688 21350 19812 dbs
+21226 19315 21350 19439 dbs
+21226 18943 21350 19067 dbs
+21847 17887 21971 18011 dbs
+22219 15652 22344 15776 dbs
+22592 15652 22716 15776 dbs
+22219 22047 22344 22171 dbs
+22592 22047 22716 22171 dbs
+22219 16925 22344 17049 dbs
+22219 16552 22344 16676 dbs
+22219 16180 22344 16304 dbs
+22716 16925 22840 17049 dbs
+22716 16552 22840 16676 dbs
+22716 16180 22840 16304 dbs
+22219 20805 22344 20929 dbs
+22219 20433 22344 20557 dbs
+22219 20060 22344 20184 dbs
+22219 19688 22344 19812 dbs
+22219 19315 22344 19439 dbs
+22219 18943 22344 19067 dbs
+22716 20805 22840 20929 dbs
+22716 20433 22840 20557 dbs
+22716 20060 22840 20184 dbs
+22716 19688 22840 19812 dbs
+22716 19315 22840 19439 dbs
+22716 18943 22840 19067 dbs
+23337 17887 23461 18011 dbs
+23709 15652 23834 15776 dbs
+24082 15652 24206 15776 dbs
+23709 22047 23834 22171 dbs
+24082 22047 24206 22171 dbs
+23709 16925 23834 17049 dbs
+23709 16552 23834 16676 dbs
+23709 16180 23834 16304 dbs
+24206 16925 24330 17049 dbs
+24206 16552 24330 16676 dbs
+24206 16180 24330 16304 dbs
+23709 20805 23834 20929 dbs
+23709 20433 23834 20557 dbs
+23709 20060 23834 20184 dbs
+23709 19688 23834 19812 dbs
+23709 19315 23834 19439 dbs
+23709 18943 23834 19067 dbs
+24206 20805 24330 20929 dbs
+24206 20433 24330 20557 dbs
+24206 20060 24330 20184 dbs
+24206 19688 24330 19812 dbs
+24206 19315 24330 19439 dbs
+24206 18943 24330 19067 dbs
+24827 17887 24951 18011 dbs
+25200 15652 25324 15776 dbs
+25572 15652 25696 15776 dbs
+25200 22047 25324 22171 dbs
+25572 22047 25696 22171 dbs
+25200 16925 25324 17049 dbs
+25200 16552 25324 16676 dbs
+25200 16180 25324 16304 dbs
+25696 16925 25820 17049 dbs
+25696 16552 25820 16676 dbs
+25696 16180 25820 16304 dbs
+25200 20805 25324 20929 dbs
+25200 20433 25324 20557 dbs
+25200 20060 25324 20184 dbs
+25200 19688 25324 19812 dbs
+25200 19315 25324 19439 dbs
+25200 18943 25324 19067 dbs
+25696 20805 25820 20929 dbs
+25696 20433 25820 20557 dbs
+25696 20060 25820 20184 dbs
+25696 19688 25820 19812 dbs
+25696 19315 25820 19439 dbs
+25696 18943 25820 19067 dbs
+26317 17887 26441 18011 dbs
+26690 15652 26814 15776 dbs
+27062 15652 27186 15776 dbs
+26690 22047 26814 22171 dbs
+27062 22047 27186 22171 dbs
+26690 16925 26814 17049 dbs
+26690 16552 26814 16676 dbs
+26690 16180 26814 16304 dbs
+27186 16925 27311 17049 dbs
+27186 16552 27311 16676 dbs
+27186 16180 27311 16304 dbs
+26690 20805 26814 20929 dbs
+26690 20433 26814 20557 dbs
+26690 20060 26814 20184 dbs
+26690 19688 26814 19812 dbs
+26690 19315 26814 19439 dbs
+26690 18943 26814 19067 dbs
+27186 20805 27311 20929 dbs
+27186 20433 27311 20557 dbs
+27186 20060 27311 20184 dbs
+27186 19688 27311 19812 dbs
+27186 19315 27311 19439 dbs
+27186 18943 27311 19067 dbs
+27807 17887 27931 18011 dbs
+28180 15652 28304 15776 dbs
+28552 15652 28677 15776 dbs
+28180 22047 28304 22171 dbs
+28552 22047 28677 22171 dbs
+28180 16925 28304 17049 dbs
+28180 16552 28304 16676 dbs
+28180 16180 28304 16304 dbs
+28677 16925 28801 17049 dbs
+28677 16552 28801 16676 dbs
+28677 16180 28801 16304 dbs
+28180 20805 28304 20929 dbs
+28180 20433 28304 20557 dbs
+28180 20060 28304 20184 dbs
+28180 19688 28304 19812 dbs
+28180 19315 28304 19439 dbs
+28180 18943 28304 19067 dbs
+28677 20805 28801 20929 dbs
+28677 20433 28801 20557 dbs
+28677 20060 28801 20184 dbs
+28677 19688 28801 19812 dbs
+28677 19315 28801 19439 dbs
+28677 18943 28801 19067 dbs
+29297 17887 29422 18011 dbs
+29670 15652 29794 15776 dbs
+30042 15652 30167 15776 dbs
+29670 22047 29794 22171 dbs
+30042 22047 30167 22171 dbs
+29670 16925 29794 17049 dbs
+29670 16552 29794 16676 dbs
+29670 16180 29794 16304 dbs
+30167 16925 30291 17049 dbs
+30167 16552 30291 16676 dbs
+30167 16180 30291 16304 dbs
+29670 20805 29794 20929 dbs
+29670 20433 29794 20557 dbs
+29670 20060 29794 20184 dbs
+29670 19688 29794 19812 dbs
+29670 19315 29794 19439 dbs
+29670 18943 29794 19067 dbs
+30167 20805 30291 20929 dbs
+30167 20433 30291 20557 dbs
+30167 20060 30291 20184 dbs
+30167 19688 30291 19812 dbs
+30167 19315 30291 19439 dbs
+30167 18943 30291 19067 dbs
+30787 17887 30912 18011 dbs
+31160 15652 31284 15776 dbs
+31533 15652 31657 15776 dbs
+31160 22047 31284 22171 dbs
+31533 22047 31657 22171 dbs
+31160 16925 31284 17049 dbs
+31160 16552 31284 16676 dbs
+31160 16180 31284 16304 dbs
+31657 16925 31781 17049 dbs
+31657 16552 31781 16676 dbs
+31657 16180 31781 16304 dbs
+31160 20805 31284 20929 dbs
+31160 20433 31284 20557 dbs
+31160 20060 31284 20184 dbs
+31160 19688 31284 19812 dbs
+31160 19315 31284 19439 dbs
+31160 18943 31284 19067 dbs
+31657 20805 31781 20929 dbs
+31657 20433 31781 20557 dbs
+31657 20060 31781 20184 dbs
+31657 19688 31781 19812 dbs
+31657 19315 31781 19439 dbs
+31657 18943 31781 19067 dbs
+32278 17887 32402 18011 dbs
+32650 15652 32774 15776 dbs
+33023 15652 33147 15776 dbs
+32650 22047 32774 22171 dbs
+33023 22047 33147 22171 dbs
+32650 16925 32774 17049 dbs
+32650 16552 32774 16676 dbs
+32650 16180 32774 16304 dbs
+33147 16925 33271 17049 dbs
+33147 16552 33271 16676 dbs
+33147 16180 33271 16304 dbs
+32650 20805 32774 20929 dbs
+32650 20433 32774 20557 dbs
+32650 20060 32774 20184 dbs
+32650 19688 32774 19812 dbs
+32650 19315 32774 19439 dbs
+32650 18943 32774 19067 dbs
+33147 20805 33271 20929 dbs
+33147 20433 33271 20557 dbs
+33147 20060 33271 20184 dbs
+33147 19688 33271 19812 dbs
+33147 19315 33271 19439 dbs
+33147 18943 33271 19067 dbs
+33768 17887 33892 18011 dbs
+34140 15652 34264 15776 dbs
+34513 15652 34637 15776 dbs
+34140 22047 34264 22171 dbs
+34513 22047 34637 22171 dbs
+34140 16925 34264 17049 dbs
+34140 16552 34264 16676 dbs
+34140 16180 34264 16304 dbs
+34637 16925 34761 17049 dbs
+34637 16552 34761 16676 dbs
+34637 16180 34761 16304 dbs
+34140 20805 34264 20929 dbs
+34140 20433 34264 20557 dbs
+34140 20060 34264 20184 dbs
+34140 19688 34264 19812 dbs
+34140 19315 34264 19439 dbs
+34140 18943 34264 19067 dbs
+34637 20805 34761 20929 dbs
+34637 20433 34761 20557 dbs
+34637 20060 34761 20184 dbs
+34637 19688 34761 19812 dbs
+34637 19315 34761 19439 dbs
+34637 18943 34761 19067 dbs
+35258 17887 35382 18011 dbs
+35630 15652 35755 15776 dbs
+36003 15652 36127 15776 dbs
+35630 22047 35755 22171 dbs
+36003 22047 36127 22171 dbs
+35630 16925 35755 17049 dbs
+35630 16552 35755 16676 dbs
+35630 16180 35755 16304 dbs
+36127 16925 36251 17049 dbs
+36127 16552 36251 16676 dbs
+36127 16180 36251 16304 dbs
+35630 20805 35755 20929 dbs
+35630 20433 35755 20557 dbs
+35630 20060 35755 20184 dbs
+35630 19688 35755 19812 dbs
+35630 19315 35755 19439 dbs
+35630 18943 35755 19067 dbs
+36127 20805 36251 20929 dbs
+36127 20433 36251 20557 dbs
+36127 20060 36251 20184 dbs
+36127 19688 36251 19812 dbs
+36127 19315 36251 19439 dbs
+36127 18943 36251 19067 dbs
+36748 17887 36872 18011 dbs
+37120 15652 37245 15776 dbs
+37493 15652 37617 15776 dbs
+37120 22047 37245 22171 dbs
+37493 22047 37617 22171 dbs
+37120 16925 37245 17049 dbs
+37120 16552 37245 16676 dbs
+37120 16180 37245 16304 dbs
+37617 16925 37741 17049 dbs
+37617 16552 37741 16676 dbs
+37617 16180 37741 16304 dbs
+37120 20805 37245 20929 dbs
+37120 20433 37245 20557 dbs
+37120 20060 37245 20184 dbs
+37120 19688 37245 19812 dbs
+37120 19315 37245 19439 dbs
+37120 18943 37245 19067 dbs
+37617 20805 37741 20929 dbs
+37617 20433 37741 20557 dbs
+37617 20060 37741 20184 dbs
+37617 19688 37741 19812 dbs
+37617 19315 37741 19439 dbs
+37617 18943 37741 19067 dbs
+38238 17887 38362 18011 dbs
+38611 15652 38735 15776 dbs
+38983 15652 39107 15776 dbs
+38611 22047 38735 22171 dbs
+38983 22047 39107 22171 dbs
+38611 16925 38735 17049 dbs
+38611 16552 38735 16676 dbs
+38611 16180 38735 16304 dbs
+39107 16925 39231 17049 dbs
+39107 16552 39231 16676 dbs
+39107 16180 39231 16304 dbs
+38611 20805 38735 20929 dbs
+38611 20433 38735 20557 dbs
+38611 20060 38735 20184 dbs
+38611 19688 38735 19812 dbs
+38611 19315 38735 19439 dbs
+38611 18943 38735 19067 dbs
+39107 20805 39231 20929 dbs
+39107 20433 39231 20557 dbs
+39107 20060 39231 20184 dbs
+39107 19688 39231 19812 dbs
+39107 19315 39231 19439 dbs
+39107 18943 39231 19067 dbs
+39728 17887 39852 18011 dbs
+40101 15652 40225 15776 dbs
+40473 15652 40597 15776 dbs
+40101 22047 40225 22171 dbs
+40473 22047 40597 22171 dbs
+40101 16925 40225 17049 dbs
+40101 16552 40225 16676 dbs
+40101 16180 40225 16304 dbs
+40597 16925 40722 17049 dbs
+40597 16552 40722 16676 dbs
+40597 16180 40722 16304 dbs
+40101 20805 40225 20929 dbs
+40101 20433 40225 20557 dbs
+40101 20060 40225 20184 dbs
+40101 19688 40225 19812 dbs
+40101 19315 40225 19439 dbs
+40101 18943 40225 19067 dbs
+40597 20805 40722 20929 dbs
+40597 20433 40722 20557 dbs
+40597 20060 40722 20184 dbs
+40597 19688 40722 19812 dbs
+40597 19315 40722 19439 dbs
+40597 18943 40722 19067 dbs
+41218 17887 41342 18011 dbs
+41591 15652 41715 15776 dbs
+41963 15652 42087 15776 dbs
+41591 22047 41715 22171 dbs
+41963 22047 42087 22171 dbs
+41591 16925 41715 17049 dbs
+41591 16552 41715 16676 dbs
+41591 16180 41715 16304 dbs
+42087 16925 42212 17049 dbs
+42087 16552 42212 16676 dbs
+42087 16180 42212 16304 dbs
+41591 20805 41715 20929 dbs
+41591 20433 41715 20557 dbs
+41591 20060 41715 20184 dbs
+41591 19688 41715 19812 dbs
+41591 19315 41715 19439 dbs
+41591 18943 41715 19067 dbs
+42087 20805 42212 20929 dbs
+42087 20433 42212 20557 dbs
+42087 20060 42212 20184 dbs
+42087 19688 42212 19812 dbs
+42087 19315 42212 19439 dbs
+42087 18943 42212 19067 dbs
+42708 17887 42833 18011 dbs
+43081 15652 43205 15776 dbs
+43453 15652 43578 15776 dbs
+43081 22047 43205 22171 dbs
+43453 22047 43578 22171 dbs
+43081 16925 43205 17049 dbs
+43081 16552 43205 16676 dbs
+43081 16180 43205 16304 dbs
+43578 16925 43702 17049 dbs
+43578 16552 43702 16676 dbs
+43578 16180 43702 16304 dbs
+43081 20805 43205 20929 dbs
+43081 20433 43205 20557 dbs
+43081 20060 43205 20184 dbs
+43081 19688 43205 19812 dbs
+43081 19315 43205 19439 dbs
+43081 18943 43205 19067 dbs
+43578 20805 43702 20929 dbs
+43578 20433 43702 20557 dbs
+43578 20060 43702 20184 dbs
+43578 19688 43702 19812 dbs
+43578 19315 43702 19439 dbs
+43578 18943 43702 19067 dbs
+44198 17887 44323 18011 dbs
+44571 15652 44695 15776 dbs
+44944 15652 45068 15776 dbs
+44571 22047 44695 22171 dbs
+44944 22047 45068 22171 dbs
+44571 16925 44695 17049 dbs
+44571 16552 44695 16676 dbs
+44571 16180 44695 16304 dbs
+45068 16925 45192 17049 dbs
+45068 16552 45192 16676 dbs
+45068 16180 45192 16304 dbs
+44571 20805 44695 20929 dbs
+44571 20433 44695 20557 dbs
+44571 20060 44695 20184 dbs
+44571 19688 44695 19812 dbs
+44571 19315 44695 19439 dbs
+44571 18943 44695 19067 dbs
+45068 20805 45192 20929 dbs
+45068 20433 45192 20557 dbs
+45068 20060 45192 20184 dbs
+45068 19688 45192 19812 dbs
+45068 19315 45192 19439 dbs
+45068 18943 45192 19067 dbs
+2 sfp
+200 200 600 slc
+1000 0 1000 sfc
+2165 17856 2351 18042 dbf
+186 186 2165 17856 dbu
+48669 17856 48855 18042 dbf
+186 186 48669 17856 dbu
+1000 1000 1000 slc
+1000 1000 1000 sfc
+48896 19101 dlt
+-66 -33 dlv
+-66 -65 dlv
+-32 -66 dlv
+-33 -99 dlv
+0 -164 dlv
+33 -98 dlv
+32 -66 dlv
+66 -66 dlv
+66 -33 dlv
+131 0 dlv
+66 33 dlv
+66 66 dlv
+32 66 dlv
+33 98 dlv
+0 164 dlv
+-33 99 dlv
+-32 66 dlv
+-66 65 dlv
+-66 33 dlv
+-131 0 dlv
+dle
+49783 18773 dlt
+-33 65 dlv
+-99 33 dlv
+-98 0 dlv
+-99 -33 dlv
+-33 -65 dlv
+33 -66 dlv
+66 -33 dlv
+164 -33 dlv
+66 -33 dlv
+33 -65 dlv
+0 -33 dlv
+-33 -66 dlv
+-99 -33 dlv
+-98 0 dlv
+-99 33 dlv
+-33 66 dlv
+dle
+50374 18773 dlt
+-66 65 dlv
+-65 33 dlv
+-99 0 dlv
+-66 -33 dlv
+-65 -65 dlv
+-33 -99 dlv
+0 -66 dlv
+33 -98 dlv
+65 -66 dlv
+66 -33 dlv
+99 0 dlv
+65 33 dlv
+66 66 dlv
+dle
+525 0 50506 18346 dls
+51392 18871 dlt
+-65 -33 dlv
+-66 -65 dlv
+-33 -99 dlv
+0 -66 dlv
+33 -98 dlv
+66 -66 dlv
+65 -33 dlv
+99 0 dlv
+66 33 dlv
+65 66 dlv
+33 98 dlv
+0 66 dlv
+-33 99 dlv
+-65 65 dlv
+-66 33 dlv
+-99 0 dlv
+dle
+51885 18871 dlt
+0 -328 dlv
+33 -99 dlv
+66 -33 dlv
+98 0 dlv
+66 33 dlv
+99 99 dlv
+dle
+0 -460 52247 18871 dls
+52542 19101 dlt
+0 -558 dlv
+33 -99 dlv
+66 -33 dlv
+66 0 dlv
+dle
+230 0 52444 18871 dls
+48468 23093 dlt
+197 -460 dlv
+197 460 dlv
+dle
+0 -690 49421 23323 dls
+49421 22995 dlt
+-66 65 dlv
+-66 33 dlv
+-98 0 dlv
+-66 -33 dlv
+-65 -65 dlv
+-33 -99 dlv
+0 -66 dlv
+33 -98 dlv
+65 -66 dlv
+66 -33 dlv
+98 0 dlv
+66 33 dlv
+66 66 dlv
+dle
+0 -690 50045 23323 dls
+50045 22995 dlt
+-66 65 dlv
+-65 33 dlv
+-99 0 dlv
+-66 -33 dlv
+-65 -65 dlv
+-33 -99 dlv
+0 -66 dlv
+33 -98 dlv
+65 -66 dlv
+66 -33 dlv
+99 0 dlv
+65 33 dlv
+66 66 dlv
+dle
+48437 18126 dlt
+-65 -33 dlv
+-66 -65 dlv
+-33 -99 dlv
+0 -66 dlv
+33 -98 dlv
+66 -66 dlv
+65 -33 dlv
+99 0 dlv
+66 33 dlv
+65 66 dlv
+33 98 dlv
+0 66 dlv
+-33 99 dlv
+-65 65 dlv
+-66 33 dlv
+-99 0 dlv
+dle
+48930 18126 dlt
+0 -328 dlv
+33 -99 dlv
+66 -33 dlv
+98 0 dlv
+66 33 dlv
+98 99 dlv
+dle
+0 -460 49291 18126 dls
+49587 18356 dlt
+0 -558 dlv
+33 -99 dlv
+66 -33 dlv
+65 0 dlv
+dle
+229 0 49489 18126 dls
+0 -690 49948 18126 dls
+49948 18028 dlt
+66 65 dlv
+66 33 dlv
+98 0 dlv
+66 -33 dlv
+66 -65 dlv
+33 -99 dlv
+0 -66 dlv
+-33 -98 dlv
+-66 -66 dlv
+-66 -33 dlv
+-98 0 dlv
+-66 33 dlv
+-66 66 dlv
+dle
+50573 18126 dlt
+0 -328 dlv
+32 -99 dlv
+66 -33 dlv
+99 0 dlv
+65 33 dlv
+99 99 dlv
+dle
+0 -460 50934 18126 dls
+51230 18356 dlt
+0 -558 dlv
+32 -99 dlv
+66 -33 dlv
+66 0 dlv
+dle
+230 0 51131 18126 dls
+46083 15767 dlt
+0 -526 dlv
+-33 -98 dlv
+-33 -33 dlv
+-65 -33 dlv
+-99 0 dlv
+-66 33 dlv
+dle
+46083 15668 dlt
+-66 66 dlv
+-65 33 dlv
+-99 0 dlv
+-66 -33 dlv
+-65 -66 dlv
+-33 -98 dlv
+0 -66 dlv
+33 -99 dlv
+65 -65 dlv
+66 -33 dlv
+99 0 dlv
+65 33 dlv
+66 65 dlv
+dle
+0 -460 46346 15767 dls
+46346 15635 dlt
+98 99 dlv
+66 33 dlv
+99 0 dlv
+65 -33 dlv
+33 -99 dlv
+0 -328 dlv
+dle
+0 -690 47331 15997 dls
+47331 15668 dlt
+-65 66 dlv
+-66 33 dlv
+-99 0 dlv
+-65 -33 dlv
+-66 -66 dlv
+-33 -98 dlv
+0 -66 dlv
+33 -99 dlv
+66 -65 dlv
+65 -33 dlv
+99 0 dlv
+66 33 dlv
+65 65 dlv
+dle
+44801 18216 dlt
+33 -33 dlv
+33 33 dlv
+-33 32 dlv
+-33 -32 dlv
+dle
+0 -460 44834 17986 dls
+0 -460 45097 17986 dls
+45097 17854 dlt
+99 99 dlv
+65 33 dlv
+99 0 dlv
+65 -33 dlv
+33 -99 dlv
+0 -328 dlv
+dle
+0 -690 45721 17986 dls
+45721 17887 dlt
+66 66 dlv
+66 33 dlv
+98 0 dlv
+66 -33 dlv
+65 -66 dlv
+33 -99 dlv
+0 -65 dlv
+-33 -99 dlv
+-65 -65 dlv
+-66 -33 dlv
+-98 0 dlv
+-66 33 dlv
+-66 65 dlv
+dle
+46345 17986 dlt
+0 -329 dlv
+33 -98 dlv
+66 -33 dlv
+98 0 dlv
+66 33 dlv
+99 98 dlv
+dle
+0 -460 46707 17986 dls
+47002 18216 dlt
+0 -559 dlv
+33 -98 dlv
+66 -33 dlv
+66 0 dlv
+dle
+230 0 46904 17986 dls
+45550 22286 dlt
+197 -460 dlv
+197 460 dlv
+dle
+0 -690 46503 22516 dls
+46503 22187 dlt
+-66 66 dlv
+-66 33 dlv
+-98 0 dlv
+-66 -33 dlv
+-66 -66 dlv
+-32 -98 dlv
+0 -66 dlv
+32 -98 dlv
+66 -66 dlv
+66 -33 dlv
+98 0 dlv
+66 33 dlv
+66 66 dlv
+dle
+0 -690 47127 22516 dls
+47127 22187 dlt
+-66 66 dlv
+-65 33 dlv
+-99 0 dlv
+-66 -33 dlv
+-65 -66 dlv
+-33 -98 dlv
+0 -66 dlv
+33 -98 dlv
+65 -66 dlv
+66 -33 dlv
+99 0 dlv
+65 33 dlv
+66 66 dlv
+dle
+3734 18126 dlt
+-66 -33 dlv
+-65 -65 dlv
+-33 -99 dlv
+0 -66 dlv
+33 -98 dlv
+65 -66 dlv
+66 -33 dlv
+99 0 dlv
+65 33 dlv
+66 66 dlv
+33 98 dlv
+0 66 dlv
+-33 99 dlv
+-66 65 dlv
+-65 33 dlv
+-99 0 dlv
+dle
+4227 18126 dlt
+0 -328 dlv
+33 -99 dlv
+65 -33 dlv
+99 0 dlv
+66 33 dlv
+98 99 dlv
+dle
+0 -460 4588 18126 dls
+4884 18356 dlt
+0 -558 dlv
+33 -99 dlv
+65 -33 dlv
+66 0 dlv
+dle
+230 0 4785 18126 dls
+0 -690 5245 18126 dls
+5245 18028 dlt
+66 65 dlv
+66 33 dlv
+98 0 dlv
+66 -33 dlv
+66 -65 dlv
+32 -99 dlv
+0 -66 dlv
+-32 -98 dlv
+-66 -66 dlv
+-66 -33 dlv
+-98 0 dlv
+-66 33 dlv
+-66 66 dlv
+dle
+5869 18126 dlt
+0 -328 dlv
+33 -99 dlv
+66 -33 dlv
+98 0 dlv
+66 33 dlv
+99 99 dlv
+dle
+0 -460 6231 18126 dls
+6526 18356 dlt
+0 -558 dlv
+33 -99 dlv
+66 -33 dlv
+66 0 dlv
+dle
+230 0 6428 18126 dls
+1380 15767 dlt
+0 -526 dlv
+-33 -98 dlv
+-33 -33 dlv
+-66 -33 dlv
+-98 0 dlv
+-66 33 dlv
+dle
+1380 15668 dlt
+-66 66 dlv
+-66 33 dlv
+-98 0 dlv
+-66 -33 dlv
+-66 -66 dlv
+-32 -98 dlv
+0 -66 dlv
+32 -99 dlv
+66 -65 dlv
+66 -33 dlv
+98 0 dlv
+66 33 dlv
+66 65 dlv
+dle
+0 -460 1643 15767 dls
+1643 15635 dlt
+98 99 dlv
+66 33 dlv
+98 0 dlv
+66 -33 dlv
+33 -99 dlv
+0 -328 dlv
+dle
+0 -690 2628 15997 dls
+2628 15668 dlt
+-66 66 dlv
+-65 33 dlv
+-99 0 dlv
+-66 -33 dlv
+-65 -66 dlv
+-33 -98 dlv
+0 -66 dlv
+33 -99 dlv
+65 -65 dlv
+66 -33 dlv
+99 0 dlv
+65 33 dlv
+66 65 dlv
+dle
+98 18216 dlt
+33 -33 dlv
+33 33 dlv
+-33 32 dlv
+-33 -32 dlv
+dle
+0 -460 131 17986 dls
+0 -460 394 17986 dls
+394 17854 dlt
+98 99 dlv
+66 33 dlv
+99 0 dlv
+65 -33 dlv
+33 -99 dlv
+0 -328 dlv
+dle
+0 -690 1018 17986 dls
+1018 17887 dlt
+66 66 dlv
+65 33 dlv
+99 0 dlv
+66 -33 dlv
+65 -66 dlv
+33 -99 dlv
+0 -65 dlv
+-33 -99 dlv
+-65 -65 dlv
+-66 -33 dlv
+-99 0 dlv
+-65 33 dlv
+-66 65 dlv
+dle
+1642 17986 dlt
+0 -329 dlv
+33 -98 dlv
+66 -33 dlv
+98 0 dlv
+66 33 dlv
+98 98 dlv
+dle
+0 -460 2003 17986 dls
+2299 18216 dlt
+0 -559 dlv
+33 -98 dlv
+66 -33 dlv
+65 0 dlv
+dle
+230 0 2200 17986 dls
+847 22286 dlt
+197 -460 dlv
+197 460 dlv
+dle
+0 -690 1799 22516 dls
+1799 22187 dlt
+-65 66 dlv
+-66 33 dlv
+-98 0 dlv
+-66 -33 dlv
+-66 -66 dlv
+-33 -98 dlv
+0 -66 dlv
+33 -98 dlv
+66 -66 dlv
+66 -33 dlv
+98 0 dlv
+66 33 dlv
+65 66 dlv
+dle
+0 -690 2424 22516 dls
+2424 22187 dlt
+-66 66 dlv
+-66 33 dlv
+-98 0 dlv
+-66 -33 dlv
+-66 -66 dlv
+-33 -98 dlv
+0 -66 dlv
+33 -98 dlv
+66 -66 dlv
+66 -33 dlv
+98 0 dlv
+66 33 dlv
+66 66 dlv
+dle
+5224 18126 dlt
+-66 -33 dlv
+-65 -65 dlv
+-33 -99 dlv
+0 -66 dlv
+33 -98 dlv
+65 -66 dlv
+66 -33 dlv
+99 0 dlv
+65 33 dlv
+66 66 dlv
+33 98 dlv
+0 66 dlv
+-33 99 dlv
+-66 65 dlv
+-65 33 dlv
+-99 0 dlv
+dle
+5717 18126 dlt
+0 -328 dlv
+33 -99 dlv
+65 -33 dlv
+99 0 dlv
+66 33 dlv
+98 99 dlv
+dle
+0 -460 6078 18126 dls
+6374 18356 dlt
+0 -558 dlv
+33 -99 dlv
+65 -33 dlv
+66 0 dlv
+dle
+230 0 6275 18126 dls
+0 -690 6735 18126 dls
+6735 18028 dlt
+66 65 dlv
+66 33 dlv
+98 0 dlv
+66 -33 dlv
+66 -65 dlv
+33 -99 dlv
+0 -66 dlv
+-33 -98 dlv
+-66 -66 dlv
+-66 -33 dlv
+-98 0 dlv
+-66 33 dlv
+-66 66 dlv
+dle
+7359 18126 dlt
+0 -328 dlv
+33 -99 dlv
+66 -33 dlv
+99 0 dlv
+65 33 dlv
+99 99 dlv
+dle
+0 -460 7721 18126 dls
+8016 18356 dlt
+0 -558 dlv
+33 -99 dlv
+66 -33 dlv
+66 0 dlv
+dle
+230 0 7918 18126 dls
+2870 15767 dlt
+0 -526 dlv
+-33 -98 dlv
+-33 -33 dlv
+-66 -33 dlv
+-98 0 dlv
+-66 33 dlv
+dle
+2870 15668 dlt
+-66 66 dlv
+-66 33 dlv
+-98 0 dlv
+-66 -33 dlv
+-65 -66 dlv
+-33 -98 dlv
+0 -66 dlv
+33 -99 dlv
+65 -65 dlv
+66 -33 dlv
+98 0 dlv
+66 33 dlv
+66 65 dlv
+dle
+0 -460 3133 15767 dls
+3133 15635 dlt
+98 99 dlv
+66 33 dlv
+98 0 dlv
+66 -33 dlv
+33 -99 dlv
+0 -328 dlv
+dle
+0 -690 4118 15997 dls
+4118 15668 dlt
+-65 66 dlv
+-66 33 dlv
+-99 0 dlv
+-65 -33 dlv
+-66 -66 dlv
+-33 -98 dlv
+0 -66 dlv
+33 -99 dlv
+66 -65 dlv
+65 -33 dlv
+99 0 dlv
+66 33 dlv
+65 65 dlv
+dle
+1588 18216 dlt
+33 -33 dlv
+33 33 dlv
+-33 32 dlv
+-33 -32 dlv
+dle
+0 -460 1621 17986 dls
+0 -460 1884 17986 dls
+1884 17854 dlt
+98 99 dlv
+66 33 dlv
+99 0 dlv
+65 -33 dlv
+33 -99 dlv
+0 -328 dlv
+dle
+0 -690 2508 17986 dls
+2508 17887 dlt
+66 66 dlv
+65 33 dlv
+99 0 dlv
+66 -33 dlv
+65 -66 dlv
+33 -99 dlv
+0 -65 dlv
+-33 -99 dlv
+-65 -65 dlv
+-66 -33 dlv
+-99 0 dlv
+-65 33 dlv
+-66 65 dlv
+dle
+3132 17986 dlt
+0 -329 dlv
+33 -98 dlv
+66 -33 dlv
+98 0 dlv
+66 33 dlv
+99 98 dlv
+dle
+0 -460 3494 17986 dls
+3789 18216 dlt
+0 -559 dlv
+33 -98 dlv
+66 -33 dlv
+65 0 dlv
+dle
+230 0 3691 17986 dls
+2337 22286 dlt
+197 -460 dlv
+197 460 dlv
+dle
+0 -690 3290 22516 dls
+3290 22187 dlt
+-66 66 dlv
+-66 33 dlv
+-98 0 dlv
+-66 -33 dlv
+-66 -66 dlv
+-33 -98 dlv
+0 -66 dlv
+33 -98 dlv
+66 -66 dlv
+66 -33 dlv
+98 0 dlv
+66 33 dlv
+66 66 dlv
+dle
+0 -690 3914 22516 dls
+3914 22187 dlt
+-66 66 dlv
+-66 33 dlv
+-98 0 dlv
+-66 -33 dlv
+-66 -66 dlv
+-32 -98 dlv
+0 -66 dlv
+32 -98 dlv
+66 -66 dlv
+66 -33 dlv
+98 0 dlv
+66 33 dlv
+66 66 dlv
+dle
+6714 18126 dlt
+-65 -33 dlv
+-66 -65 dlv
+-33 -99 dlv
+0 -66 dlv
+33 -98 dlv
+66 -66 dlv
+65 -33 dlv
+99 0 dlv
+66 33 dlv
+65 66 dlv
+33 98 dlv
+0 66 dlv
+-33 99 dlv
+-65 65 dlv
+-66 33 dlv
+-99 0 dlv
+dle
+7207 18126 dlt
+0 -328 dlv
+33 -99 dlv
+66 -33 dlv
+98 0 dlv
+66 33 dlv
+98 99 dlv
+dle
+0 -460 7568 18126 dls
+7864 18356 dlt
+0 -558 dlv
+33 -99 dlv
+66 -33 dlv
+65 0 dlv
+dle
+230 0 7765 18126 dls
+0 -690 8225 18126 dls
+8225 18028 dlt
+66 65 dlv
+66 33 dlv
+98 0 dlv
+66 -33 dlv
+66 -65 dlv
+33 -99 dlv
+0 -66 dlv
+-33 -98 dlv
+-66 -66 dlv
+-66 -33 dlv
+-98 0 dlv
+-66 33 dlv
+-66 66 dlv
+dle
+8850 18126 dlt
+0 -328 dlv
+32 -99 dlv
+66 -33 dlv
+99 0 dlv
+65 33 dlv
+99 99 dlv
+dle
+0 -460 9211 18126 dls
+9507 18356 dlt
+0 -558 dlv
+32 -99 dlv
+66 -33 dlv
+66 0 dlv
+dle
+230 0 9408 18126 dls
+4360 15767 dlt
+0 -526 dlv
+-33 -98 dlv
+-33 -33 dlv
+-65 -33 dlv
+-99 0 dlv
+-66 33 dlv
+dle
+4360 15668 dlt
+-66 66 dlv
+-65 33 dlv
+-99 0 dlv
+-66 -33 dlv
+-65 -66 dlv
+-33 -98 dlv
+0 -66 dlv
+33 -99 dlv
+65 -65 dlv
+66 -33 dlv
+99 0 dlv
+65 33 dlv
+66 65 dlv
+dle
+0 -460 4623 15767 dls
+4623 15635 dlt
+98 99 dlv
+66 33 dlv
+99 0 dlv
+65 -33 dlv
+33 -99 dlv
+0 -328 dlv
+dle
+0 -690 5608 15997 dls
+5608 15668 dlt
+-65 66 dlv
+-66 33 dlv
+-99 0 dlv
+-65 -33 dlv
+-66 -66 dlv
+-33 -98 dlv
+0 -66 dlv
+33 -99 dlv
+66 -65 dlv
+65 -33 dlv
+99 0 dlv
+66 33 dlv
+65 65 dlv
+dle
+3078 18216 dlt
+33 -33 dlv
+33 33 dlv
+-33 32 dlv
+-33 -32 dlv
+dle
+0 -460 3111 17986 dls
+0 -460 3374 17986 dls
+3374 17854 dlt
+98 99 dlv
+66 33 dlv
+99 0 dlv
+65 -33 dlv
+33 -99 dlv
+0 -328 dlv
+dle
+0 -690 3998 17986 dls
+3998 17887 dlt
+66 66 dlv
+65 33 dlv
+99 0 dlv
+66 -33 dlv
+65 -66 dlv
+33 -99 dlv
+0 -65 dlv
+-33 -99 dlv
+-65 -65 dlv
+-66 -33 dlv
+-99 0 dlv
+-65 33 dlv
+-66 65 dlv
+dle
+4622 17986 dlt
+0 -329 dlv
+33 -98 dlv
+66 -33 dlv
+98 0 dlv
+66 33 dlv
+99 98 dlv
+dle
+0 -460 4984 17986 dls
+5279 18216 dlt
+0 -559 dlv
+33 -98 dlv
+66 -33 dlv
+66 0 dlv
+dle
+230 0 5181 17986 dls
+3827 22286 dlt
+197 -460 dlv
+197 460 dlv
+dle
+0 -690 4780 22516 dls
+4780 22187 dlt
+-66 66 dlv
+-66 33 dlv
+-98 0 dlv
+-66 -33 dlv
+-66 -66 dlv
+-33 -98 dlv
+0 -66 dlv
+33 -98 dlv
+66 -66 dlv
+66 -33 dlv
+98 0 dlv
+66 33 dlv
+66 66 dlv
+dle
+0 -690 5404 22516 dls
+5404 22187 dlt
+-66 66 dlv
+-66 33 dlv
+-98 0 dlv
+-66 -33 dlv
+-65 -66 dlv
+-33 -98 dlv
+0 -66 dlv
+33 -98 dlv
+65 -66 dlv
+66 -33 dlv
+98 0 dlv
+66 33 dlv
+66 66 dlv
+dle
+8204 18126 dlt
+-65 -33 dlv
+-66 -65 dlv
+-33 -99 dlv
+0 -66 dlv
+33 -98 dlv
+66 -66 dlv
+65 -33 dlv
+99 0 dlv
+66 33 dlv
+65 66 dlv
+33 98 dlv
+0 66 dlv
+-33 99 dlv
+-65 65 dlv
+-66 33 dlv
+-99 0 dlv
+dle
+8697 18126 dlt
+0 -328 dlv
+33 -99 dlv
+66 -33 dlv
+98 0 dlv
+66 33 dlv
+98 99 dlv
+dle
+0 -460 9058 18126 dls
+9354 18356 dlt
+0 -558 dlv
+33 -99 dlv
+66 -33 dlv
+65 0 dlv
+dle
+230 0 9256 18126 dls
+0 -690 9716 18126 dls
+9716 18028 dlt
+65 65 dlv
+66 33 dlv
+98 0 dlv
+66 -33 dlv
+66 -65 dlv
+33 -99 dlv
+0 -66 dlv
+-33 -98 dlv
+-66 -66 dlv
+-66 -33 dlv
+-98 0 dlv
+-66 33 dlv
+-65 66 dlv
+dle
+10340 18126 dlt
+0 -328 dlv
+33 -99 dlv
+65 -33 dlv
+99 0 dlv
+65 33 dlv
+99 99 dlv
+dle
+0 -460 10701 18126 dls
+10997 18356 dlt
+0 -558 dlv
+33 -99 dlv
+65 -33 dlv
+66 0 dlv
+dle
+230 0 10898 18126 dls
+5850 15767 dlt
+0 -526 dlv
+-33 -98 dlv
+-33 -33 dlv
+-65 -33 dlv
+-99 0 dlv
+-66 33 dlv
+dle
+5850 15668 dlt
+-66 66 dlv
+-65 33 dlv
+-99 0 dlv
+-66 -33 dlv
+-65 -66 dlv
+-33 -98 dlv
+0 -66 dlv
+33 -99 dlv
+65 -65 dlv
+66 -33 dlv
+99 0 dlv
+65 33 dlv
+66 65 dlv
+dle
+0 -460 6113 15767 dls
+6113 15635 dlt
+98 99 dlv
+66 33 dlv
+99 0 dlv
+65 -33 dlv
+33 -99 dlv
+0 -328 dlv
+dle
+0 -690 7098 15997 dls
+7098 15668 dlt
+-65 66 dlv
+-66 33 dlv
+-99 0 dlv
+-65 -33 dlv
+-66 -66 dlv
+-33 -98 dlv
+0 -66 dlv
+33 -99 dlv
+66 -65 dlv
+65 -33 dlv
+99 0 dlv
+66 33 dlv
+65 65 dlv
+dle
+4568 18216 dlt
+33 -33 dlv
+33 33 dlv
+-33 32 dlv
+-33 -32 dlv
+dle
+0 -460 4601 17986 dls
+0 -460 4864 17986 dls
+4864 17854 dlt
+99 99 dlv
+65 33 dlv
+99 0 dlv
+66 -33 dlv
+32 -99 dlv
+0 -328 dlv
+dle
+0 -690 5488 17986 dls
+5488 17887 dlt
+66 66 dlv
+66 33 dlv
+98 0 dlv
+66 -33 dlv
+66 -66 dlv
+32 -99 dlv
+0 -65 dlv
+-32 -99 dlv
+-66 -65 dlv
+-66 -33 dlv
+-98 0 dlv
+-66 33 dlv
+-66 65 dlv
+dle
+6112 17986 dlt
+0 -329 dlv
+33 -98 dlv
+66 -33 dlv
+98 0 dlv
+66 33 dlv
+99 98 dlv
+dle
+0 -460 6474 17986 dls
+6769 18216 dlt
+0 -559 dlv
+33 -98 dlv
+66 -33 dlv
+66 0 dlv
+dle
+230 0 6671 17986 dls
+5317 22286 dlt
+197 -460 dlv
+197 460 dlv
+dle
+0 -690 6270 22516 dls
+6270 22187 dlt
+-66 66 dlv
+-66 33 dlv
+-98 0 dlv
+-66 -33 dlv
+-66 -66 dlv
+-32 -98 dlv
+0 -66 dlv
+32 -98 dlv
+66 -66 dlv
+66 -33 dlv
+98 0 dlv
+66 33 dlv
+66 66 dlv
+dle
+0 -690 6894 22516 dls
+6894 22187 dlt
+-66 66 dlv
+-65 33 dlv
+-99 0 dlv
+-66 -33 dlv
+-65 -66 dlv
+-33 -98 dlv
+0 -66 dlv
+33 -98 dlv
+65 -66 dlv
+66 -33 dlv
+99 0 dlv
+65 33 dlv
+66 66 dlv
+dle
+9694 18126 dlt
+-65 -33 dlv
+-66 -65 dlv
+-33 -99 dlv
+0 -66 dlv
+33 -98 dlv
+66 -66 dlv
+65 -33 dlv
+99 0 dlv
+66 33 dlv
+65 66 dlv
+33 98 dlv
+0 66 dlv
+-33 99 dlv
+-65 65 dlv
+-66 33 dlv
+-99 0 dlv
+dle
+10187 18126 dlt
+0 -328 dlv
+33 -99 dlv
+66 -33 dlv
+98 0 dlv
+66 33 dlv
+99 99 dlv
+dle
+0 -460 10549 18126 dls
+10844 18356 dlt
+0 -558 dlv
+33 -99 dlv
+66 -33 dlv
+66 0 dlv
+dle
+230 0 10746 18126 dls
+0 -690 11206 18126 dls
+11206 18028 dlt
+65 65 dlv
+66 33 dlv
+99 0 dlv
+65 -33 dlv
+66 -65 dlv
+33 -99 dlv
+0 -66 dlv
+-33 -98 dlv
+-66 -66 dlv
+-65 -33 dlv
+-99 0 dlv
+-66 33 dlv
+-65 66 dlv
+dle
+11830 18126 dlt
+0 -328 dlv
+33 -99 dlv
+65 -33 dlv
+99 0 dlv
+66 33 dlv
+98 99 dlv
+dle
+0 -460 12191 18126 dls
+12487 18356 dlt
+0 -558 dlv
+33 -99 dlv
+65 -33 dlv
+66 0 dlv
+dle
+230 0 12388 18126 dls
+7340 15767 dlt
+0 -526 dlv
+-33 -98 dlv
+-32 -33 dlv
+-66 -33 dlv
+-99 0 dlv
+-65 33 dlv
+dle
+7340 15668 dlt
+-65 66 dlv
+-66 33 dlv
+-99 0 dlv
+-65 -33 dlv
+-66 -66 dlv
+-33 -98 dlv
+0 -66 dlv
+33 -99 dlv
+66 -65 dlv
+65 -33 dlv
+99 0 dlv
+66 33 dlv
+65 65 dlv
+dle
+0 -460 7603 15767 dls
+7603 15635 dlt
+99 99 dlv
+65 33 dlv
+99 0 dlv
+66 -33 dlv
+32 -99 dlv
+0 -328 dlv
+dle
+0 -690 8589 15997 dls
+8589 15668 dlt
+-66 66 dlv
+-66 33 dlv
+-98 0 dlv
+-66 -33 dlv
+-66 -66 dlv
+-33 -98 dlv
+0 -66 dlv
+33 -99 dlv
+66 -65 dlv
+66 -33 dlv
+98 0 dlv
+66 33 dlv
+66 65 dlv
+dle
+6058 18216 dlt
+33 -33 dlv
+33 33 dlv
+-33 32 dlv
+-33 -32 dlv
+dle
+0 -460 6091 17986 dls
+0 -460 6354 17986 dls
+6354 17854 dlt
+99 99 dlv
+65 33 dlv
+99 0 dlv
+66 -33 dlv
+33 -99 dlv
+0 -328 dlv
+dle
+0 -690 6978 17986 dls
+6978 17887 dlt
+66 66 dlv
+66 33 dlv
+98 0 dlv
+66 -33 dlv
+66 -66 dlv
+33 -99 dlv
+0 -65 dlv
+-33 -99 dlv
+-66 -65 dlv
+-66 -33 dlv
+-98 0 dlv
+-66 33 dlv
+-66 65 dlv
+dle
+7602 17986 dlt
+0 -329 dlv
+33 -98 dlv
+66 -33 dlv
+99 0 dlv
+65 33 dlv
+99 98 dlv
+dle
+0 -460 7964 17986 dls
+8259 18216 dlt
+0 -559 dlv
+33 -98 dlv
+66 -33 dlv
+66 0 dlv
+dle
+230 0 8161 17986 dls
+6807 22286 dlt
+197 -460 dlv
+197 460 dlv
+dle
+0 -690 7760 22516 dls
+7760 22187 dlt
+-66 66 dlv
+-65 33 dlv
+-99 0 dlv
+-66 -33 dlv
+-65 -66 dlv
+-33 -98 dlv
+0 -66 dlv
+33 -98 dlv
+65 -66 dlv
+66 -33 dlv
+99 0 dlv
+65 33 dlv
+66 66 dlv
+dle
+0 -690 8384 22516 dls
+8384 22187 dlt
+-66 66 dlv
+-65 33 dlv
+-99 0 dlv
+-66 -33 dlv
+-65 -66 dlv
+-33 -98 dlv
+0 -66 dlv
+33 -98 dlv
+65 -66 dlv
+66 -33 dlv
+99 0 dlv
+65 33 dlv
+66 66 dlv
+dle
+11185 18126 dlt
+-66 -33 dlv
+-66 -65 dlv
+-33 -99 dlv
+0 -66 dlv
+33 -98 dlv
+66 -66 dlv
+66 -33 dlv
+98 0 dlv
+66 33 dlv
+66 66 dlv
+32 98 dlv
+0 66 dlv
+-32 99 dlv
+-66 65 dlv
+-66 33 dlv
+-98 0 dlv
+dle
+11677 18126 dlt
+0 -328 dlv
+33 -99 dlv
+66 -33 dlv
+98 0 dlv
+66 33 dlv
+99 99 dlv
+dle
+0 -460 12039 18126 dls
+12334 18356 dlt
+0 -558 dlv
+33 -99 dlv
+66 -33 dlv
+66 0 dlv
+dle
+230 0 12236 18126 dls
+0 -690 12696 18126 dls
+12696 18028 dlt
+65 65 dlv
+66 33 dlv
+99 0 dlv
+65 -33 dlv
+66 -65 dlv
+33 -99 dlv
+0 -66 dlv
+-33 -98 dlv
+-66 -66 dlv
+-65 -33 dlv
+-99 0 dlv
+-66 33 dlv
+-65 66 dlv
+dle
+13320 18126 dlt
+0 -328 dlv
+33 -99 dlv
+65 -33 dlv
+99 0 dlv
+66 33 dlv
+98 99 dlv
+dle
+0 -460 13681 18126 dls
+13977 18356 dlt
+0 -558 dlv
+33 -99 dlv
+65 -33 dlv
+66 0 dlv
+dle
+230 0 13878 18126 dls
+8830 15767 dlt
+0 -526 dlv
+-33 -98 dlv
+-32 -33 dlv
+-66 -33 dlv
+-99 0 dlv
+-65 33 dlv
+dle
+8830 15668 dlt
+-65 66 dlv
+-66 33 dlv
+-99 0 dlv
+-65 -33 dlv
+-66 -66 dlv
+-33 -98 dlv
+0 -66 dlv
+33 -99 dlv
+66 -65 dlv
+65 -33 dlv
+99 0 dlv
+66 33 dlv
+65 65 dlv
+dle
+0 -460 9093 15767 dls
+9093 15635 dlt
+99 99 dlv
+65 33 dlv
+99 0 dlv
+66 -33 dlv
+32 -99 dlv
+0 -328 dlv
+dle
+0 -690 10079 15997 dls
+10079 15668 dlt
+-66 66 dlv
+-66 33 dlv
+-98 0 dlv
+-66 -33 dlv
+-66 -66 dlv
+-33 -98 dlv
+0 -66 dlv
+33 -99 dlv
+66 -65 dlv
+66 -33 dlv
+98 0 dlv
+66 33 dlv
+66 65 dlv
+dle
+7549 18216 dlt
+32 -33 dlv
+33 33 dlv
+-33 32 dlv
+-32 -32 dlv
+dle
+0 -460 7581 17986 dls
+0 -460 7844 17986 dls
+7844 17854 dlt
+99 99 dlv
+66 33 dlv
+98 0 dlv
+66 -33 dlv
+33 -99 dlv
+0 -328 dlv
+dle
+0 -690 8468 17986 dls
+8468 17887 dlt
+66 66 dlv
+66 33 dlv
+98 0 dlv
+66 -33 dlv
+66 -66 dlv
+33 -99 dlv
+0 -65 dlv
+-33 -99 dlv
+-66 -65 dlv
+-66 -33 dlv
+-98 0 dlv
+-66 33 dlv
+-66 65 dlv
+dle
+9093 17986 dlt
+0 -329 dlv
+32 -98 dlv
+66 -33 dlv
+99 0 dlv
+65 33 dlv
+99 98 dlv
+dle
+0 -460 9454 17986 dls
+9750 18216 dlt
+0 -559 dlv
+32 -98 dlv
+66 -33 dlv
+66 0 dlv
+dle
+230 0 9651 17986 dls
+8297 22286 dlt
+197 -460 dlv
+198 460 dlv
+dle
+0 -690 9250 22516 dls
+9250 22187 dlt
+-66 66 dlv
+-65 33 dlv
+-99 0 dlv
+-66 -33 dlv
+-65 -66 dlv
+-33 -98 dlv
+0 -66 dlv
+33 -98 dlv
+65 -66 dlv
+66 -33 dlv
+99 0 dlv
+65 33 dlv
+66 66 dlv
+dle
+0 -690 9874 22516 dls
+9874 22187 dlt
+-66 66 dlv
+-65 33 dlv
+-99 0 dlv
+-65 -33 dlv
+-66 -66 dlv
+-33 -98 dlv
+0 -66 dlv
+33 -98 dlv
+66 -66 dlv
+65 -33 dlv
+99 0 dlv
+65 33 dlv
+66 66 dlv
+dle
+12675 18126 dlt
+-66 -33 dlv
+-66 -65 dlv
+-33 -99 dlv
+0 -66 dlv
+33 -98 dlv
+66 -66 dlv
+66 -33 dlv
+98 0 dlv
+66 33 dlv
+66 66 dlv
+33 98 dlv
+0 66 dlv
+-33 99 dlv
+-66 65 dlv
+-66 33 dlv
+-98 0 dlv
+dle
+13167 18126 dlt
+0 -328 dlv
+33 -99 dlv
+66 -33 dlv
+99 0 dlv
+65 33 dlv
+99 99 dlv
+dle
+0 -460 13529 18126 dls
+13824 18356 dlt
+0 -558 dlv
+33 -99 dlv
+66 -33 dlv
+66 0 dlv
+dle
+230 0 13726 18126 dls
+0 -690 14186 18126 dls
+14186 18028 dlt
+66 65 dlv
+65 33 dlv
+99 0 dlv
+65 -33 dlv
+66 -65 dlv
+33 -99 dlv
+0 -66 dlv
+-33 -98 dlv
+-66 -66 dlv
+-65 -33 dlv
+-99 0 dlv
+-65 33 dlv
+-66 66 dlv
+dle
+14810 18126 dlt
+0 -328 dlv
+33 -99 dlv
+66 -33 dlv
+98 0 dlv
+66 33 dlv
+98 99 dlv
+dle
+0 -460 15171 18126 dls
+15467 18356 dlt
+0 -558 dlv
+33 -99 dlv
+66 -33 dlv
+65 0 dlv
+dle
+230 0 15368 18126 dls
+10320 15767 dlt
+0 -526 dlv
+-32 -98 dlv
+-33 -33 dlv
+-66 -33 dlv
+-99 0 dlv
+-65 33 dlv
+dle
+10320 15668 dlt
+-65 66 dlv
+-66 33 dlv
+-99 0 dlv
+-65 -33 dlv
+-66 -66 dlv
+-33 -98 dlv
+0 -66 dlv
+33 -99 dlv
+66 -65 dlv
+65 -33 dlv
+99 0 dlv
+66 33 dlv
+65 65 dlv
+dle
+0 -460 10583 15767 dls
+10583 15635 dlt
+99 99 dlv
+65 33 dlv
+99 0 dlv
+66 -33 dlv
+33 -99 dlv
+0 -328 dlv
+dle
+0 -690 11569 15997 dls
+11569 15668 dlt
+-66 66 dlv
+-66 33 dlv
+-98 0 dlv
+-66 -33 dlv
+-66 -66 dlv
+-32 -98 dlv
+0 -66 dlv
+32 -99 dlv
+66 -65 dlv
+66 -33 dlv
+98 0 dlv
+66 33 dlv
+66 65 dlv
+dle
+9039 18216 dlt
+33 -33 dlv
+32 33 dlv
+-32 32 dlv
+-33 -32 dlv
+dle
+0 -460 9072 17986 dls
+0 -460 9334 17986 dls
+9334 17854 dlt
+99 99 dlv
+66 33 dlv
+98 0 dlv
+66 -33 dlv
+33 -99 dlv
+0 -328 dlv
+dle
+0 -690 9959 17986 dls
+9959 17887 dlt
+65 66 dlv
+66 33 dlv
+98 0 dlv
+66 -33 dlv
+66 -66 dlv
+33 -99 dlv
+0 -65 dlv
+-33 -99 dlv
+-66 -65 dlv
+-66 -33 dlv
+-98 0 dlv
+-66 33 dlv
+-65 65 dlv
+dle
+10583 17986 dlt
+0 -329 dlv
+33 -98 dlv
+65 -33 dlv
+99 0 dlv
+65 33 dlv
+99 98 dlv
+dle
+0 -460 10944 17986 dls
+11240 18216 dlt
+0 -559 dlv
+33 -98 dlv
+65 -33 dlv
+66 0 dlv
+dle
+230 0 11141 17986 dls
+9787 22286 dlt
+198 -460 dlv
+197 460 dlv
+dle
+0 -690 10740 22516 dls
+10740 22187 dlt
+-66 66 dlv
+-65 33 dlv
+-99 0 dlv
+-66 -33 dlv
+-65 -66 dlv
+-33 -98 dlv
+0 -66 dlv
+33 -98 dlv
+65 -66 dlv
+66 -33 dlv
+99 0 dlv
+65 33 dlv
+66 66 dlv
+dle
+0 -690 11364 22516 dls
+11364 22187 dlt
+-65 66 dlv
+-66 33 dlv
+-99 0 dlv
+-65 -33 dlv
+-66 -66 dlv
+-33 -98 dlv
+0 -66 dlv
+33 -98 dlv
+66 -66 dlv
+65 -33 dlv
+99 0 dlv
+66 33 dlv
+65 66 dlv
+dle
+14165 18126 dlt
+-66 -33 dlv
+-66 -65 dlv
+-32 -99 dlv
+0 -66 dlv
+32 -98 dlv
+66 -66 dlv
+66 -33 dlv
+98 0 dlv
+66 33 dlv
+66 66 dlv
+33 98 dlv
+0 66 dlv
+-33 99 dlv
+-66 65 dlv
+-66 33 dlv
+-98 0 dlv
+dle
+14658 18126 dlt
+0 -328 dlv
+32 -99 dlv
+66 -33 dlv
+99 0 dlv
+65 33 dlv
+99 99 dlv
+dle
+0 -460 15019 18126 dls
+15315 18356 dlt
+0 -558 dlv
+32 -99 dlv
+66 -33 dlv
+66 0 dlv
+dle
+230 0 15216 18126 dls
+0 -690 15676 18126 dls
+15676 18028 dlt
+66 65 dlv
+65 33 dlv
+99 0 dlv
+66 -33 dlv
+65 -65 dlv
+33 -99 dlv
+0 -66 dlv
+-33 -98 dlv
+-65 -66 dlv
+-66 -33 dlv
+-99 0 dlv
+-65 33 dlv
+-66 66 dlv
+dle
+16300 18126 dlt
+0 -328 dlv
+33 -99 dlv
+66 -33 dlv
+98 0 dlv
+66 33 dlv
+98 99 dlv
+dle
+0 -460 16661 18126 dls
+16957 18356 dlt
+0 -558 dlv
+33 -99 dlv
+66 -33 dlv
+65 0 dlv
+dle
+230 0 16859 18126 dls
+11811 15767 dlt
+0 -526 dlv
+-33 -98 dlv
+-33 -33 dlv
+-66 -33 dlv
+-98 0 dlv
+-66 33 dlv
+dle
+11811 15668 dlt
+-66 66 dlv
+-66 33 dlv
+-98 0 dlv
+-66 -33 dlv
+-66 -66 dlv
+-33 -98 dlv
+0 -66 dlv
+33 -99 dlv
+66 -65 dlv
+66 -33 dlv
+98 0 dlv
+66 33 dlv
+66 65 dlv
+dle
+0 -460 12073 15767 dls
+12073 15635 dlt
+99 99 dlv
+66 33 dlv
+98 0 dlv
+66 -33 dlv
+33 -99 dlv
+0 -328 dlv
+dle
+0 -690 13059 15997 dls
+13059 15668 dlt
+-66 66 dlv
+-66 33 dlv
+-98 0 dlv
+-66 -33 dlv
+-65 -66 dlv
+-33 -98 dlv
+0 -66 dlv
+33 -99 dlv
+65 -65 dlv
+66 -33 dlv
+98 0 dlv
+66 33 dlv
+66 65 dlv
+dle
+10529 18216 dlt
+33 -33 dlv
+33 33 dlv
+-33 32 dlv
+-33 -32 dlv
+dle
+0 -460 10562 17986 dls
+0 -460 10824 17986 dls
+10824 17854 dlt
+99 99 dlv
+66 33 dlv
+98 0 dlv
+66 -33 dlv
+33 -99 dlv
+0 -328 dlv
+dle
+0 -690 11449 17986 dls
+11449 17887 dlt
+65 66 dlv
+66 33 dlv
+99 0 dlv
+65 -33 dlv
+66 -66 dlv
+33 -99 dlv
+0 -65 dlv
+-33 -99 dlv
+-66 -65 dlv
+-65 -33 dlv
+-99 0 dlv
+-66 33 dlv
+-65 65 dlv
+dle
+12073 17986 dlt
+0 -329 dlv
+33 -98 dlv
+65 -33 dlv
+99 0 dlv
+66 33 dlv
+98 98 dlv
+dle
+0 -460 12434 17986 dls
+12730 18216 dlt
+0 -559 dlv
+33 -98 dlv
+65 -33 dlv
+66 0 dlv
+dle
+230 0 12631 17986 dls
+11278 22286 dlt
+197 -460 dlv
+197 460 dlv
+dle
+0 -690 12230 22516 dls
+12230 22187 dlt
+-65 66 dlv
+-66 33 dlv
+-99 0 dlv
+-65 -33 dlv
+-66 -66 dlv
+-33 -98 dlv
+0 -66 dlv
+33 -98 dlv
+66 -66 dlv
+65 -33 dlv
+99 0 dlv
+66 33 dlv
+65 66 dlv
+dle
+0 -690 12854 22516 dls
+12854 22187 dlt
+-65 66 dlv
+-66 33 dlv
+-99 0 dlv
+-65 -33 dlv
+-66 -66 dlv
+-33 -98 dlv
+0 -66 dlv
+33 -98 dlv
+66 -66 dlv
+65 -33 dlv
+99 0 dlv
+66 33 dlv
+65 66 dlv
+dle
+15655 18126 dlt
+-66 -33 dlv
+-65 -65 dlv
+-33 -99 dlv
+0 -66 dlv
+33 -98 dlv
+65 -66 dlv
+66 -33 dlv
+98 0 dlv
+66 33 dlv
+66 66 dlv
+33 98 dlv
+0 66 dlv
+-33 99 dlv
+-66 65 dlv
+-66 33 dlv
+-98 0 dlv
+dle
+16148 18126 dlt
+0 -328 dlv
+33 -99 dlv
+65 -33 dlv
+99 0 dlv
+65 33 dlv
+99 99 dlv
+dle
+0 -460 16509 18126 dls
+16805 18356 dlt
+0 -558 dlv
+33 -99 dlv
+65 -33 dlv
+66 0 dlv
+dle
+230 0 16706 18126 dls
+0 -690 17166 18126 dls
+17166 18028 dlt
+66 65 dlv
+65 33 dlv
+99 0 dlv
+66 -33 dlv
+65 -65 dlv
+33 -99 dlv
+0 -66 dlv
+-33 -98 dlv
+-65 -66 dlv
+-66 -33 dlv
+-99 0 dlv
+-65 33 dlv
+-66 66 dlv
+dle
+17790 18126 dlt
+0 -328 dlv
+33 -99 dlv
+66 -33 dlv
+98 0 dlv
+66 33 dlv
+99 99 dlv
+dle
+0 -460 18152 18126 dls
+18447 18356 dlt
+0 -558 dlv
+33 -99 dlv
+66 -33 dlv
+65 0 dlv
+dle
+230 0 18349 18126 dls
+13301 15767 dlt
+0 -526 dlv
+-33 -98 dlv
+-33 -33 dlv
+-66 -33 dlv
+-98 0 dlv
+-66 33 dlv
+dle
+13301 15668 dlt
+-66 66 dlv
+-66 33 dlv
+-98 0 dlv
+-66 -33 dlv
+-66 -66 dlv
+-33 -98 dlv
+0 -66 dlv
+33 -99 dlv
+66 -65 dlv
+66 -33 dlv
+98 0 dlv
+66 33 dlv
+66 65 dlv
+dle
+0 -460 13563 15767 dls
+13563 15635 dlt
+99 99 dlv
+66 33 dlv
+98 0 dlv
+66 -33 dlv
+33 -99 dlv
+0 -328 dlv
+dle
+0 -690 14549 15997 dls
+14549 15668 dlt
+-66 66 dlv
+-65 33 dlv
+-99 0 dlv
+-66 -33 dlv
+-65 -66 dlv
+-33 -98 dlv
+0 -66 dlv
+33 -99 dlv
+65 -65 dlv
+66 -33 dlv
+99 0 dlv
+65 33 dlv
+66 65 dlv
+dle
+12019 18216 dlt
+33 -33 dlv
+33 33 dlv
+-33 32 dlv
+-33 -32 dlv
+dle
+0 -460 12052 17986 dls
+0 -460 12315 17986 dls
+12315 17854 dlt
+98 99 dlv
+66 33 dlv
+98 0 dlv
+66 -33 dlv
+33 -99 dlv
+0 -328 dlv
+dle
+0 -690 12939 17986 dls
+12939 17887 dlt
+65 66 dlv
+66 33 dlv
+99 0 dlv
+65 -33 dlv
+66 -66 dlv
+33 -99 dlv
+0 -65 dlv
+-33 -99 dlv
+-66 -65 dlv
+-65 -33 dlv
+-99 0 dlv
+-66 33 dlv
+-65 65 dlv
+dle
+13563 17986 dlt
+0 -329 dlv
+33 -98 dlv
+65 -33 dlv
+99 0 dlv
+66 33 dlv
+98 98 dlv
+dle
+0 -460 13924 17986 dls
+14220 18216 dlt
+0 -559 dlv
+33 -98 dlv
+65 -33 dlv
+66 0 dlv
+dle
+230 0 14121 17986 dls
+12768 22286 dlt
+197 -460 dlv
+197 460 dlv
+dle
+0 -690 13720 22516 dls
+13720 22187 dlt
+-65 66 dlv
+-66 33 dlv
+-99 0 dlv
+-65 -33 dlv
+-66 -66 dlv
+-33 -98 dlv
+0 -66 dlv
+33 -98 dlv
+66 -66 dlv
+65 -33 dlv
+99 0 dlv
+66 33 dlv
+65 66 dlv
+dle
+0 -690 14345 22516 dls
+14345 22187 dlt
+-66 66 dlv
+-66 33 dlv
+-98 0 dlv
+-66 -33 dlv
+-66 -66 dlv
+-33 -98 dlv
+0 -66 dlv
+33 -98 dlv
+66 -66 dlv
+66 -33 dlv
+98 0 dlv
+66 33 dlv
+66 66 dlv
+dle
+17145 18126 dlt
+-66 -33 dlv
+-65 -65 dlv
+-33 -99 dlv
+0 -66 dlv
+33 -98 dlv
+65 -66 dlv
+66 -33 dlv
+99 0 dlv
+65 33 dlv
+66 66 dlv
+33 98 dlv
+0 66 dlv
+-33 99 dlv
+-66 65 dlv
+-65 33 dlv
+-99 0 dlv
+dle
+17638 18126 dlt
+0 -328 dlv
+33 -99 dlv
+65 -33 dlv
+99 0 dlv
+66 33 dlv
+98 99 dlv
+dle
+0 -460 17999 18126 dls
+18295 18356 dlt
+0 -558 dlv
+33 -99 dlv
+65 -33 dlv
+66 0 dlv
+dle
+230 0 18196 18126 dls
+0 -690 18656 18126 dls
+18656 18028 dlt
+66 65 dlv
+66 33 dlv
+98 0 dlv
+66 -33 dlv
+66 -65 dlv
+32 -99 dlv
+0 -66 dlv
+-32 -98 dlv
+-66 -66 dlv
+-66 -33 dlv
+-98 0 dlv
+-66 33 dlv
+-66 66 dlv
+dle
+19280 18126 dlt
+0 -328 dlv
+33 -99 dlv
+66 -33 dlv
+98 0 dlv
+66 33 dlv
+99 99 dlv
+dle
+0 -460 19642 18126 dls
+19937 18356 dlt
+0 -558 dlv
+33 -99 dlv
+66 -33 dlv
+66 0 dlv
+dle
+230 0 19839 18126 dls
+14791 15767 dlt
+0 -526 dlv
+-33 -98 dlv
+-33 -33 dlv
+-66 -33 dlv
+-98 0 dlv
+-66 33 dlv
+dle
+14791 15668 dlt
+-66 66 dlv
+-66 33 dlv
+-98 0 dlv
+-66 -33 dlv
+-66 -66 dlv
+-32 -98 dlv
+0 -66 dlv
+32 -99 dlv
+66 -65 dlv
+66 -33 dlv
+98 0 dlv
+66 33 dlv
+66 65 dlv
+dle
+0 -460 15054 15767 dls
+15054 15635 dlt
+98 99 dlv
+66 33 dlv
+98 0 dlv
+66 -33 dlv
+33 -99 dlv
+0 -328 dlv
+dle
+0 -690 16039 15997 dls
+16039 15668 dlt
+-66 66 dlv
+-65 33 dlv
+-99 0 dlv
+-66 -33 dlv
+-65 -66 dlv
+-33 -98 dlv
+0 -66 dlv
+33 -99 dlv
+65 -65 dlv
+66 -33 dlv
+99 0 dlv
+65 33 dlv
+66 65 dlv
+dle
+13509 18216 dlt
+33 -33 dlv
+33 33 dlv
+-33 32 dlv
+-33 -32 dlv
+dle
+0 -460 13542 17986 dls
+0 -460 13805 17986 dls
+13805 17854 dlt
+98 99 dlv
+66 33 dlv
+98 0 dlv
+66 -33 dlv
+33 -99 dlv
+0 -328 dlv
+dle
+0 -690 14429 17986 dls
+14429 17887 dlt
+66 66 dlv
+65 33 dlv
+99 0 dlv
+66 -33 dlv
+65 -66 dlv
+33 -99 dlv
+0 -65 dlv
+-33 -99 dlv
+-65 -65 dlv
+-66 -33 dlv
+-99 0 dlv
+-65 33 dlv
+-66 65 dlv
+dle
+15053 17986 dlt
+0 -329 dlv
+33 -98 dlv
+66 -33 dlv
+98 0 dlv
+66 33 dlv
+98 98 dlv
+dle
+0 -460 15414 17986 dls
+15710 18216 dlt
+0 -559 dlv
+33 -98 dlv
+66 -33 dlv
+65 0 dlv
+dle
+230 0 15611 17986 dls
+14258 22286 dlt
+197 -460 dlv
+197 460 dlv
+dle
+0 -690 15210 22516 dls
+15210 22187 dlt
+-65 66 dlv
+-66 33 dlv
+-98 0 dlv
+-66 -33 dlv
+-66 -66 dlv
+-33 -98 dlv
+0 -66 dlv
+33 -98 dlv
+66 -66 dlv
+66 -33 dlv
+98 0 dlv
+66 33 dlv
+65 66 dlv
+dle
+0 -690 15835 22516 dls
+15835 22187 dlt
+-66 66 dlv
+-66 33 dlv
+-98 0 dlv
+-66 -33 dlv
+-66 -66 dlv
+-33 -98 dlv
+0 -66 dlv
+33 -98 dlv
+66 -66 dlv
+66 -33 dlv
+98 0 dlv
+66 33 dlv
+66 66 dlv
+dle
+18635 18126 dlt
+-66 -33 dlv
+-65 -65 dlv
+-33 -99 dlv
+0 -66 dlv
+33 -98 dlv
+65 -66 dlv
+66 -33 dlv
+99 0 dlv
+65 33 dlv
+66 66 dlv
+33 98 dlv
+0 66 dlv
+-33 99 dlv
+-66 65 dlv
+-65 33 dlv
+-99 0 dlv
+dle
+19128 18126 dlt
+0 -328 dlv
+33 -99 dlv
+65 -33 dlv
+99 0 dlv
+66 33 dlv
+98 99 dlv
+dle
+0 -460 19489 18126 dls
+19785 18356 dlt
+0 -558 dlv
+33 -99 dlv
+65 -33 dlv
+66 0 dlv
+dle
+230 0 19686 18126 dls
+0 -690 20146 18126 dls
+20146 18028 dlt
+66 65 dlv
+66 33 dlv
+98 0 dlv
+66 -33 dlv
+66 -65 dlv
+32 -99 dlv
+0 -66 dlv
+-32 -98 dlv
+-66 -66 dlv
+-66 -33 dlv
+-98 0 dlv
+-66 33 dlv
+-66 66 dlv
+dle
+20770 18126 dlt
+0 -328 dlv
+33 -99 dlv
+66 -33 dlv
+99 0 dlv
+65 33 dlv
+99 99 dlv
+dle
+0 -460 21132 18126 dls
+21427 18356 dlt
+0 -558 dlv
+33 -99 dlv
+66 -33 dlv
+66 0 dlv
+dle
+230 0 21329 18126 dls
+16281 15767 dlt
+0 -526 dlv
+-33 -98 dlv
+-33 -33 dlv
+-66 -33 dlv
+-98 0 dlv
+-66 33 dlv
+dle
+16281 15668 dlt
+-66 66 dlv
+-66 33 dlv
+-98 0 dlv
+-66 -33 dlv
+-65 -66 dlv
+-33 -98 dlv
+0 -66 dlv
+33 -99 dlv
+65 -65 dlv
+66 -33 dlv
+98 0 dlv
+66 33 dlv
+66 65 dlv
+dle
+0 -460 16544 15767 dls
+16544 15635 dlt
+98 99 dlv
+66 33 dlv
+98 0 dlv
+66 -33 dlv
+33 -99 dlv
+0 -328 dlv
+dle
+0 -690 17529 15997 dls
+17529 15668 dlt
+-66 66 dlv
+-65 33 dlv
+-99 0 dlv
+-65 -33 dlv
+-66 -66 dlv
+-33 -98 dlv
+0 -66 dlv
+33 -99 dlv
+66 -65 dlv
+65 -33 dlv
+99 0 dlv
+65 33 dlv
+66 65 dlv
+dle
+14999 18216 dlt
+33 -33 dlv
+33 33 dlv
+-33 32 dlv
+-33 -32 dlv
+dle
+0 -460 15032 17986 dls
+0 -460 15295 17986 dls
+15295 17854 dlt
+98 99 dlv
+66 33 dlv
+99 0 dlv
+65 -33 dlv
+33 -99 dlv
+0 -328 dlv
+dle
+0 -690 15919 17986 dls
+15919 17887 dlt
+66 66 dlv
+65 33 dlv
+99 0 dlv
+66 -33 dlv
+65 -66 dlv
+33 -99 dlv
+0 -65 dlv
+-33 -99 dlv
+-65 -65 dlv
+-66 -33 dlv
+-99 0 dlv
+-65 33 dlv
+-66 65 dlv
+dle
+16543 17986 dlt
+0 -329 dlv
+33 -98 dlv
+66 -33 dlv
+98 0 dlv
+66 33 dlv
+98 98 dlv
+dle
+0 -460 16904 17986 dls
+17200 18216 dlt
+0 -559 dlv
+33 -98 dlv
+66 -33 dlv
+65 0 dlv
+dle
+230 0 17102 17986 dls
+15748 22286 dlt
+197 -460 dlv
+197 460 dlv
+dle
+0 -690 16701 22516 dls
+16701 22187 dlt
+-66 66 dlv
+-66 33 dlv
+-98 0 dlv
+-66 -33 dlv
+-66 -66 dlv
+-33 -98 dlv
+0 -66 dlv
+33 -98 dlv
+66 -66 dlv
+66 -33 dlv
+98 0 dlv
+66 33 dlv
+66 66 dlv
+dle
+0 -690 17325 22516 dls
+17325 22187 dlt
+-66 66 dlv
+-66 33 dlv
+-98 0 dlv
+-66 -33 dlv
+-66 -66 dlv
+-32 -98 dlv
+0 -66 dlv
+32 -98 dlv
+66 -66 dlv
+66 -33 dlv
+98 0 dlv
+66 33 dlv
+66 66 dlv
+dle
+20125 18126 dlt
+-65 -33 dlv
+-66 -65 dlv
+-33 -99 dlv
+0 -66 dlv
+33 -98 dlv
+66 -66 dlv
+65 -33 dlv
+99 0 dlv
+66 33 dlv
+65 66 dlv
+33 98 dlv
+0 66 dlv
+-33 99 dlv
+-65 65 dlv
+-66 33 dlv
+-99 0 dlv
+dle
+20618 18126 dlt
+0 -328 dlv
+33 -99 dlv
+66 -33 dlv
+98 0 dlv
+66 33 dlv
+98 99 dlv
+dle
+0 -460 20979 18126 dls
+21275 18356 dlt
+0 -558 dlv
+33 -99 dlv
+66 -33 dlv
+65 0 dlv
+dle
+230 0 21176 18126 dls
+0 -690 21636 18126 dls
+21636 18028 dlt
+66 65 dlv
+66 33 dlv
+98 0 dlv
+66 -33 dlv
+66 -65 dlv
+33 -99 dlv
+0 -66 dlv
+-33 -98 dlv
+-66 -66 dlv
+-66 -33 dlv
+-98 0 dlv
+-66 33 dlv
+-66 66 dlv
+dle
+22261 18126 dlt
+0 -328 dlv
+32 -99 dlv
+66 -33 dlv
+99 0 dlv
+65 33 dlv
+99 99 dlv
+dle
+0 -460 22622 18126 dls
+22918 18356 dlt
+0 -558 dlv
+32 -99 dlv
+66 -33 dlv
+66 0 dlv
+dle
+230 0 22819 18126 dls
+17771 15767 dlt
+0 -526 dlv
+-33 -98 dlv
+-33 -33 dlv
+-65 -33 dlv
+-99 0 dlv
+-66 33 dlv
+dle
+17771 15668 dlt
+-66 66 dlv
+-65 33 dlv
+-99 0 dlv
+-66 -33 dlv
+-65 -66 dlv
+-33 -98 dlv
+0 -66 dlv
+33 -99 dlv
+65 -65 dlv
+66 -33 dlv
+99 0 dlv
+65 33 dlv
+66 65 dlv
+dle
+0 -460 18034 15767 dls
+18034 15635 dlt
+98 99 dlv
+66 33 dlv
+99 0 dlv
+65 -33 dlv
+33 -99 dlv
+0 -328 dlv
+dle
+0 -690 19019 15997 dls
+19019 15668 dlt
+-65 66 dlv
+-66 33 dlv
+-99 0 dlv
+-65 -33 dlv
+-66 -66 dlv
+-33 -98 dlv
+0 -66 dlv
+33 -99 dlv
+66 -65 dlv
+65 -33 dlv
+99 0 dlv
+66 33 dlv
+65 65 dlv
+dle
+16489 18216 dlt
+33 -33 dlv
+33 33 dlv
+-33 32 dlv
+-33 -32 dlv
+dle
+0 -460 16522 17986 dls
+0 -460 16785 17986 dls
+16785 17854 dlt
+98 99 dlv
+66 33 dlv
+99 0 dlv
+65 -33 dlv
+33 -99 dlv
+0 -328 dlv
+dle
+0 -690 17409 17986 dls
+17409 17887 dlt
+66 66 dlv
+65 33 dlv
+99 0 dlv
+66 -33 dlv
+65 -66 dlv
+33 -99 dlv
+0 -65 dlv
+-33 -99 dlv
+-65 -65 dlv
+-66 -33 dlv
+-99 0 dlv
+-65 33 dlv
+-66 65 dlv
+dle
+18033 17986 dlt
+0 -329 dlv
+33 -98 dlv
+66 -33 dlv
+98 0 dlv
+66 33 dlv
+99 98 dlv
+dle
+0 -460 18395 17986 dls
+18690 18216 dlt
+0 -559 dlv
+33 -98 dlv
+66 -33 dlv
+66 0 dlv
+dle
+230 0 18592 17986 dls
+17238 22286 dlt
+197 -460 dlv
+197 460 dlv
+dle
+0 -690 18191 22516 dls
+18191 22187 dlt
+-66 66 dlv
+-66 33 dlv
+-98 0 dlv
+-66 -33 dlv
+-66 -66 dlv
+-33 -98 dlv
+0 -66 dlv
+33 -98 dlv
+66 -66 dlv
+66 -33 dlv
+98 0 dlv
+66 33 dlv
+66 66 dlv
+dle
+0 -690 18815 22516 dls
+18815 22187 dlt
+-66 66 dlv
+-66 33 dlv
+-98 0 dlv
+-66 -33 dlv
+-66 -66 dlv
+-32 -98 dlv
+0 -66 dlv
+32 -98 dlv
+66 -66 dlv
+66 -33 dlv
+98 0 dlv
+66 33 dlv
+66 66 dlv
+dle
+21615 18126 dlt
+-65 -33 dlv
+-66 -65 dlv
+-33 -99 dlv
+0 -66 dlv
+33 -98 dlv
+66 -66 dlv
+65 -33 dlv
+99 0 dlv
+66 33 dlv
+65 66 dlv
+33 98 dlv
+0 66 dlv
+-33 99 dlv
+-65 65 dlv
+-66 33 dlv
+-99 0 dlv
+dle
+22108 18126 dlt
+0 -328 dlv
+33 -99 dlv
+66 -33 dlv
+98 0 dlv
+66 33 dlv
+98 99 dlv
+dle
+0 -460 22469 18126 dls
+22765 18356 dlt
+0 -558 dlv
+33 -99 dlv
+66 -33 dlv
+65 0 dlv
+dle
+230 0 22667 18126 dls
+0 -690 23126 18126 dls
+23126 18028 dlt
+66 65 dlv
+66 33 dlv
+98 0 dlv
+66 -33 dlv
+66 -65 dlv
+33 -99 dlv
+0 -66 dlv
+-33 -98 dlv
+-66 -66 dlv
+-66 -33 dlv
+-98 0 dlv
+-66 33 dlv
+-66 66 dlv
+dle
+23751 18126 dlt
+0 -328 dlv
+33 -99 dlv
+65 -33 dlv
+99 0 dlv
+65 33 dlv
+99 99 dlv
+dle
+0 -460 24112 18126 dls
+24408 18356 dlt
+0 -558 dlv
+33 -99 dlv
+65 -33 dlv
+66 0 dlv
+dle
+230 0 24309 18126 dls
+19261 15767 dlt
+0 -526 dlv
+-33 -98 dlv
+-33 -33 dlv
+-65 -33 dlv
+-99 0 dlv
+-66 33 dlv
+dle
+19261 15668 dlt
+-66 66 dlv
+-65 33 dlv
+-99 0 dlv
+-66 -33 dlv
+-65 -66 dlv
+-33 -98 dlv
+0 -66 dlv
+33 -99 dlv
+65 -65 dlv
+66 -33 dlv
+99 0 dlv
+65 33 dlv
+66 65 dlv
+dle
+0 -460 19524 15767 dls
+19524 15635 dlt
+98 99 dlv
+66 33 dlv
+99 0 dlv
+65 -33 dlv
+33 -99 dlv
+0 -328 dlv
+dle
+0 -690 20509 15997 dls
+20509 15668 dlt
+-65 66 dlv
+-66 33 dlv
+-99 0 dlv
+-65 -33 dlv
+-66 -66 dlv
+-33 -98 dlv
+0 -66 dlv
+33 -99 dlv
+66 -65 dlv
+65 -33 dlv
+99 0 dlv
+66 33 dlv
+65 65 dlv
+dle
+17979 18216 dlt
+33 -33 dlv
+33 33 dlv
+-33 32 dlv
+-33 -32 dlv
+dle
+0 -460 18012 17986 dls
+0 -460 18275 17986 dls
+18275 17854 dlt
+99 99 dlv
+65 33 dlv
+99 0 dlv
+66 -33 dlv
+32 -99 dlv
+0 -328 dlv
+dle
+0 -690 18899 17986 dls
+18899 17887 dlt
+66 66 dlv
+66 33 dlv
+98 0 dlv
+66 -33 dlv
+66 -66 dlv
+32 -99 dlv
+0 -65 dlv
+-32 -99 dlv
+-66 -65 dlv
+-66 -33 dlv
+-98 0 dlv
+-66 33 dlv
+-66 65 dlv
+dle
+19523 17986 dlt
+0 -329 dlv
+33 -98 dlv
+66 -33 dlv
+98 0 dlv
+66 33 dlv
+99 98 dlv
+dle
+0 -460 19885 17986 dls
+20180 18216 dlt
+0 -559 dlv
+33 -98 dlv
+66 -33 dlv
+66 0 dlv
+dle
+230 0 20082 17986 dls
+18728 22286 dlt
+197 -460 dlv
+197 460 dlv
+dle
+0 -690 19681 22516 dls
+19681 22187 dlt
+-66 66 dlv
+-66 33 dlv
+-98 0 dlv
+-66 -33 dlv
+-66 -66 dlv
+-32 -98 dlv
+0 -66 dlv
+32 -98 dlv
+66 -66 dlv
+66 -33 dlv
+98 0 dlv
+66 33 dlv
+66 66 dlv
+dle
+0 -690 20305 22516 dls
+20305 22187 dlt
+-66 66 dlv
+-65 33 dlv
+-99 0 dlv
+-66 -33 dlv
+-65 -66 dlv
+-33 -98 dlv
+0 -66 dlv
+33 -98 dlv
+65 -66 dlv
+66 -33 dlv
+99 0 dlv
+65 33 dlv
+66 66 dlv
+dle
+23105 18126 dlt
+-65 -33 dlv
+-66 -65 dlv
+-33 -99 dlv
+0 -66 dlv
+33 -98 dlv
+66 -66 dlv
+65 -33 dlv
+99 0 dlv
+66 33 dlv
+65 66 dlv
+33 98 dlv
+0 66 dlv
+-33 99 dlv
+-65 65 dlv
+-66 33 dlv
+-99 0 dlv
+dle
+23598 18126 dlt
+0 -328 dlv
+33 -99 dlv
+66 -33 dlv
+98 0 dlv
+66 33 dlv
+99 99 dlv
+dle
+0 -460 23960 18126 dls
+24255 18356 dlt
+0 -558 dlv
+33 -99 dlv
+66 -33 dlv
+65 0 dlv
+dle
+230 0 24157 18126 dls
+0 -690 24617 18126 dls
+24617 18028 dlt
+65 65 dlv
+66 33 dlv
+99 0 dlv
+65 -33 dlv
+66 -65 dlv
+33 -99 dlv
+0 -66 dlv
+-33 -98 dlv
+-66 -66 dlv
+-65 -33 dlv
+-99 0 dlv
+-66 33 dlv
+-65 66 dlv
+dle
+25241 18126 dlt
+0 -328 dlv
+33 -99 dlv
+65 -33 dlv
+99 0 dlv
+66 33 dlv
+98 99 dlv
+dle
+0 -460 25602 18126 dls
+25898 18356 dlt
+0 -558 dlv
+33 -99 dlv
+65 -33 dlv
+66 0 dlv
+dle
+230 0 25799 18126 dls
+20751 15767 dlt
+0 -526 dlv
+-33 -98 dlv
+-33 -33 dlv
+-65 -33 dlv
+-99 0 dlv
+-65 33 dlv
+dle
+20751 15668 dlt
+-66 66 dlv
+-65 33 dlv
+-99 0 dlv
+-65 -33 dlv
+-66 -66 dlv
+-33 -98 dlv
+0 -66 dlv
+33 -99 dlv
+66 -65 dlv
+65 -33 dlv
+99 0 dlv
+65 33 dlv
+66 65 dlv
+dle
+0 -460 21014 15767 dls
+21014 15635 dlt
+99 99 dlv
+65 33 dlv
+99 0 dlv
+66 -33 dlv
+32 -99 dlv
+0 -328 dlv
+dle
+0 -690 22000 15997 dls
+22000 15668 dlt
+-66 66 dlv
+-66 33 dlv
+-98 0 dlv
+-66 -33 dlv
+-66 -66 dlv
+-33 -98 dlv
+0 -66 dlv
+33 -99 dlv
+66 -65 dlv
+66 -33 dlv
+98 0 dlv
+66 33 dlv
+66 65 dlv
+dle
+19469 18216 dlt
+33 -33 dlv
+33 33 dlv
+-33 32 dlv
+-33 -32 dlv
+dle
+0 -460 19502 17986 dls
+0 -460 19765 17986 dls
+19765 17854 dlt
+99 99 dlv
+65 33 dlv
+99 0 dlv
+66 -33 dlv
+32 -99 dlv
+0 -328 dlv
+dle
+0 -690 20389 17986 dls
+20389 17887 dlt
+66 66 dlv
+66 33 dlv
+98 0 dlv
+66 -33 dlv
+66 -66 dlv
+32 -99 dlv
+0 -65 dlv
+-32 -99 dlv
+-66 -65 dlv
+-66 -33 dlv
+-98 0 dlv
+-66 33 dlv
+-66 65 dlv
+dle
+21013 17986 dlt
+0 -329 dlv
+33 -98 dlv
+66 -33 dlv
+99 0 dlv
+65 33 dlv
+99 98 dlv
+dle
+0 -460 21375 17986 dls
+21670 18216 dlt
+0 -559 dlv
+33 -98 dlv
+66 -33 dlv
+66 0 dlv
+dle
+230 0 21572 17986 dls
+20218 22286 dlt
+197 -460 dlv
+197 460 dlv
+dle
+0 -690 21171 22516 dls
+21171 22187 dlt
+-66 66 dlv
+-65 33 dlv
+-99 0 dlv
+-66 -33 dlv
+-65 -66 dlv
+-33 -98 dlv
+0 -66 dlv
+33 -98 dlv
+65 -66 dlv
+66 -33 dlv
+99 0 dlv
+65 33 dlv
+66 66 dlv
+dle
+0 -690 21795 22516 dls
+21795 22187 dlt
+-66 66 dlv
+-65 33 dlv
+-99 0 dlv
+-66 -33 dlv
+-65 -66 dlv
+-33 -98 dlv
+0 -66 dlv
+33 -98 dlv
+65 -66 dlv
+66 -33 dlv
+99 0 dlv
+65 33 dlv
+66 66 dlv
+dle
+24596 18126 dlt
+-66 -33 dlv
+-66 -65 dlv
+-33 -99 dlv
+0 -66 dlv
+33 -98 dlv
+66 -66 dlv
+66 -33 dlv
+98 0 dlv
+66 33 dlv
+66 66 dlv
+32 98 dlv
+0 66 dlv
+-32 99 dlv
+-66 65 dlv
+-66 33 dlv
+-98 0 dlv
+dle
+25088 18126 dlt
+0 -328 dlv
+33 -99 dlv
+66 -33 dlv
+98 0 dlv
+66 33 dlv
+99 99 dlv
+dle
+0 -460 25450 18126 dls
+25745 18356 dlt
+0 -558 dlv
+33 -99 dlv
+66 -33 dlv
+66 0 dlv
+dle
+230 0 25647 18126 dls
+0 -690 26107 18126 dls
+26107 18028 dlt
+65 65 dlv
+66 33 dlv
+99 0 dlv
+65 -33 dlv
+66 -65 dlv
+33 -99 dlv
+0 -66 dlv
+-33 -98 dlv
+-66 -66 dlv
+-65 -33 dlv
+-99 0 dlv
+-66 33 dlv
+-65 66 dlv
+dle
+26731 18126 dlt
+0 -328 dlv
+33 -99 dlv
+65 -33 dlv
+99 0 dlv
+66 33 dlv
+98 99 dlv
+dle
+0 -460 27092 18126 dls
+27388 18356 dlt
+0 -558 dlv
+33 -99 dlv
+65 -33 dlv
+66 0 dlv
+dle
+230 0 27289 18126 dls
+22241 15767 dlt
+0 -526 dlv
+-33 -98 dlv
+-32 -33 dlv
+-66 -33 dlv
+-99 0 dlv
+-65 33 dlv
+dle
+22241 15668 dlt
+-65 66 dlv
+-66 33 dlv
+-99 0 dlv
+-65 -33 dlv
+-66 -66 dlv
+-33 -98 dlv
+0 -66 dlv
+33 -99 dlv
+66 -65 dlv
+65 -33 dlv
+99 0 dlv
+66 33 dlv
+65 65 dlv
+dle
+0 -460 22504 15767 dls
+22504 15635 dlt
+99 99 dlv
+65 33 dlv
+99 0 dlv
+66 -33 dlv
+32 -99 dlv
+0 -328 dlv
+dle
+0 -690 23490 15997 dls
+23490 15668 dlt
+-66 66 dlv
+-66 33 dlv
+-98 0 dlv
+-66 -33 dlv
+-66 -66 dlv
+-33 -98 dlv
+0 -66 dlv
+33 -99 dlv
+66 -65 dlv
+66 -33 dlv
+98 0 dlv
+66 33 dlv
+66 65 dlv
+dle
+20960 18216 dlt
+32 -33 dlv
+33 33 dlv
+-33 32 dlv
+-32 -32 dlv
+dle
+0 -460 20992 17986 dls
+0 -460 21255 17986 dls
+21255 17854 dlt
+99 99 dlv
+65 33 dlv
+99 0 dlv
+66 -33 dlv
+33 -99 dlv
+0 -328 dlv
+dle
+0 -690 21879 17986 dls
+21879 17887 dlt
+66 66 dlv
+66 33 dlv
+98 0 dlv
+66 -33 dlv
+66 -66 dlv
+33 -99 dlv
+0 -65 dlv
+-33 -99 dlv
+-66 -65 dlv
+-66 -33 dlv
+-98 0 dlv
+-66 33 dlv
+-66 65 dlv
+dle
+22504 17986 dlt
+0 -329 dlv
+32 -98 dlv
+66 -33 dlv
+99 0 dlv
+65 33 dlv
+99 98 dlv
+dle
+0 -460 22865 17986 dls
+23161 18216 dlt
+0 -559 dlv
+32 -98 dlv
+66 -33 dlv
+66 0 dlv
+dle
+230 0 23062 17986 dls
+21708 22286 dlt
+197 -460 dlv
+198 460 dlv
+dle
+0 -690 22661 22516 dls
+22661 22187 dlt
+-66 66 dlv
+-65 33 dlv
+-99 0 dlv
+-66 -33 dlv
+-65 -66 dlv
+-33 -98 dlv
+0 -66 dlv
+33 -98 dlv
+65 -66 dlv
+66 -33 dlv
+99 0 dlv
+65 33 dlv
+66 66 dlv
+dle
+0 -690 23285 22516 dls
+23285 22187 dlt
+-66 66 dlv
+-65 33 dlv
+-99 0 dlv
+-65 -33 dlv
+-66 -66 dlv
+-33 -98 dlv
+0 -66 dlv
+33 -98 dlv
+66 -66 dlv
+65 -33 dlv
+99 0 dlv
+65 33 dlv
+66 66 dlv
+dle
+26086 18126 dlt
+-66 -33 dlv
+-66 -65 dlv
+-33 -99 dlv
+0 -66 dlv
+33 -98 dlv
+66 -66 dlv
+66 -33 dlv
+98 0 dlv
+66 33 dlv
+66 66 dlv
+32 98 dlv
+0 66 dlv
+-32 99 dlv
+-66 65 dlv
+-66 33 dlv
+-98 0 dlv
+dle
+26578 18126 dlt
+0 -328 dlv
+33 -99 dlv
+66 -33 dlv
+99 0 dlv
+65 33 dlv
+99 99 dlv
+dle
+0 -460 26940 18126 dls
+27235 18356 dlt
+0 -558 dlv
+33 -99 dlv
+66 -33 dlv
+66 0 dlv
+dle
+230 0 27137 18126 dls
+0 -690 27597 18126 dls
+27597 18028 dlt
+66 65 dlv
+65 33 dlv
+99 0 dlv
+65 -33 dlv
+66 -65 dlv
+33 -99 dlv
+0 -66 dlv
+-33 -98 dlv
+-66 -66 dlv
+-65 -33 dlv
+-99 0 dlv
+-65 33 dlv
+-66 66 dlv
+dle
+28221 18126 dlt
+0 -328 dlv
+33 -99 dlv
+66 -33 dlv
+98 0 dlv
+66 33 dlv
+98 99 dlv
+dle
+0 -460 28582 18126 dls
+28878 18356 dlt
+0 -558 dlv
+33 -99 dlv
+66 -33 dlv
+65 0 dlv
+dle
+230 0 28779 18126 dls
+23731 15767 dlt
+0 -526 dlv
+-32 -98 dlv
+-33 -33 dlv
+-66 -33 dlv
+-99 0 dlv
+-65 33 dlv
+dle
+23731 15668 dlt
+-65 66 dlv
+-66 33 dlv
+-99 0 dlv
+-65 -33 dlv
+-66 -66 dlv
+-33 -98 dlv
+0 -66 dlv
+33 -99 dlv
+66 -65 dlv
+65 -33 dlv
+99 0 dlv
+66 33 dlv
+65 65 dlv
+dle
+0 -460 23994 15767 dls
+23994 15635 dlt
+99 99 dlv
+65 33 dlv
+99 0 dlv
+66 -33 dlv
+33 -99 dlv
+0 -328 dlv
+dle
+0 -690 24980 15997 dls
+24980 15668 dlt
+-66 66 dlv
+-66 33 dlv
+-98 0 dlv
+-66 -33 dlv
+-66 -66 dlv
+-32 -98 dlv
+0 -66 dlv
+32 -99 dlv
+66 -65 dlv
+66 -33 dlv
+98 0 dlv
+66 33 dlv
+66 65 dlv
+dle
+22450 18216 dlt
+33 -33 dlv
+32 33 dlv
+-32 32 dlv
+-33 -32 dlv
+dle
+0 -460 22483 17986 dls
+0 -460 22745 17986 dls
+22745 17854 dlt
+99 99 dlv
+66 33 dlv
+98 0 dlv
+66 -33 dlv
+33 -99 dlv
+0 -328 dlv
+dle
+0 -690 23370 17986 dls
+23370 17887 dlt
+65 66 dlv
+66 33 dlv
+98 0 dlv
+66 -33 dlv
+66 -66 dlv
+33 -99 dlv
+0 -65 dlv
+-33 -99 dlv
+-66 -65 dlv
+-66 -33 dlv
+-98 0 dlv
+-66 33 dlv
+-65 65 dlv
+dle
+23994 17986 dlt
+0 -329 dlv
+33 -98 dlv
+65 -33 dlv
+99 0 dlv
+65 33 dlv
+99 98 dlv
+dle
+0 -460 24355 17986 dls
+24651 18216 dlt
+0 -559 dlv
+33 -98 dlv
+65 -33 dlv
+66 0 dlv
+dle
+230 0 24552 17986 dls
+23198 22286 dlt
+198 -460 dlv
+197 460 dlv
+dle
+0 -690 24151 22516 dls
+24151 22187 dlt
+-66 66 dlv
+-65 33 dlv
+-99 0 dlv
+-66 -33 dlv
+-65 -66 dlv
+-33 -98 dlv
+0 -66 dlv
+33 -98 dlv
+65 -66 dlv
+66 -33 dlv
+99 0 dlv
+65 33 dlv
+66 66 dlv
+dle
+0 -690 24775 22516 dls
+24775 22187 dlt
+-65 66 dlv
+-66 33 dlv
+-99 0 dlv
+-65 -33 dlv
+-66 -66 dlv
+-33 -98 dlv
+0 -66 dlv
+33 -98 dlv
+66 -66 dlv
+65 -33 dlv
+99 0 dlv
+66 33 dlv
+65 66 dlv
+dle
+27576 18126 dlt
+-66 -33 dlv
+-66 -65 dlv
+-32 -99 dlv
+0 -66 dlv
+32 -98 dlv
+66 -66 dlv
+66 -33 dlv
+98 0 dlv
+66 33 dlv
+66 66 dlv
+33 98 dlv
+0 66 dlv
+-33 99 dlv
+-66 65 dlv
+-66 33 dlv
+-98 0 dlv
+dle
+28069 18126 dlt
+0 -328 dlv
+32 -99 dlv
+66 -33 dlv
+99 0 dlv
+65 33 dlv
+99 99 dlv
+dle
+0 -460 28430 18126 dls
+28726 18356 dlt
+0 -558 dlv
+32 -99 dlv
+66 -33 dlv
+66 0 dlv
+dle
+230 0 28627 18126 dls
+0 -690 29087 18126 dls
+29087 18028 dlt
+66 65 dlv
+65 33 dlv
+99 0 dlv
+66 -33 dlv
+65 -65 dlv
+33 -99 dlv
+0 -66 dlv
+-33 -98 dlv
+-65 -66 dlv
+-66 -33 dlv
+-99 0 dlv
+-65 33 dlv
+-66 66 dlv
+dle
+29711 18126 dlt
+0 -328 dlv
+33 -99 dlv
+66 -33 dlv
+98 0 dlv
+66 33 dlv
+98 99 dlv
+dle
+0 -460 30072 18126 dls
+30368 18356 dlt
+0 -558 dlv
+33 -99 dlv
+66 -33 dlv
+65 0 dlv
+dle
+230 0 30270 18126 dls
+25222 15767 dlt
+0 -526 dlv
+-33 -98 dlv
+-33 -33 dlv
+-66 -33 dlv
+-98 0 dlv
+-66 33 dlv
+dle
+25222 15668 dlt
+-66 66 dlv
+-66 33 dlv
+-98 0 dlv
+-66 -33 dlv
+-66 -66 dlv
+-33 -98 dlv
+0 -66 dlv
+33 -99 dlv
+66 -65 dlv
+66 -33 dlv
+98 0 dlv
+66 33 dlv
+66 65 dlv
+dle
+0 -460 25484 15767 dls
+25484 15635 dlt
+99 99 dlv
+66 33 dlv
+98 0 dlv
+66 -33 dlv
+33 -99 dlv
+0 -328 dlv
+dle
+0 -690 26470 15997 dls
+26470 15668 dlt
+-66 66 dlv
+-66 33 dlv
+-98 0 dlv
+-66 -33 dlv
+-66 -66 dlv
+-32 -98 dlv
+0 -66 dlv
+32 -99 dlv
+66 -65 dlv
+66 -33 dlv
+98 0 dlv
+66 33 dlv
+66 65 dlv
+dle
+23940 18216 dlt
+33 -33 dlv
+32 33 dlv
+-32 32 dlv
+-33 -32 dlv
+dle
+0 -460 23973 17986 dls
+0 -460 24235 17986 dls
+24235 17854 dlt
+99 99 dlv
+66 33 dlv
+98 0 dlv
+66 -33 dlv
+33 -99 dlv
+0 -328 dlv
+dle
+0 -690 24860 17986 dls
+24860 17887 dlt
+65 66 dlv
+66 33 dlv
+99 0 dlv
+65 -33 dlv
+66 -66 dlv
+33 -99 dlv
+0 -65 dlv
+-33 -99 dlv
+-66 -65 dlv
+-65 -33 dlv
+-99 0 dlv
+-66 33 dlv
+-65 65 dlv
+dle
+25484 17986 dlt
+0 -329 dlv
+33 -98 dlv
+65 -33 dlv
+99 0 dlv
+66 33 dlv
+98 98 dlv
+dle
+0 -460 25845 17986 dls
+26141 18216 dlt
+0 -559 dlv
+33 -98 dlv
+65 -33 dlv
+66 0 dlv
+dle
+230 0 26042 17986 dls
+24689 22286 dlt
+197 -460 dlv
+197 460 dlv
+dle
+0 -690 25641 22516 dls
+25641 22187 dlt
+-65 66 dlv
+-66 33 dlv
+-99 0 dlv
+-65 -33 dlv
+-66 -66 dlv
+-33 -98 dlv
+0 -66 dlv
+33 -98 dlv
+66 -66 dlv
+65 -33 dlv
+99 0 dlv
+66 33 dlv
+65 66 dlv
+dle
+0 -690 26265 22516 dls
+26265 22187 dlt
+-65 66 dlv
+-66 33 dlv
+-99 0 dlv
+-65 -33 dlv
+-66 -66 dlv
+-33 -98 dlv
+0 -66 dlv
+33 -98 dlv
+66 -66 dlv
+65 -33 dlv
+99 0 dlv
+66 33 dlv
+65 66 dlv
+dle
+29066 18126 dlt
+-66 -33 dlv
+-65 -65 dlv
+-33 -99 dlv
+0 -66 dlv
+33 -98 dlv
+65 -66 dlv
+66 -33 dlv
+98 0 dlv
+66 33 dlv
+66 66 dlv
+33 98 dlv
+0 66 dlv
+-33 99 dlv
+-66 65 dlv
+-66 33 dlv
+-98 0 dlv
+dle
+29559 18126 dlt
+0 -328 dlv
+33 -99 dlv
+65 -33 dlv
+99 0 dlv
+65 33 dlv
+99 99 dlv
+dle
+0 -460 29920 18126 dls
+30216 18356 dlt
+0 -558 dlv
+33 -99 dlv
+65 -33 dlv
+66 0 dlv
+dle
+230 0 30117 18126 dls
+0 -690 30577 18126 dls
+30577 18028 dlt
+66 65 dlv
+65 33 dlv
+99 0 dlv
+66 -33 dlv
+65 -65 dlv
+33 -99 dlv
+0 -66 dlv
+-33 -98 dlv
+-65 -66 dlv
+-66 -33 dlv
+-99 0 dlv
+-65 33 dlv
+-66 66 dlv
+dle
+31201 18126 dlt
+0 -328 dlv
+33 -99 dlv
+66 -33 dlv
+98 0 dlv
+66 33 dlv
+99 99 dlv
+dle
+0 -460 31563 18126 dls
+31858 18356 dlt
+0 -558 dlv
+33 -99 dlv
+66 -33 dlv
+65 0 dlv
+dle
+230 0 31760 18126 dls
+26712 15767 dlt
+0 -526 dlv
+-33 -98 dlv
+-33 -33 dlv
+-66 -33 dlv
+-98 0 dlv
+-66 33 dlv
+dle
+26712 15668 dlt
+-66 66 dlv
+-66 33 dlv
+-98 0 dlv
+-66 -33 dlv
+-66 -66 dlv
+-33 -98 dlv
+0 -66 dlv
+33 -99 dlv
+66 -65 dlv
+66 -33 dlv
+98 0 dlv
+66 33 dlv
+66 65 dlv
+dle
+0 -460 26974 15767 dls
+26974 15635 dlt
+99 99 dlv
+66 33 dlv
+98 0 dlv
+66 -33 dlv
+33 -99 dlv
+0 -328 dlv
+dle
+0 -690 27960 15997 dls
+27960 15668 dlt
+-66 66 dlv
+-65 33 dlv
+-99 0 dlv
+-66 -33 dlv
+-65 -66 dlv
+-33 -98 dlv
+0 -66 dlv
+33 -99 dlv
+65 -65 dlv
+66 -33 dlv
+99 0 dlv
+65 33 dlv
+66 65 dlv
+dle
+25430 18216 dlt
+33 -33 dlv
+33 33 dlv
+-33 32 dlv
+-33 -32 dlv
+dle
+0 -460 25463 17986 dls
+0 -460 25726 17986 dls
+25726 17854 dlt
+98 99 dlv
+66 33 dlv
+98 0 dlv
+66 -33 dlv
+33 -99 dlv
+0 -328 dlv
+dle
+0 -690 26350 17986 dls
+26350 17887 dlt
+65 66 dlv
+66 33 dlv
+99 0 dlv
+65 -33 dlv
+66 -66 dlv
+33 -99 dlv
+0 -65 dlv
+-33 -99 dlv
+-66 -65 dlv
+-65 -33 dlv
+-99 0 dlv
+-66 33 dlv
+-65 65 dlv
+dle
+26974 17986 dlt
+0 -329 dlv
+33 -98 dlv
+65 -33 dlv
+99 0 dlv
+66 33 dlv
+98 98 dlv
+dle
+0 -460 27335 17986 dls
+27631 18216 dlt
+0 -559 dlv
+33 -98 dlv
+65 -33 dlv
+66 0 dlv
+dle
+230 0 27532 17986 dls
+26179 22286 dlt
+197 -460 dlv
+197 460 dlv
+dle
+0 -690 27131 22516 dls
+27131 22187 dlt
+-65 66 dlv
+-66 33 dlv
+-99 0 dlv
+-65 -33 dlv
+-66 -66 dlv
+-33 -98 dlv
+0 -66 dlv
+33 -98 dlv
+66 -66 dlv
+65 -33 dlv
+99 0 dlv
+66 33 dlv
+65 66 dlv
+dle
+0 -690 27756 22516 dls
+27756 22187 dlt
+-66 66 dlv
+-66 33 dlv
+-98 0 dlv
+-66 -33 dlv
+-66 -66 dlv
+-33 -98 dlv
+0 -66 dlv
+33 -98 dlv
+66 -66 dlv
+66 -33 dlv
+98 0 dlv
+66 33 dlv
+66 66 dlv
+dle
+30556 18126 dlt
+-66 -33 dlv
+-65 -65 dlv
+-33 -99 dlv
+0 -66 dlv
+33 -98 dlv
+65 -66 dlv
+66 -33 dlv
+99 0 dlv
+65 33 dlv
+66 66 dlv
+33 98 dlv
+0 66 dlv
+-33 99 dlv
+-66 65 dlv
+-65 33 dlv
+-99 0 dlv
+dle
+31049 18126 dlt
+0 -328 dlv
+33 -99 dlv
+65 -33 dlv
+99 0 dlv
+66 33 dlv
+98 99 dlv
+dle
+0 -460 31410 18126 dls
+31706 18356 dlt
+0 -558 dlv
+33 -99 dlv
+65 -33 dlv
+66 0 dlv
+dle
+230 0 31607 18126 dls
+0 -690 32067 18126 dls
+32067 18028 dlt
+66 65 dlv
+66 33 dlv
+98 0 dlv
+66 -33 dlv
+66 -65 dlv
+32 -99 dlv
+0 -66 dlv
+-32 -98 dlv
+-66 -66 dlv
+-66 -33 dlv
+-98 0 dlv
+-66 33 dlv
+-66 66 dlv
+dle
+32691 18126 dlt
+0 -328 dlv
+33 -99 dlv
+66 -33 dlv
+98 0 dlv
+66 33 dlv
+99 99 dlv
+dle
+0 -460 33053 18126 dls
+33348 18356 dlt
+0 -558 dlv
+33 -99 dlv
+66 -33 dlv
+66 0 dlv
+dle
+230 0 33250 18126 dls
+28202 15767 dlt
+0 -526 dlv
+-33 -98 dlv
+-33 -33 dlv
+-66 -33 dlv
+-98 0 dlv
+-66 33 dlv
+dle
+28202 15668 dlt
+-66 66 dlv
+-66 33 dlv
+-98 0 dlv
+-66 -33 dlv
+-66 -66 dlv
+-32 -98 dlv
+0 -66 dlv
+32 -99 dlv
+66 -65 dlv
+66 -33 dlv
+98 0 dlv
+66 33 dlv
+66 65 dlv
+dle
+0 -460 28465 15767 dls
+28465 15635 dlt
+98 99 dlv
+66 33 dlv
+98 0 dlv
+66 -33 dlv
+33 -99 dlv
+0 -328 dlv
+dle
+0 -690 29450 15997 dls
+29450 15668 dlt
+-66 66 dlv
+-65 33 dlv
+-99 0 dlv
+-66 -33 dlv
+-65 -66 dlv
+-33 -98 dlv
+0 -66 dlv
+33 -99 dlv
+65 -65 dlv
+66 -33 dlv
+99 0 dlv
+65 33 dlv
+66 65 dlv
+dle
+26920 18216 dlt
+33 -33 dlv
+33 33 dlv
+-33 32 dlv
+-33 -32 dlv
+dle
+0 -460 26953 17986 dls
+0 -460 27216 17986 dls
+27216 17854 dlt
+98 99 dlv
+66 33 dlv
+98 0 dlv
+66 -33 dlv
+33 -99 dlv
+0 -328 dlv
+dle
+0 -690 27840 17986 dls
+27840 17887 dlt
+66 66 dlv
+65 33 dlv
+99 0 dlv
+65 -33 dlv
+66 -66 dlv
+33 -99 dlv
+0 -65 dlv
+-33 -99 dlv
+-66 -65 dlv
+-65 -33 dlv
+-99 0 dlv
+-65 33 dlv
+-66 65 dlv
+dle
+28464 17986 dlt
+0 -329 dlv
+33 -98 dlv
+66 -33 dlv
+98 0 dlv
+66 33 dlv
+98 98 dlv
+dle
+0 -460 28825 17986 dls
+29121 18216 dlt
+0 -559 dlv
+33 -98 dlv
+66 -33 dlv
+65 0 dlv
+dle
+230 0 29022 17986 dls
+27669 22286 dlt
+197 -460 dlv
+197 460 dlv
+dle
+0 -690 28621 22516 dls
+28621 22187 dlt
+-65 66 dlv
+-66 33 dlv
+-99 0 dlv
+-65 -33 dlv
+-66 -66 dlv
+-33 -98 dlv
+0 -66 dlv
+33 -98 dlv
+66 -66 dlv
+65 -33 dlv
+99 0 dlv
+66 33 dlv
+65 66 dlv
+dle
+0 -690 29246 22516 dls
+29246 22187 dlt
+-66 66 dlv
+-66 33 dlv
+-98 0 dlv
+-66 -33 dlv
+-66 -66 dlv
+-33 -98 dlv
+0 -66 dlv
+33 -98 dlv
+66 -66 dlv
+66 -33 dlv
+98 0 dlv
+66 33 dlv
+66 66 dlv
+dle
+32046 18126 dlt
+-66 -33 dlv
+-65 -65 dlv
+-33 -99 dlv
+0 -66 dlv
+33 -98 dlv
+65 -66 dlv
+66 -33 dlv
+99 0 dlv
+65 33 dlv
+66 66 dlv
+33 98 dlv
+0 66 dlv
+-33 99 dlv
+-66 65 dlv
+-65 33 dlv
+-99 0 dlv
+dle
+32539 18126 dlt
+0 -328 dlv
+33 -99 dlv
+65 -33 dlv
+99 0 dlv
+66 33 dlv
+98 99 dlv
+dle
+0 -460 32900 18126 dls
+33196 18356 dlt
+0 -558 dlv
+33 -99 dlv
+65 -33 dlv
+66 0 dlv
+dle
+230 0 33097 18126 dls
+0 -690 33557 18126 dls
+33557 18028 dlt
+66 65 dlv
+66 33 dlv
+98 0 dlv
+66 -33 dlv
+66 -65 dlv
+32 -99 dlv
+0 -66 dlv
+-32 -98 dlv
+-66 -66 dlv
+-66 -33 dlv
+-98 0 dlv
+-66 33 dlv
+-66 66 dlv
+dle
+34181 18126 dlt
+0 -328 dlv
+33 -99 dlv
+66 -33 dlv
+99 0 dlv
+65 33 dlv
+99 99 dlv
+dle
+0 -460 34543 18126 dls
+34838 18356 dlt
+0 -558 dlv
+33 -99 dlv
+66 -33 dlv
+66 0 dlv
+dle
+230 0 34740 18126 dls
+29692 15767 dlt
+0 -526 dlv
+-33 -98 dlv
+-33 -33 dlv
+-66 -33 dlv
+-98 0 dlv
+-66 33 dlv
+dle
+29692 15668 dlt
+-66 66 dlv
+-66 33 dlv
+-98 0 dlv
+-66 -33 dlv
+-66 -66 dlv
+-32 -98 dlv
+0 -66 dlv
+32 -99 dlv
+66 -65 dlv
+66 -33 dlv
+98 0 dlv
+66 33 dlv
+66 65 dlv
+dle
+0 -460 29955 15767 dls
+29955 15635 dlt
+98 99 dlv
+66 33 dlv
+98 0 dlv
+66 -33 dlv
+33 -99 dlv
+0 -328 dlv
+dle
+0 -690 30940 15997 dls
+30940 15668 dlt
+-66 66 dlv
+-65 33 dlv
+-99 0 dlv
+-65 -33 dlv
+-66 -66 dlv
+-33 -98 dlv
+0 -66 dlv
+33 -99 dlv
+66 -65 dlv
+65 -33 dlv
+99 0 dlv
+65 33 dlv
+66 65 dlv
+dle
+28410 18216 dlt
+33 -33 dlv
+33 33 dlv
+-33 32 dlv
+-33 -32 dlv
+dle
+0 -460 28443 17986 dls
+0 -460 28706 17986 dls
+28706 17854 dlt
+98 99 dlv
+66 33 dlv
+99 0 dlv
+65 -33 dlv
+33 -99 dlv
+0 -328 dlv
+dle
+0 -690 29330 17986 dls
+29330 17887 dlt
+66 66 dlv
+65 33 dlv
+99 0 dlv
+66 -33 dlv
+65 -66 dlv
+33 -99 dlv
+0 -65 dlv
+-33 -99 dlv
+-65 -65 dlv
+-66 -33 dlv
+-99 0 dlv
+-65 33 dlv
+-66 65 dlv
+dle
+29954 17986 dlt
+0 -329 dlv
+33 -98 dlv
+66 -33 dlv
+98 0 dlv
+66 33 dlv
+98 98 dlv
+dle
+0 -460 30315 17986 dls
+30611 18216 dlt
+0 -559 dlv
+33 -98 dlv
+66 -33 dlv
+65 0 dlv
+dle
+230 0 30513 17986 dls
+29159 22286 dlt
+197 -460 dlv
+197 460 dlv
+dle
+0 -690 30112 22516 dls
+30112 22187 dlt
+-66 66 dlv
+-66 33 dlv
+-98 0 dlv
+-66 -33 dlv
+-66 -66 dlv
+-33 -98 dlv
+0 -66 dlv
+33 -98 dlv
+66 -66 dlv
+66 -33 dlv
+98 0 dlv
+66 33 dlv
+66 66 dlv
+dle
+0 -690 30736 22516 dls
+30736 22187 dlt
+-66 66 dlv
+-66 33 dlv
+-98 0 dlv
+-66 -33 dlv
+-66 -66 dlv
+-32 -98 dlv
+0 -66 dlv
+32 -98 dlv
+66 -66 dlv
+66 -33 dlv
+98 0 dlv
+66 33 dlv
+66 66 dlv
+dle
+33536 18126 dlt
+-65 -33 dlv
+-66 -65 dlv
+-33 -99 dlv
+0 -66 dlv
+33 -98 dlv
+66 -66 dlv
+65 -33 dlv
+99 0 dlv
+65 33 dlv
+66 66 dlv
+33 98 dlv
+0 66 dlv
+-33 99 dlv
+-66 65 dlv
+-65 33 dlv
+-99 0 dlv
+dle
+34029 18126 dlt
+0 -328 dlv
+33 -99 dlv
+66 -33 dlv
+98 0 dlv
+66 33 dlv
+98 99 dlv
+dle
+0 -460 34390 18126 dls
+34686 18356 dlt
+0 -558 dlv
+33 -99 dlv
+66 -33 dlv
+65 0 dlv
+dle
+230 0 34587 18126 dls
+0 -690 35047 18126 dls
+35047 18028 dlt
+66 65 dlv
+66 33 dlv
+98 0 dlv
+66 -33 dlv
+66 -65 dlv
+33 -99 dlv
+0 -66 dlv
+-33 -98 dlv
+-66 -66 dlv
+-66 -33 dlv
+-98 0 dlv
+-66 33 dlv
+-66 66 dlv
+dle
+35672 18126 dlt
+0 -328 dlv
+32 -99 dlv
+66 -33 dlv
+99 0 dlv
+65 33 dlv
+99 99 dlv
+dle
+0 -460 36033 18126 dls
+36329 18356 dlt
+0 -558 dlv
+32 -99 dlv
+66 -33 dlv
+66 0 dlv
+dle
+230 0 36230 18126 dls
+31182 15767 dlt
+0 -526 dlv
+-33 -98 dlv
+-33 -33 dlv
+-65 -33 dlv
+-99 0 dlv
+-66 33 dlv
+dle
+31182 15668 dlt
+-66 66 dlv
+-65 33 dlv
+-99 0 dlv
+-66 -33 dlv
+-65 -66 dlv
+-33 -98 dlv
+0 -66 dlv
+33 -99 dlv
+65 -65 dlv
+66 -33 dlv
+99 0 dlv
+65 33 dlv
+66 65 dlv
+dle
+0 -460 31445 15767 dls
+31445 15635 dlt
+98 99 dlv
+66 33 dlv
+99 0 dlv
+65 -33 dlv
+33 -99 dlv
+0 -328 dlv
+dle
+0 -690 32430 15997 dls
+32430 15668 dlt
+-65 66 dlv
+-66 33 dlv
+-99 0 dlv
+-65 -33 dlv
+-66 -66 dlv
+-33 -98 dlv
+0 -66 dlv
+33 -99 dlv
+66 -65 dlv
+65 -33 dlv
+99 0 dlv
+66 33 dlv
+65 65 dlv
+dle
+29900 18216 dlt
+33 -33 dlv
+33 33 dlv
+-33 32 dlv
+-33 -32 dlv
+dle
+0 -460 29933 17986 dls
+0 -460 30196 17986 dls
+30196 17854 dlt
+98 99 dlv
+66 33 dlv
+99 0 dlv
+65 -33 dlv
+33 -99 dlv
+0 -328 dlv
+dle
+0 -690 30820 17986 dls
+30820 17887 dlt
+66 66 dlv
+65 33 dlv
+99 0 dlv
+66 -33 dlv
+65 -66 dlv
+33 -99 dlv
+0 -65 dlv
+-33 -99 dlv
+-65 -65 dlv
+-66 -33 dlv
+-99 0 dlv
+-65 33 dlv
+-66 65 dlv
+dle
+31444 17986 dlt
+0 -329 dlv
+33 -98 dlv
+66 -33 dlv
+98 0 dlv
+66 33 dlv
+99 98 dlv
+dle
+0 -460 31806 17986 dls
+32101 18216 dlt
+0 -559 dlv
+33 -98 dlv
+66 -33 dlv
+65 0 dlv
+dle
+230 0 32003 17986 dls
+30649 22286 dlt
+197 -460 dlv
+197 460 dlv
+dle
+0 -690 31602 22516 dls
+31602 22187 dlt
+-66 66 dlv
+-66 33 dlv
+-98 0 dlv
+-66 -33 dlv
+-66 -66 dlv
+-33 -98 dlv
+0 -66 dlv
+33 -98 dlv
+66 -66 dlv
+66 -33 dlv
+98 0 dlv
+66 33 dlv
+66 66 dlv
+dle
+0 -690 32226 22516 dls
+32226 22187 dlt
+-66 66 dlv
+-66 33 dlv
+-98 0 dlv
+-66 -33 dlv
+-66 -66 dlv
+-32 -98 dlv
+0 -66 dlv
+32 -98 dlv
+66 -66 dlv
+66 -33 dlv
+98 0 dlv
+66 33 dlv
+66 66 dlv
+dle
+35026 18126 dlt
+-65 -33 dlv
+-66 -65 dlv
+-33 -99 dlv
+0 -66 dlv
+33 -98 dlv
+66 -66 dlv
+65 -33 dlv
+99 0 dlv
+66 33 dlv
+65 66 dlv
+33 98 dlv
+0 66 dlv
+-33 99 dlv
+-65 65 dlv
+-66 33 dlv
+-99 0 dlv
+dle
+35519 18126 dlt
+0 -328 dlv
+33 -99 dlv
+66 -33 dlv
+98 0 dlv
+66 33 dlv
+98 99 dlv
+dle
+0 -460 35880 18126 dls
+36176 18356 dlt
+0 -558 dlv
+33 -99 dlv
+66 -33 dlv
+65 0 dlv
+dle
+230 0 36078 18126 dls
+0 -690 36537 18126 dls
+36537 18028 dlt
+66 65 dlv
+66 33 dlv
+98 0 dlv
+66 -33 dlv
+66 -65 dlv
+33 -99 dlv
+0 -66 dlv
+-33 -98 dlv
+-66 -66 dlv
+-66 -33 dlv
+-98 0 dlv
+-66 33 dlv
+-66 66 dlv
+dle
+37162 18126 dlt
+0 -328 dlv
+32 -99 dlv
+66 -33 dlv
+99 0 dlv
+65 33 dlv
+99 99 dlv
+dle
+0 -460 37523 18126 dls
+37819 18356 dlt
+0 -558 dlv
+33 -99 dlv
+65 -33 dlv
+66 0 dlv
+dle
+230 0 37720 18126 dls
+32672 15767 dlt
+0 -526 dlv
+-33 -98 dlv
+-33 -33 dlv
+-65 -33 dlv
+-99 0 dlv
+-66 33 dlv
+dle
+32672 15668 dlt
+-66 66 dlv
+-65 33 dlv
+-99 0 dlv
+-66 -33 dlv
+-65 -66 dlv
+-33 -98 dlv
+0 -66 dlv
+33 -99 dlv
+65 -65 dlv
+66 -33 dlv
+99 0 dlv
+65 33 dlv
+66 65 dlv
+dle
+0 -460 32935 15767 dls
+32935 15635 dlt
+98 99 dlv
+66 33 dlv
+99 0 dlv
+65 -33 dlv
+33 -99 dlv
+0 -328 dlv
+dle
+0 -690 33920 15997 dls
+33920 15668 dlt
+-65 66 dlv
+-66 33 dlv
+-99 0 dlv
+-65 -33 dlv
+-66 -66 dlv
+-33 -98 dlv
+0 -66 dlv
+33 -99 dlv
+66 -65 dlv
+65 -33 dlv
+99 0 dlv
+66 33 dlv
+65 65 dlv
+dle
+31390 18216 dlt
+33 -33 dlv
+33 33 dlv
+-33 32 dlv
+-33 -32 dlv
+dle
+0 -460 31423 17986 dls
+0 -460 31686 17986 dls
+31686 17854 dlt
+99 99 dlv
+65 33 dlv
+99 0 dlv
+66 -33 dlv
+32 -99 dlv
+0 -328 dlv
+dle
+0 -690 32310 17986 dls
+32310 17887 dlt
+66 66 dlv
+66 33 dlv
+98 0 dlv
+66 -33 dlv
+66 -66 dlv
+32 -99 dlv
+0 -65 dlv
+-32 -99 dlv
+-66 -65 dlv
+-66 -33 dlv
+-98 0 dlv
+-66 33 dlv
+-66 65 dlv
+dle
+32934 17986 dlt
+0 -329 dlv
+33 -98 dlv
+66 -33 dlv
+98 0 dlv
+66 33 dlv
+99 98 dlv
+dle
+0 -460 33296 17986 dls
+33591 18216 dlt
+0 -559 dlv
+33 -98 dlv
+66 -33 dlv
+66 0 dlv
+dle
+230 0 33493 17986 dls
+32139 22286 dlt
+197 -460 dlv
+197 460 dlv
+dle
+0 -690 33092 22516 dls
+33092 22187 dlt
+-66 66 dlv
+-66 33 dlv
+-98 0 dlv
+-66 -33 dlv
+-66 -66 dlv
+-32 -98 dlv
+0 -66 dlv
+32 -98 dlv
+66 -66 dlv
+66 -33 dlv
+98 0 dlv
+66 33 dlv
+66 66 dlv
+dle
+0 -690 33716 22516 dls
+33716 22187 dlt
+-66 66 dlv
+-65 33 dlv
+-99 0 dlv
+-66 -33 dlv
+-65 -66 dlv
+-33 -98 dlv
+0 -66 dlv
+33 -98 dlv
+65 -66 dlv
+66 -33 dlv
+99 0 dlv
+65 33 dlv
+66 66 dlv
+dle
+36516 18126 dlt
+-65 -33 dlv
+-66 -65 dlv
+-33 -99 dlv
+0 -66 dlv
+33 -98 dlv
+66 -66 dlv
+65 -33 dlv
+99 0 dlv
+66 33 dlv
+65 66 dlv
+33 98 dlv
+0 66 dlv
+-33 99 dlv
+-65 65 dlv
+-66 33 dlv
+-99 0 dlv
+dle
+37009 18126 dlt
+0 -328 dlv
+33 -99 dlv
+66 -33 dlv
+98 0 dlv
+66 33 dlv
+99 99 dlv
+dle
+0 -460 37371 18126 dls
+37666 18356 dlt
+0 -558 dlv
+33 -99 dlv
+66 -33 dlv
+65 0 dlv
+dle
+230 0 37568 18126 dls
+0 -690 38028 18126 dls
+38028 18028 dlt
+65 65 dlv
+66 33 dlv
+99 0 dlv
+65 -33 dlv
+66 -65 dlv
+33 -99 dlv
+0 -66 dlv
+-33 -98 dlv
+-66 -66 dlv
+-65 -33 dlv
+-99 0 dlv
+-66 33 dlv
+-65 66 dlv
+dle
+38652 18126 dlt
+0 -328 dlv
+33 -99 dlv
+65 -33 dlv
+99 0 dlv
+66 33 dlv
+98 99 dlv
+dle
+0 -460 39013 18126 dls
+39309 18356 dlt
+0 -558 dlv
+33 -99 dlv
+65 -33 dlv
+66 0 dlv
+dle
+230 0 39210 18126 dls
+34162 15767 dlt
+0 -526 dlv
+-33 -98 dlv
+-33 -33 dlv
+-65 -33 dlv
+-99 0 dlv
+-65 33 dlv
+dle
+34162 15668 dlt
+-66 66 dlv
+-65 33 dlv
+-99 0 dlv
+-65 -33 dlv
+-66 -66 dlv
+-33 -98 dlv
+0 -66 dlv
+33 -99 dlv
+66 -65 dlv
+65 -33 dlv
+99 0 dlv
+65 33 dlv
+66 65 dlv
+dle
+0 -460 34425 15767 dls
+34425 15635 dlt
+99 99 dlv
+65 33 dlv
+99 0 dlv
+65 -33 dlv
+33 -99 dlv
+0 -328 dlv
+dle
+0 -690 35410 15997 dls
+35410 15668 dlt
+-65 66 dlv
+-66 33 dlv
+-98 0 dlv
+-66 -33 dlv
+-66 -66 dlv
+-33 -98 dlv
+0 -66 dlv
+33 -99 dlv
+66 -65 dlv
+66 -33 dlv
+98 0 dlv
+66 33 dlv
+65 65 dlv
+dle
+32880 18216 dlt
+33 -33 dlv
+33 33 dlv
+-33 32 dlv
+-33 -32 dlv
+dle
+0 -460 32913 17986 dls
+0 -460 33176 17986 dls
+33176 17854 dlt
+99 99 dlv
+65 33 dlv
+99 0 dlv
+66 -33 dlv
+32 -99 dlv
+0 -328 dlv
+dle
+0 -690 33800 17986 dls
+33800 17887 dlt
+66 66 dlv
+66 33 dlv
+98 0 dlv
+66 -33 dlv
+66 -66 dlv
+32 -99 dlv
+0 -65 dlv
+-32 -99 dlv
+-66 -65 dlv
+-66 -33 dlv
+-98 0 dlv
+-66 33 dlv
+-66 65 dlv
+dle
+34424 17986 dlt
+0 -329 dlv
+33 -98 dlv
+66 -33 dlv
+99 0 dlv
+65 33 dlv
+99 98 dlv
+dle
+0 -460 34786 17986 dls
+35081 18216 dlt
+0 -559 dlv
+33 -98 dlv
+66 -33 dlv
+66 0 dlv
+dle
+230 0 34983 17986 dls
+33629 22286 dlt
+197 -460 dlv
+197 460 dlv
+dle
+0 -690 34582 22516 dls
+34582 22187 dlt
+-66 66 dlv
+-66 33 dlv
+-98 0 dlv
+-66 -33 dlv
+-65 -66 dlv
+-33 -98 dlv
+0 -66 dlv
+33 -98 dlv
+65 -66 dlv
+66 -33 dlv
+98 0 dlv
+66 33 dlv
+66 66 dlv
+dle
+0 -690 35206 22516 dls
+35206 22187 dlt
+-66 66 dlv
+-65 33 dlv
+-99 0 dlv
+-66 -33 dlv
+-65 -66 dlv
+-33 -98 dlv
+0 -66 dlv
+33 -98 dlv
+65 -66 dlv
+66 -33 dlv
+99 0 dlv
+65 33 dlv
+66 66 dlv
+dle
+38007 18126 dlt
+-66 -33 dlv
+-66 -65 dlv
+-33 -99 dlv
+0 -66 dlv
+33 -98 dlv
+66 -66 dlv
+66 -33 dlv
+98 0 dlv
+66 33 dlv
+66 66 dlv
+32 98 dlv
+0 66 dlv
+-32 99 dlv
+-66 65 dlv
+-66 33 dlv
+-98 0 dlv
+dle
+38499 18126 dlt
+0 -328 dlv
+33 -99 dlv
+66 -33 dlv
+98 0 dlv
+66 33 dlv
+99 99 dlv
+dle
+0 -460 38861 18126 dls
+39156 18356 dlt
+0 -558 dlv
+33 -99 dlv
+66 -33 dlv
+66 0 dlv
+dle
+230 0 39058 18126 dls
+0 -690 39518 18126 dls
+39518 18028 dlt
+65 65 dlv
+66 33 dlv
+99 0 dlv
+65 -33 dlv
+66 -65 dlv
+33 -99 dlv
+0 -66 dlv
+-33 -98 dlv
+-66 -66 dlv
+-65 -33 dlv
+-99 0 dlv
+-66 33 dlv
+-65 66 dlv
+dle
+40142 18126 dlt
+0 -328 dlv
+33 -99 dlv
+65 -33 dlv
+99 0 dlv
+66 33 dlv
+98 99 dlv
+dle
+0 -460 40503 18126 dls
+40799 18356 dlt
+0 -558 dlv
+33 -99 dlv
+65 -33 dlv
+66 0 dlv
+dle
+230 0 40700 18126 dls
+35652 15767 dlt
+0 -526 dlv
+-33 -98 dlv
+-32 -33 dlv
+-66 -33 dlv
+-99 0 dlv
+-65 33 dlv
+dle
+35652 15668 dlt
+-65 66 dlv
+-66 33 dlv
+-99 0 dlv
+-65 -33 dlv
+-66 -66 dlv
+-33 -98 dlv
+0 -66 dlv
+33 -99 dlv
+66 -65 dlv
+65 -33 dlv
+99 0 dlv
+66 33 dlv
+65 65 dlv
+dle
+0 -460 35915 15767 dls
+35915 15635 dlt
+99 99 dlv
+65 33 dlv
+99 0 dlv
+66 -33 dlv
+32 -99 dlv
+0 -328 dlv
+dle
+0 -690 36901 15997 dls
+36901 15668 dlt
+-66 66 dlv
+-66 33 dlv
+-98 0 dlv
+-66 -33 dlv
+-66 -66 dlv
+-33 -98 dlv
+0 -66 dlv
+33 -99 dlv
+66 -65 dlv
+66 -33 dlv
+98 0 dlv
+66 33 dlv
+66 65 dlv
+dle
+34371 18216 dlt
+32 -33 dlv
+33 33 dlv
+-33 32 dlv
+-32 -32 dlv
+dle
+0 -460 34403 17986 dls
+0 -460 34666 17986 dls
+34666 17854 dlt
+99 99 dlv
+65 33 dlv
+99 0 dlv
+66 -33 dlv
+33 -99 dlv
+0 -328 dlv
+dle
+0 -690 35290 17986 dls
+35290 17887 dlt
+66 66 dlv
+66 33 dlv
+98 0 dlv
+66 -33 dlv
+66 -66 dlv
+33 -99 dlv
+0 -65 dlv
+-33 -99 dlv
+-66 -65 dlv
+-66 -33 dlv
+-98 0 dlv
+-66 33 dlv
+-66 65 dlv
+dle
+35915 17986 dlt
+0 -329 dlv
+32 -98 dlv
+66 -33 dlv
+99 0 dlv
+65 33 dlv
+99 98 dlv
+dle
+0 -460 36276 17986 dls
+36572 18216 dlt
+0 -559 dlv
+32 -98 dlv
+66 -33 dlv
+66 0 dlv
+dle
+230 0 36473 17986 dls
+35119 22286 dlt
+197 -460 dlv
+198 460 dlv
+dle
+0 -690 36072 22516 dls
+36072 22187 dlt
+-66 66 dlv
+-65 33 dlv
+-99 0 dlv
+-66 -33 dlv
+-65 -66 dlv
+-33 -98 dlv
+0 -66 dlv
+33 -98 dlv
+65 -66 dlv
+66 -33 dlv
+99 0 dlv
+65 33 dlv
+66 66 dlv
+dle
+0 -690 36696 22516 dls
+36696 22187 dlt
+-66 66 dlv
+-65 33 dlv
+-99 0 dlv
+-65 -33 dlv
+-66 -66 dlv
+-33 -98 dlv
+0 -66 dlv
+33 -98 dlv
+66 -66 dlv
+65 -33 dlv
+99 0 dlv
+65 33 dlv
+66 66 dlv
+dle
+39497 18126 dlt
+-66 -33 dlv
+-66 -65 dlv
+-33 -99 dlv
+0 -66 dlv
+33 -98 dlv
+66 -66 dlv
+66 -33 dlv
+98 0 dlv
+66 33 dlv
+66 66 dlv
+32 98 dlv
+0 66 dlv
+-32 99 dlv
+-66 65 dlv
+-66 33 dlv
+-98 0 dlv
+dle
+39989 18126 dlt
+0 -328 dlv
+33 -99 dlv
+66 -33 dlv
+99 0 dlv
+65 33 dlv
+99 99 dlv
+dle
+0 -460 40351 18126 dls
+40646 18356 dlt
+0 -558 dlv
+33 -99 dlv
+66 -33 dlv
+66 0 dlv
+dle
+230 0 40548 18126 dls
+0 -690 41008 18126 dls
+41008 18028 dlt
+66 65 dlv
+65 33 dlv
+99 0 dlv
+65 -33 dlv
+66 -65 dlv
+33 -99 dlv
+0 -66 dlv
+-33 -98 dlv
+-66 -66 dlv
+-65 -33 dlv
+-99 0 dlv
+-65 33 dlv
+-66 66 dlv
+dle
+41632 18126 dlt
+0 -328 dlv
+33 -99 dlv
+66 -33 dlv
+98 0 dlv
+66 33 dlv
+98 99 dlv
+dle
+0 -460 41993 18126 dls
+42289 18356 dlt
+0 -558 dlv
+33 -99 dlv
+66 -33 dlv
+65 0 dlv
+dle
+230 0 42190 18126 dls
+37142 15767 dlt
+0 -526 dlv
+-32 -98 dlv
+-33 -33 dlv
+-66 -33 dlv
+-99 0 dlv
+-65 33 dlv
+dle
+37142 15668 dlt
+-65 66 dlv
+-66 33 dlv
+-99 0 dlv
+-65 -33 dlv
+-66 -66 dlv
+-33 -98 dlv
+0 -66 dlv
+33 -99 dlv
+66 -65 dlv
+65 -33 dlv
+99 0 dlv
+66 33 dlv
+65 65 dlv
+dle
+0 -460 37405 15767 dls
+37405 15635 dlt
+99 99 dlv
+65 33 dlv
+99 0 dlv
+66 -33 dlv
+33 -99 dlv
+0 -328 dlv
+dle
+0 -690 38391 15997 dls
+38391 15668 dlt
+-66 66 dlv
+-66 33 dlv
+-98 0 dlv
+-66 -33 dlv
+-66 -66 dlv
+-32 -98 dlv
+0 -66 dlv
+32 -99 dlv
+66 -65 dlv
+66 -33 dlv
+98 0 dlv
+66 33 dlv
+66 65 dlv
+dle
+35861 18216 dlt
+33 -33 dlv
+32 33 dlv
+-32 32 dlv
+-33 -32 dlv
+dle
+0 -460 35894 17986 dls
+0 -460 36156 17986 dls
+36156 17854 dlt
+99 99 dlv
+66 33 dlv
+98 0 dlv
+66 -33 dlv
+33 -99 dlv
+0 -328 dlv
+dle
+0 -690 36780 17986 dls
+36780 17887 dlt
+66 66 dlv
+66 33 dlv
+98 0 dlv
+66 -33 dlv
+66 -66 dlv
+33 -99 dlv
+0 -65 dlv
+-33 -99 dlv
+-66 -65 dlv
+-66 -33 dlv
+-98 0 dlv
+-66 33 dlv
+-66 65 dlv
+dle
+37405 17986 dlt
+0 -329 dlv
+33 -98 dlv
+65 -33 dlv
+99 0 dlv
+65 33 dlv
+99 98 dlv
+dle
+0 -460 37766 17986 dls
+38062 18216 dlt
+0 -559 dlv
+33 -98 dlv
+65 -33 dlv
+66 0 dlv
+dle
+230 0 37963 17986 dls
+36609 22286 dlt
+198 -460 dlv
+197 460 dlv
+dle
+0 -690 37562 22516 dls
+37562 22187 dlt
+-66 66 dlv
+-65 33 dlv
+-99 0 dlv
+-66 -33 dlv
+-65 -66 dlv
+-33 -98 dlv
+0 -66 dlv
+33 -98 dlv
+65 -66 dlv
+66 -33 dlv
+99 0 dlv
+65 33 dlv
+66 66 dlv
+dle
+0 -690 38186 22516 dls
+38186 22187 dlt
+-65 66 dlv
+-66 33 dlv
+-99 0 dlv
+-65 -33 dlv
+-66 -66 dlv
+-33 -98 dlv
+0 -66 dlv
+33 -98 dlv
+66 -66 dlv
+65 -33 dlv
+99 0 dlv
+66 33 dlv
+65 66 dlv
+dle
+40987 18126 dlt
+-66 -33 dlv
+-66 -65 dlv
+-32 -99 dlv
+0 -66 dlv
+32 -98 dlv
+66 -66 dlv
+66 -33 dlv
+98 0 dlv
+66 33 dlv
+66 66 dlv
+33 98 dlv
+0 66 dlv
+-33 99 dlv
+-66 65 dlv
+-66 33 dlv
+-98 0 dlv
+dle
+41480 18126 dlt
+0 -328 dlv
+32 -99 dlv
+66 -33 dlv
+99 0 dlv
+65 33 dlv
+99 99 dlv
+dle
+0 -460 41841 18126 dls
+42137 18356 dlt
+0 -558 dlv
+32 -99 dlv
+66 -33 dlv
+66 0 dlv
+dle
+230 0 42038 18126 dls
+0 -690 42498 18126 dls
+42498 18028 dlt
+66 65 dlv
+65 33 dlv
+99 0 dlv
+66 -33 dlv
+65 -65 dlv
+33 -99 dlv
+0 -66 dlv
+-33 -98 dlv
+-65 -66 dlv
+-66 -33 dlv
+-99 0 dlv
+-65 33 dlv
+-66 66 dlv
+dle
+43122 18126 dlt
+0 -328 dlv
+33 -99 dlv
+66 -33 dlv
+98 0 dlv
+66 33 dlv
+98 99 dlv
+dle
+0 -460 43483 18126 dls
+43779 18356 dlt
+0 -558 dlv
+33 -99 dlv
+66 -33 dlv
+65 0 dlv
+dle
+229 0 43681 18126 dls
+38632 15767 dlt
+0 -526 dlv
+-32 -98 dlv
+-33 -33 dlv
+-66 -33 dlv
+-98 0 dlv
+-66 33 dlv
+dle
+38632 15668 dlt
+-65 66 dlv
+-66 33 dlv
+-98 0 dlv
+-66 -33 dlv
+-66 -66 dlv
+-33 -98 dlv
+0 -66 dlv
+33 -99 dlv
+66 -65 dlv
+66 -33 dlv
+98 0 dlv
+66 33 dlv
+65 65 dlv
+dle
+0 -460 38895 15767 dls
+38895 15635 dlt
+99 99 dlv
+66 33 dlv
+98 0 dlv
+66 -33 dlv
+33 -99 dlv
+0 -328 dlv
+dle
+0 -690 39881 15997 dls
+39881 15668 dlt
+-66 66 dlv
+-66 33 dlv
+-98 0 dlv
+-66 -33 dlv
+-66 -66 dlv
+-32 -98 dlv
+0 -66 dlv
+32 -99 dlv
+66 -65 dlv
+66 -33 dlv
+98 0 dlv
+66 33 dlv
+66 65 dlv
+dle
+37351 18216 dlt
+33 -33 dlv
+32 33 dlv
+-32 32 dlv
+-33 -32 dlv
+dle
+0 -460 37384 17986 dls
+0 -460 37646 17986 dls
+37646 17854 dlt
+99 99 dlv
+66 33 dlv
+98 0 dlv
+66 -33 dlv
+33 -99 dlv
+0 -328 dlv
+dle
+0 -690 38271 17986 dls
+38271 17887 dlt
+65 66 dlv
+66 33 dlv
+99 0 dlv
+65 -33 dlv
+66 -66 dlv
+33 -99 dlv
+0 -65 dlv
+-33 -99 dlv
+-66 -65 dlv
+-65 -33 dlv
+-99 0 dlv
+-66 33 dlv
+-65 65 dlv
+dle
+38895 17986 dlt
+0 -329 dlv
+33 -98 dlv
+65 -33 dlv
+99 0 dlv
+66 33 dlv
+98 98 dlv
+dle
+0 -460 39256 17986 dls
+39552 18216 dlt
+0 -559 dlv
+33 -98 dlv
+65 -33 dlv
+66 0 dlv
+dle
+230 0 39453 17986 dls
+38100 22286 dlt
+197 -460 dlv
+197 460 dlv
+dle
+0 -690 39052 22516 dls
+39052 22187 dlt
+-65 66 dlv
+-66 33 dlv
+-99 0 dlv
+-65 -33 dlv
+-66 -66 dlv
+-33 -98 dlv
+0 -66 dlv
+33 -98 dlv
+66 -66 dlv
+65 -33 dlv
+99 0 dlv
+66 33 dlv
+65 66 dlv
+dle
+0 -690 39676 22516 dls
+39676 22187 dlt
+-65 66 dlv
+-66 33 dlv
+-99 0 dlv
+-65 -33 dlv
+-66 -66 dlv
+-33 -98 dlv
+0 -66 dlv
+33 -98 dlv
+66 -66 dlv
+65 -33 dlv
+99 0 dlv
+66 33 dlv
+65 66 dlv
+dle
+42477 18126 dlt
+-66 -33 dlv
+-66 -65 dlv
+-32 -99 dlv
+0 -66 dlv
+32 -98 dlv
+66 -66 dlv
+66 -33 dlv
+98 0 dlv
+66 33 dlv
+66 66 dlv
+33 98 dlv
+0 66 dlv
+-33 99 dlv
+-66 65 dlv
+-66 33 dlv
+-98 0 dlv
+dle
+42970 18126 dlt
+0 -328 dlv
+32 -99 dlv
+66 -33 dlv
+99 0 dlv
+65 33 dlv
+99 99 dlv
+dle
+0 -460 43331 18126 dls
+43627 18356 dlt
+0 -558 dlv
+33 -99 dlv
+65 -33 dlv
+66 0 dlv
+dle
+230 0 43528 18126 dls
+0 -690 43988 18126 dls
+43988 18028 dlt
+66 65 dlv
+65 33 dlv
+99 0 dlv
+66 -33 dlv
+65 -65 dlv
+33 -99 dlv
+0 -66 dlv
+-33 -98 dlv
+-65 -66 dlv
+-66 -33 dlv
+-99 0 dlv
+-65 33 dlv
+-66 66 dlv
+dle
+44612 18126 dlt
+0 -328 dlv
+33 -99 dlv
+66 -33 dlv
+98 0 dlv
+66 33 dlv
+99 99 dlv
+dle
+0 -460 44974 18126 dls
+45269 18356 dlt
+0 -558 dlv
+33 -99 dlv
+66 -33 dlv
+65 0 dlv
+dle
+230 0 45171 18126 dls
+40123 15767 dlt
+0 -526 dlv
+-33 -98 dlv
+-33 -33 dlv
+-66 -33 dlv
+-98 0 dlv
+-66 33 dlv
+dle
+40123 15668 dlt
+-66 66 dlv
+-66 33 dlv
+-98 0 dlv
+-66 -33 dlv
+-66 -66 dlv
+-33 -98 dlv
+0 -66 dlv
+33 -99 dlv
+66 -65 dlv
+66 -33 dlv
+98 0 dlv
+66 33 dlv
+66 65 dlv
+dle
+0 -460 40385 15767 dls
+40385 15635 dlt
+99 99 dlv
+66 33 dlv
+98 0 dlv
+66 -33 dlv
+33 -99 dlv
+0 -328 dlv
+dle
+0 -690 41371 15997 dls
+41371 15668 dlt
+-66 66 dlv
+-65 33 dlv
+-99 0 dlv
+-66 -33 dlv
+-65 -66 dlv
+-33 -98 dlv
+0 -66 dlv
+33 -99 dlv
+65 -65 dlv
+66 -33 dlv
+99 0 dlv
+65 33 dlv
+66 65 dlv
+dle
+38841 18216 dlt
+33 -33 dlv
+33 33 dlv
+-33 32 dlv
+-33 -32 dlv
+dle
+0 -460 38874 17986 dls
+0 -460 39137 17986 dls
+39137 17854 dlt
+98 99 dlv
+66 33 dlv
+98 0 dlv
+66 -33 dlv
+33 -99 dlv
+0 -328 dlv
+dle
+0 -690 39761 17986 dls
+39761 17887 dlt
+65 66 dlv
+66 33 dlv
+99 0 dlv
+65 -33 dlv
+66 -66 dlv
+33 -99 dlv
+0 -65 dlv
+-33 -99 dlv
+-66 -65 dlv
+-65 -33 dlv
+-99 0 dlv
+-66 33 dlv
+-65 65 dlv
+dle
+40385 17986 dlt
+0 -329 dlv
+33 -98 dlv
+65 -33 dlv
+99 0 dlv
+66 33 dlv
+98 98 dlv
+dle
+0 -460 40746 17986 dls
+41042 18216 dlt
+0 -559 dlv
+33 -98 dlv
+65 -33 dlv
+66 0 dlv
+dle
+230 0 40943 17986 dls
+39590 22286 dlt
+197 -460 dlv
+197 460 dlv
+dle
+0 -690 40542 22516 dls
+40542 22187 dlt
+-65 66 dlv
+-66 33 dlv
+-99 0 dlv
+-65 -33 dlv
+-66 -66 dlv
+-33 -98 dlv
+0 -66 dlv
+33 -98 dlv
+66 -66 dlv
+65 -33 dlv
+99 0 dlv
+66 33 dlv
+65 66 dlv
+dle
+0 -690 41166 22516 dls
+41166 22187 dlt
+-65 66 dlv
+-66 33 dlv
+-98 0 dlv
+-66 -33 dlv
+-66 -66 dlv
+-33 -98 dlv
+0 -66 dlv
+33 -98 dlv
+66 -66 dlv
+66 -33 dlv
+98 0 dlv
+66 33 dlv
+65 66 dlv
+dle
+43967 18126 dlt
+-66 -33 dlv
+-65 -65 dlv
+-33 -99 dlv
+0 -66 dlv
+33 -98 dlv
+65 -66 dlv
+66 -33 dlv
+99 0 dlv
+65 33 dlv
+66 66 dlv
+33 98 dlv
+0 66 dlv
+-33 99 dlv
+-66 65 dlv
+-65 33 dlv
+-99 0 dlv
+dle
+44460 18126 dlt
+0 -328 dlv
+33 -99 dlv
+65 -33 dlv
+99 0 dlv
+66 33 dlv
+98 99 dlv
+dle
+0 -460 44821 18126 dls
+45117 18356 dlt
+0 -558 dlv
+33 -99 dlv
+65 -33 dlv
+66 0 dlv
+dle
+230 0 45018 18126 dls
+0 -690 45478 18126 dls
+45478 18028 dlt
+66 65 dlv
+66 33 dlv
+98 0 dlv
+66 -33 dlv
+65 -65 dlv
+33 -99 dlv
+0 -66 dlv
+-33 -98 dlv
+-65 -66 dlv
+-66 -33 dlv
+-98 0 dlv
+-66 33 dlv
+-66 66 dlv
+dle
+46102 18126 dlt
+0 -328 dlv
+33 -99 dlv
+66 -33 dlv
+98 0 dlv
+66 33 dlv
+99 99 dlv
+dle
+0 -460 46464 18126 dls
+46759 18356 dlt
+0 -558 dlv
+33 -99 dlv
+66 -33 dlv
+66 0 dlv
+dle
+230 0 46661 18126 dls
+41613 15767 dlt
+0 -526 dlv
+-33 -98 dlv
+-33 -33 dlv
+-66 -33 dlv
+-98 0 dlv
+-66 33 dlv
+dle
+41613 15668 dlt
+-66 66 dlv
+-66 33 dlv
+-98 0 dlv
+-66 -33 dlv
+-66 -66 dlv
+-32 -98 dlv
+0 -66 dlv
+32 -99 dlv
+66 -65 dlv
+66 -33 dlv
+98 0 dlv
+66 33 dlv
+66 65 dlv
+dle
+0 -460 41876 15767 dls
+41876 15635 dlt
+98 99 dlv
+66 33 dlv
+98 0 dlv
+66 -33 dlv
+33 -99 dlv
+0 -328 dlv
+dle
+0 -690 42861 15997 dls
+42861 15668 dlt
+-66 66 dlv
+-65 33 dlv
+-99 0 dlv
+-66 -33 dlv
+-65 -66 dlv
+-33 -98 dlv
+0 -66 dlv
+33 -99 dlv
+65 -65 dlv
+66 -33 dlv
+99 0 dlv
+65 33 dlv
+66 65 dlv
+dle
+40331 18216 dlt
+33 -33 dlv
+33 33 dlv
+-33 32 dlv
+-33 -32 dlv
+dle
+0 -460 40364 17986 dls
+0 -460 40627 17986 dls
+40627 17854 dlt
+98 99 dlv
+66 33 dlv
+98 0 dlv
+66 -33 dlv
+33 -99 dlv
+0 -328 dlv
+dle
+0 -690 41251 17986 dls
+41251 17887 dlt
+66 66 dlv
+65 33 dlv
+99 0 dlv
+65 -33 dlv
+66 -66 dlv
+33 -99 dlv
+0 -65 dlv
+-33 -99 dlv
+-66 -65 dlv
+-65 -33 dlv
+-99 0 dlv
+-65 33 dlv
+-66 65 dlv
+dle
+41875 17986 dlt
+0 -329 dlv
+33 -98 dlv
+66 -33 dlv
+98 0 dlv
+66 33 dlv
+98 98 dlv
+dle
+0 -460 42236 17986 dls
+42532 18216 dlt
+0 -559 dlv
+33 -98 dlv
+66 -33 dlv
+65 0 dlv
+dle
+230 0 42433 17986 dls
+41080 22286 dlt
+197 -460 dlv
+197 460 dlv
+dle
+0 -690 42032 22516 dls
+42032 22187 dlt
+-65 66 dlv
+-66 33 dlv
+-99 0 dlv
+-65 -33 dlv
+-66 -66 dlv
+-33 -98 dlv
+0 -66 dlv
+33 -98 dlv
+66 -66 dlv
+65 -33 dlv
+99 0 dlv
+66 33 dlv
+65 66 dlv
+dle
+0 -690 42657 22516 dls
+42657 22187 dlt
+-66 66 dlv
+-66 33 dlv
+-98 0 dlv
+-66 -33 dlv
+-66 -66 dlv
+-33 -98 dlv
+0 -66 dlv
+33 -98 dlv
+66 -66 dlv
+66 -33 dlv
+98 0 dlv
+66 33 dlv
+66 66 dlv
+dle
+45457 18126 dlt
+-66 -33 dlv
+-65 -65 dlv
+-33 -99 dlv
+0 -66 dlv
+33 -98 dlv
+65 -66 dlv
+66 -33 dlv
+99 0 dlv
+65 33 dlv
+66 66 dlv
+33 98 dlv
+0 66 dlv
+-33 99 dlv
+-66 65 dlv
+-65 33 dlv
+-99 0 dlv
+dle
+45950 18126 dlt
+0 -328 dlv
+33 -99 dlv
+65 -33 dlv
+99 0 dlv
+66 33 dlv
+98 99 dlv
+dle
+0 -460 46311 18126 dls
+46607 18356 dlt
+0 -558 dlv
+33 -99 dlv
+65 -33 dlv
+66 0 dlv
+dle
+230 0 46508 18126 dls
+0 -690 46968 18126 dls
+46968 18028 dlt
+66 65 dlv
+66 33 dlv
+98 0 dlv
+66 -33 dlv
+66 -65 dlv
+32 -99 dlv
+0 -66 dlv
+-32 -98 dlv
+-66 -66 dlv
+-66 -33 dlv
+-98 0 dlv
+-66 33 dlv
+-66 66 dlv
+dle
+47592 18126 dlt
+0 -328 dlv
+33 -99 dlv
+66 -33 dlv
+99 0 dlv
+65 33 dlv
+99 99 dlv
+dle
+0 -460 47954 18126 dls
+48249 18356 dlt
+0 -558 dlv
+33 -99 dlv
+66 -33 dlv
+66 0 dlv
+dle
+230 0 48151 18126 dls
+43103 15767 dlt
+0 -526 dlv
+-33 -98 dlv
+-33 -33 dlv
+-66 -33 dlv
+-98 0 dlv
+-66 33 dlv
+dle
+43103 15668 dlt
+-66 66 dlv
+-66 33 dlv
+-98 0 dlv
+-66 -33 dlv
+-66 -66 dlv
+-32 -98 dlv
+0 -66 dlv
+32 -99 dlv
+66 -65 dlv
+66 -33 dlv
+98 0 dlv
+66 33 dlv
+66 65 dlv
+dle
+0 -460 43366 15767 dls
+43366 15635 dlt
+98 99 dlv
+66 33 dlv
+98 0 dlv
+66 -33 dlv
+33 -99 dlv
+0 -328 dlv
+dle
+0 -690 44351 15997 dls
+44351 15668 dlt
+-66 66 dlv
+-65 33 dlv
+-99 0 dlv
+-66 -33 dlv
+-65 -66 dlv
+-33 -98 dlv
+0 -66 dlv
+33 -99 dlv
+65 -65 dlv
+66 -33 dlv
+99 0 dlv
+65 33 dlv
+66 65 dlv
+dle
+41821 18216 dlt
+33 -33 dlv
+33 33 dlv
+-33 32 dlv
+-33 -32 dlv
+dle
+0 -460 41854 17986 dls
+0 -460 42117 17986 dls
+42117 17854 dlt
+98 99 dlv
+66 33 dlv
+99 0 dlv
+65 -33 dlv
+33 -99 dlv
+0 -328 dlv
+dle
+0 -690 42741 17986 dls
+42741 17887 dlt
+66 66 dlv
+65 33 dlv
+99 0 dlv
+66 -33 dlv
+65 -66 dlv
+33 -99 dlv
+0 -65 dlv
+-33 -99 dlv
+-65 -65 dlv
+-66 -33 dlv
+-99 0 dlv
+-65 33 dlv
+-66 65 dlv
+dle
+43365 17986 dlt
+0 -329 dlv
+33 -98 dlv
+66 -33 dlv
+98 0 dlv
+66 33 dlv
+98 98 dlv
+dle
+0 -460 43726 17986 dls
+44022 18216 dlt
+0 -559 dlv
+33 -98 dlv
+66 -33 dlv
+65 0 dlv
+dle
+230 0 43924 17986 dls
+42570 22286 dlt
+197 -460 dlv
+197 460 dlv
+dle
+0 -690 43523 22516 dls
+43523 22187 dlt
+-66 66 dlv
+-66 33 dlv
+-98 0 dlv
+-66 -33 dlv
+-66 -66 dlv
+-33 -98 dlv
+0 -66 dlv
+33 -98 dlv
+66 -66 dlv
+66 -33 dlv
+98 0 dlv
+66 33 dlv
+66 66 dlv
+dle
+0 -690 44147 22516 dls
+44147 22187 dlt
+-66 66 dlv
+-66 33 dlv
+-98 0 dlv
+-66 -33 dlv
+-66 -66 dlv
+-33 -98 dlv
+0 -66 dlv
+33 -98 dlv
+66 -66 dlv
+66 -33 dlv
+98 0 dlv
+66 33 dlv
+66 66 dlv
+dle
+1000 1000 1000 slc
+1000 1000 1000 sfc
+52776 0 -1 16645 dls
+0 0 1000 slc
+0 0 1000 sfc
+1241 248 47489 16118 dbu
+248 1241 47489 16118 dls
+248 -1241 47489 17359 dls
+1241 248 47986 16118 dbu
+248 1241 47986 16118 dls
+248 -1241 47986 17359 dls
+2484 248 47489 18880 dbu
+248 2484 47489 18880 dls
+248 -2484 47489 21364 dls
+2484 248 47986 18880 dbu
+248 2484 47986 18880 dls
+248 -2484 47986 21364 dls
+1241 248 2786 16118 dbu
+248 1241 2786 16118 dls
+248 -1241 2786 17359 dls
+1241 248 3283 16118 dbu
+248 1241 3283 16118 dls
+248 -1241 3283 17359 dls
+2484 248 2786 18880 dbu
+248 2484 2786 18880 dls
+248 -2484 2786 21364 dls
+2484 248 3283 18880 dbu
+248 2484 3283 18880 dls
+248 -2484 3283 21364 dls
+1241 248 4276 16118 dbu
+248 1241 4276 16118 dls
+248 -1241 4276 17359 dls
+1241 248 4773 16118 dbu
+248 1241 4773 16118 dls
+248 -1241 4773 17359 dls
+2484 248 4276 18880 dbu
+248 2484 4276 18880 dls
+248 -2484 4276 21364 dls
+2484 248 4773 18880 dbu
+248 2484 4773 18880 dls
+248 -2484 4773 21364 dls
+1241 248 5766 16118 dbu
+248 1241 5766 16118 dls
+248 -1241 5766 17359 dls
+1241 248 6263 16118 dbu
+248 1241 6263 16118 dls
+248 -1241 6263 17359 dls
+2484 248 5766 18880 dbu
+248 2484 5766 18880 dls
+248 -2484 5766 21364 dls
+2484 248 6263 18880 dbu
+248 2484 6263 18880 dls
+248 -2484 6263 21364 dls
+1241 249 7256 16118 dbu
+249 1241 7256 16118 dls
+249 -1241 7256 17359 dls
+1241 248 7753 16118 dbu
+248 1241 7753 16118 dls
+248 -1241 7753 17359 dls
+2484 249 7256 18880 dbu
+249 2484 7256 18880 dls
+249 -2484 7256 21364 dls
+2484 248 7753 18880 dbu
+248 2484 7753 18880 dls
+248 -2484 7753 21364 dls
+1241 249 8746 16118 dbu
+249 1241 8746 16118 dls
+249 -1241 8746 17359 dls
+1241 248 9243 16118 dbu
+248 1241 9243 16118 dls
+248 -1241 9243 17359 dls
+2484 249 8746 18880 dbu
+249 2484 8746 18880 dls
+249 -2484 8746 21364 dls
+2484 248 9243 18880 dbu
+248 2484 9243 18880 dls
+248 -2484 9243 21364 dls
+1241 249 10236 16118 dbu
+249 1241 10236 16118 dls
+249 -1241 10236 17359 dls
+1241 248 10733 16118 dbu
+248 1241 10733 16118 dls
+248 -1241 10733 17359 dls
+2484 249 10236 18880 dbu
+249 2484 10236 18880 dls
+249 -2484 10236 21364 dls
+2484 248 10733 18880 dbu
+248 2484 10733 18880 dls
+248 -2484 10733 21364 dls
+1241 248 11727 16118 dbu
+248 1241 11727 16118 dls
+248 -1241 11727 17359 dls
+1241 249 12223 16118 dbu
+249 1241 12223 16118 dls
+249 -1241 12223 17359 dls
+2484 248 11727 18880 dbu
+248 2484 11727 18880 dls
+248 -2484 11727 21364 dls
+2484 249 12223 18880 dbu
+249 2484 12223 18880 dls
+249 -2484 12223 21364 dls
+1241 248 13217 16118 dbu
+248 1241 13217 16118 dls
+248 -1241 13217 17359 dls
+1241 249 13713 16118 dbu
+249 1241 13713 16118 dls
+249 -1241 13713 17359 dls
+2484 248 13217 18880 dbu
+248 2484 13217 18880 dls
+248 -2484 13217 21364 dls
+2484 249 13713 18880 dbu
+249 2484 13713 18880 dls
+249 -2484 13713 21364 dls
+1241 248 14707 16118 dbu
+248 1241 14707 16118 dls
+248 -1241 14707 17359 dls
+1241 249 15203 16118 dbu
+249 1241 15203 16118 dls
+249 -1241 15203 17359 dls
+2484 248 14707 18880 dbu
+248 2484 14707 18880 dls
+248 -2484 14707 21364 dls
+2484 249 15203 18880 dbu
+249 2484 15203 18880 dls
+249 -2484 15203 21364 dls
+1241 248 16197 16118 dbu
+248 1241 16197 16118 dls
+248 -1241 16197 17359 dls
+1241 248 16694 16118 dbu
+248 1241 16694 16118 dls
+248 -1241 16694 17359 dls
+2484 248 16197 18880 dbu
+248 2484 16197 18880 dls
+248 -2484 16197 21364 dls
+2484 248 16694 18880 dbu
+248 2484 16694 18880 dls
+248 -2484 16694 21364 dls
+1241 248 17687 16118 dbu
+248 1241 17687 16118 dls
+248 -1241 17687 17359 dls
+1241 248 18184 16118 dbu
+248 1241 18184 16118 dls
+248 -1241 18184 17359 dls
+2484 248 17687 18880 dbu
+248 2484 17687 18880 dls
+248 -2484 17687 21364 dls
+2484 248 18184 18880 dbu
+248 2484 18184 18880 dls
+248 -2484 18184 21364 dls
+1241 248 19177 16118 dbu
+248 1241 19177 16118 dls
+248 -1241 19177 17359 dls
+1241 248 19674 16118 dbu
+248 1241 19674 16118 dls
+248 -1241 19674 17359 dls
+2484 248 19177 18880 dbu
+248 2484 19177 18880 dls
+248 -2484 19177 21364 dls
+2484 248 19674 18880 dbu
+248 2484 19674 18880 dls
+248 -2484 19674 21364 dls
+1241 249 20667 16118 dbu
+249 1241 20667 16118 dls
+249 -1241 20667 17359 dls
+1241 248 21164 16118 dbu
+248 1241 21164 16118 dls
+248 -1241 21164 17359 dls
+2484 249 20667 18880 dbu
+249 2484 20667 18880 dls
+249 -2484 20667 21364 dls
+2484 248 21164 18880 dbu
+248 2484 21164 18880 dls
+248 -2484 21164 21364 dls
+1241 249 22157 16118 dbu
+249 1241 22157 16118 dls
+249 -1241 22157 17359 dls
+1241 248 22654 16118 dbu
+248 1241 22654 16118 dls
+248 -1241 22654 17359 dls
+2484 249 22157 18880 dbu
+249 2484 22157 18880 dls
+249 -2484 22157 21364 dls
+2484 248 22654 18880 dbu
+248 2484 22654 18880 dls
+248 -2484 22654 21364 dls
+1241 249 23647 16118 dbu
+249 1241 23647 16118 dls
+249 -1241 23647 17359 dls
+1241 248 24144 16118 dbu
+248 1241 24144 16118 dls
+248 -1241 24144 17359 dls
+2484 249 23647 18880 dbu
+249 2484 23647 18880 dls
+249 -2484 23647 21364 dls
+2484 248 24144 18880 dbu
+248 2484 24144 18880 dls
+248 -2484 24144 21364 dls
+1241 249 25137 16118 dbu
+249 1241 25137 16118 dls
+249 -1241 25137 17359 dls
+1241 249 25634 16118 dbu
+249 1241 25634 16118 dls
+249 -1241 25634 17359 dls
+2484 249 25137 18880 dbu
+249 2484 25137 18880 dls
+249 -2484 25137 21364 dls
+2484 249 25634 18880 dbu
+249 2484 25634 18880 dls
+249 -2484 25634 21364 dls
+1241 248 26628 16118 dbu
+248 1241 26628 16118 dls
+248 -1241 26628 17359 dls
+1241 249 27124 16118 dbu
+249 1241 27124 16118 dls
+249 -1241 27124 17359 dls
+2484 248 26628 18880 dbu
+248 2484 26628 18880 dls
+248 -2484 26628 21364 dls
+2484 249 27124 18880 dbu
+249 2484 27124 18880 dls
+249 -2484 27124 21364 dls
+1241 248 28118 16118 dbu
+248 1241 28118 16118 dls
+248 -1241 28118 17359 dls
+1241 249 28614 16118 dbu
+249 1241 28614 16118 dls
+249 -1241 28614 17359 dls
+2484 248 28118 18880 dbu
+248 2484 28118 18880 dls
+248 -2484 28118 21364 dls
+2484 249 28614 18880 dbu
+249 2484 28614 18880 dls
+249 -2484 28614 21364 dls
+1241 248 29608 16118 dbu
+248 1241 29608 16118 dls
+248 -1241 29608 17359 dls
+1241 248 30105 16118 dbu
+248 1241 30105 16118 dls
+248 -1241 30105 17359 dls
+2484 248 29608 18880 dbu
+248 2484 29608 18880 dls
+248 -2484 29608 21364 dls
+2484 248 30105 18880 dbu
+248 2484 30105 18880 dls
+248 -2484 30105 21364 dls
+1241 248 31098 16118 dbu
+248 1241 31098 16118 dls
+248 -1241 31098 17359 dls
+1241 248 31595 16118 dbu
+248 1241 31595 16118 dls
+248 -1241 31595 17359 dls
+2484 248 31098 18880 dbu
+248 2484 31098 18880 dls
+248 -2484 31098 21364 dls
+2484 248 31595 18880 dbu
+248 2484 31595 18880 dls
+248 -2484 31595 21364 dls
+1241 248 32588 16118 dbu
+248 1241 32588 16118 dls
+248 -1241 32588 17359 dls
+1241 248 33085 16118 dbu
+248 1241 33085 16118 dls
+248 -1241 33085 17359 dls
+2484 248 32588 18880 dbu
+248 2484 32588 18880 dls
+248 -2484 32588 21364 dls
+2484 248 33085 18880 dbu
+248 2484 33085 18880 dls
+248 -2484 33085 21364 dls
+1241 249 34078 16118 dbu
+249 1241 34078 16118 dls
+249 -1241 34078 17359 dls
+1241 248 34575 16118 dbu
+248 1241 34575 16118 dls
+248 -1241 34575 17359 dls
+2484 249 34078 18880 dbu
+249 2484 34078 18880 dls
+249 -2484 34078 21364 dls
+2484 248 34575 18880 dbu
+248 2484 34575 18880 dls
+248 -2484 34575 21364 dls
+1241 249 35568 16118 dbu
+249 1241 35568 16118 dls
+249 -1241 35568 17359 dls
+1241 248 36065 16118 dbu
+248 1241 36065 16118 dls
+248 -1241 36065 17359 dls
+2484 249 35568 18880 dbu
+249 2484 35568 18880 dls
+249 -2484 35568 21364 dls
+2484 248 36065 18880 dbu
+248 2484 36065 18880 dls
+248 -2484 36065 21364 dls
+1241 249 37058 16118 dbu
+249 1241 37058 16118 dls
+249 -1241 37058 17359 dls
+1241 248 37555 16118 dbu
+248 1241 37555 16118 dls
+248 -1241 37555 17359 dls
+2484 249 37058 18880 dbu
+249 2484 37058 18880 dls
+249 -2484 37058 21364 dls
+2484 248 37555 18880 dbu
+248 2484 37555 18880 dls
+248 -2484 37555 21364 dls
+1241 249 38548 16118 dbu
+249 1241 38548 16118 dls
+249 -1241 38548 17359 dls
+1241 249 39045 16118 dbu
+249 1241 39045 16118 dls
+249 -1241 39045 17359 dls
+2484 249 38548 18880 dbu
+249 2484 38548 18880 dls
+249 -2484 38548 21364 dls
+2484 249 39045 18880 dbu
+249 2484 39045 18880 dls
+249 -2484 39045 21364 dls
+1241 248 40039 16118 dbu
+248 1241 40039 16118 dls
+248 -1241 40039 17359 dls
+1241 249 40535 16118 dbu
+249 1241 40535 16118 dls
+249 -1241 40535 17359 dls
+2484 248 40039 18880 dbu
+248 2484 40039 18880 dls
+248 -2484 40039 21364 dls
+2484 249 40535 18880 dbu
+249 2484 40535 18880 dls
+249 -2484 40535 21364 dls
+1241 248 41529 16118 dbu
+248 1241 41529 16118 dls
+248 -1241 41529 17359 dls
+1241 249 42025 16118 dbu
+249 1241 42025 16118 dls
+249 -1241 42025 17359 dls
+2484 248 41529 18880 dbu
+248 2484 41529 18880 dls
+248 -2484 41529 21364 dls
+2484 249 42025 18880 dbu
+249 2484 42025 18880 dls
+249 -2484 42025 21364 dls
+1241 248 43019 16118 dbu
+248 1241 43019 16118 dls
+248 -1241 43019 17359 dls
+1241 248 43516 16118 dbu
+248 1241 43516 16118 dls
+248 -1241 43516 17359 dls
+2484 248 43019 18880 dbu
+248 2484 43019 18880 dls
+248 -2484 43019 21364 dls
+2484 248 43516 18880 dbu
+248 2484 43516 18880 dls
+248 -2484 43516 21364 dls
+1241 248 44509 16118 dbu
+248 1241 44509 16118 dls
+248 -1241 44509 17359 dls
+1241 248 45006 16118 dbu
+248 1241 45006 16118 dls
+248 -1241 45006 17359 dls
+2484 248 44509 18880 dbu
+248 2484 44509 18880 dls
+248 -2484 44509 21364 dls
+2484 248 45006 18880 dbu
+248 2484 45006 18880 dls
+248 -2484 45006 21364 dls
+1000 0 0 slc
+1000 0 0 sfc
+1552 124 47800 15962 dbu
+124 1552 47800 15962 dls
+124 -1552 47800 17514 dls
+2794 124 47800 18725 dbu
+124 2794 47800 18725 dls
+124 -2794 47800 21519 dls
+1552 124 3096 15962 dbu
+124 1552 3096 15962 dls
+124 -1552 3096 17514 dls
+2794 124 3096 18725 dbu
+124 2794 3096 18725 dls
+124 -2794 3096 21519 dls
+1552 125 4586 15962 dbu
+125 1552 4586 15962 dls
+125 -1552 4586 17514 dls
+2794 125 4586 18725 dbu
+125 2794 4586 18725 dls
+125 -2794 4586 21519 dls
+1552 124 6077 15962 dbu
+124 1552 6077 15962 dls
+124 -1552 6077 17514 dls
+2794 124 6077 18725 dbu
+124 2794 6077 18725 dls
+124 -2794 6077 21519 dls
+1552 124 7567 15962 dbu
+124 1552 7567 15962 dls
+124 -1552 7567 17514 dls
+2794 124 7567 18725 dbu
+124 2794 7567 18725 dls
+124 -2794 7567 21519 dls
+1552 124 9057 15962 dbu
+124 1552 9057 15962 dls
+124 -1552 9057 17514 dls
+2794 124 9057 18725 dbu
+124 2794 9057 18725 dls
+124 -2794 9057 21519 dls
+1552 124 10547 15962 dbu
+124 1552 10547 15962 dls
+124 -1552 10547 17514 dls
+2794 124 10547 18725 dbu
+124 2794 10547 18725 dls
+124 -2794 10547 21519 dls
+1552 124 12037 15962 dbu
+124 1552 12037 15962 dls
+124 -1552 12037 17514 dls
+2794 124 12037 18725 dbu
+124 2794 12037 18725 dls
+124 -2794 12037 21519 dls
+1552 124 13527 15962 dbu
+124 1552 13527 15962 dls
+124 -1552 13527 17514 dls
+2794 124 13527 18725 dbu
+124 2794 13527 18725 dls
+124 -2794 13527 21519 dls
+1552 124 15017 15962 dbu
+124 1552 15017 15962 dls
+124 -1552 15017 17514 dls
+2794 124 15017 18725 dbu
+124 2794 15017 18725 dls
+124 -2794 15017 21519 dls
+1552 124 16507 15962 dbu
+124 1552 16507 15962 dls
+124 -1552 16507 17514 dls
+2794 124 16507 18725 dbu
+124 2794 16507 18725 dls
+124 -2794 16507 21519 dls
+1552 125 17997 15962 dbu
+125 1552 17997 15962 dls
+125 -1552 17997 17514 dls
+2794 125 17997 18725 dbu
+125 2794 17997 18725 dls
+125 -2794 17997 21519 dls
+1552 124 19488 15962 dbu
+124 1552 19488 15962 dls
+124 -1552 19488 17514 dls
+2794 124 19488 18725 dbu
+124 2794 19488 18725 dls
+124 -2794 19488 21519 dls
+1552 124 20978 15962 dbu
+124 1552 20978 15962 dls
+124 -1552 20978 17514 dls
+2794 124 20978 18725 dbu
+124 2794 20978 18725 dls
+124 -2794 20978 21519 dls
+1552 124 22468 15962 dbu
+124 1552 22468 15962 dls
+124 -1552 22468 17514 dls
+2794 124 22468 18725 dbu
+124 2794 22468 18725 dls
+124 -2794 22468 21519 dls
+1552 124 23958 15962 dbu
+124 1552 23958 15962 dls
+124 -1552 23958 17514 dls
+2794 124 23958 18725 dbu
+124 2794 23958 18725 dls
+124 -2794 23958 21519 dls
+1552 124 25448 15962 dbu
+124 1552 25448 15962 dls
+124 -1552 25448 17514 dls
+2794 124 25448 18725 dbu
+124 2794 25448 18725 dls
+124 -2794 25448 21519 dls
+1552 124 26938 15962 dbu
+124 1552 26938 15962 dls
+124 -1552 26938 17514 dls
+2794 124 26938 18725 dbu
+124 2794 26938 18725 dls
+124 -2794 26938 21519 dls
+1552 124 28428 15962 dbu
+124 1552 28428 15962 dls
+124 -1552 28428 17514 dls
+2794 124 28428 18725 dbu
+124 2794 28428 18725 dls
+124 -2794 28428 21519 dls
+1552 124 29918 15962 dbu
+124 1552 29918 15962 dls
+124 -1552 29918 17514 dls
+2794 124 29918 18725 dbu
+124 2794 29918 18725 dls
+124 -2794 29918 21519 dls
+1552 125 31408 15962 dbu
+125 1552 31408 15962 dls
+125 -1552 31408 17514 dls
+2794 125 31408 18725 dbu
+125 2794 31408 18725 dls
+125 -2794 31408 21519 dls
+1552 125 32898 15962 dbu
+125 1552 32898 15962 dls
+125 -1552 32898 17514 dls
+2794 125 32898 18725 dbu
+125 2794 32898 18725 dls
+125 -2794 32898 21519 dls
+1552 124 34389 15962 dbu
+124 1552 34389 15962 dls
+124 -1552 34389 17514 dls
+2794 124 34389 18725 dbu
+124 2794 34389 18725 dls
+124 -2794 34389 21519 dls
+1552 124 35879 15962 dbu
+124 1552 35879 15962 dls
+124 -1552 35879 17514 dls
+2794 124 35879 18725 dbu
+124 2794 35879 18725 dls
+124 -2794 35879 21519 dls
+1552 124 37369 15962 dbu
+124 1552 37369 15962 dls
+124 -1552 37369 17514 dls
+2794 124 37369 18725 dbu
+124 2794 37369 18725 dls
+124 -2794 37369 21519 dls
+1552 124 38859 15962 dbu
+124 1552 38859 15962 dls
+124 -1552 38859 17514 dls
+2794 124 38859 18725 dbu
+124 2794 38859 18725 dls
+124 -2794 38859 21519 dls
+1552 124 40349 15962 dbu
+124 1552 40349 15962 dls
+124 -1552 40349 17514 dls
+2794 124 40349 18725 dbu
+124 2794 40349 18725 dls
+124 -2794 40349 21519 dls
+1552 124 41839 15962 dbu
+124 1552 41839 15962 dls
+124 -1552 41839 17514 dls
+2794 124 41839 18725 dbu
+124 2794 41839 18725 dls
+124 -2794 41839 21519 dls
+1552 124 43329 15962 dbu
+124 1552 43329 15962 dls
+124 -1552 43329 17514 dls
+2794 124 43329 18725 dbu
+124 2794 43329 18725 dls
+124 -2794 43329 21519 dls
+1552 125 44819 15962 dbu
+125 1552 44819 15962 dls
+125 -1552 44819 17514 dls
+2794 125 44819 18725 dbu
+125 2794 44819 18725 dls
+125 -2794 44819 21519 dls
+0 15075 52774 23326 clwin
+gfs
+%%Trailer
+%%EOF
