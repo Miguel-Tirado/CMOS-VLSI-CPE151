@@ -1,0 +1,4 @@
+T -1  Osc_out /Osc_out
+? Terminal Osc_out in the layout is not present in the schematic.
+T -1  vdd /vdd
+? Terminal vdd in the layout is not present in the schematic.

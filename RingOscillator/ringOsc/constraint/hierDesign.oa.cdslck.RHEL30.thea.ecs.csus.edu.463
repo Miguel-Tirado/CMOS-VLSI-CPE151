@@ -1,0 +1,16 @@
+#
+# Edit Lock-Stake file. CAUTION: Please do not change.
+#
+# Information about current Edit Lock Owner.
+#
+LockStakeVersion               1.1
+LoginName                      tiradom
+HostName                       thea.ecs.csus.edu
+ProcessIdentifier              463
+ProcessCreationTime_UTC        1585869408
+ProcessCreationTime_Readable   Thu Apr  2 16:16:48 2020 PDT
+AppIdentifier                  OA File System Design Manager
+OSType                         unix
+ReasonForPlacingEditLock       OpenAccess edit lock
+FilePathUsedToEditLock         /gaia/class/student/tiradom/demo_151/RingOscillator/ringOsc/constraint/hierDesign.oa.cdslck
+TimeEditLocked                 Thu Apr  2 16:19:33 2020 PDT

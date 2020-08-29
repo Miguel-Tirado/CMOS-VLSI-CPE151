@@ -1,0 +1,158 @@
+t 33 Osc_out output
+t 32 vdd inputOutput
+n 0 /34
+n 1 /33
+n 2 /32
+n 3 /31
+n 4 /30
+n 5 /29
+n 6 /28
+n 7 /27
+n 8 /26
+n 9 /25
+n 10 /24
+n 11 /23
+n 12 /22
+n 13 /21
+n 14 /20
+n 15 /19
+n 16 /18
+n 17 /17
+n 18 /16
+n 19 /15
+n 20 /14
+n 21 /13
+n 22 /12
+n 23 /11
+n 24 /10
+n 25 /9
+n 26 /8
+n 27 /7
+n 28 /6
+n 29 /5
+n 30 /4
+n 31 /3
+n 32 /vdd
+n 33 /Osc_out
+; pmos4 Instance /+59 = auLvs device Q0
+d pmos D G S B (p D S)
+i 0 pmos 33 0 32 32 " m 1 l 180e-9 w 3.6e-6 "
+; pmos4 Instance /+58 = auLvs device Q1
+i 1 pmos 1 2 31 31 " m 1 l 180e-9 w 3.6e-6 "
+; pmos4 Instance /+57 = auLvs device Q2
+i 2 pmos 2 3 31 31 " m 1 l 180e-9 w 3.6e-6 "
+; pmos4 Instance /+56 = auLvs device Q3
+i 3 pmos 3 4 31 31 " m 1 l 180e-9 w 3.6e-6 "
+; pmos4 Instance /+55 = auLvs device Q4
+i 4 pmos 4 5 31 31 " m 1 l 180e-9 w 3.6e-6 "
+; pmos4 Instance /+54 = auLvs device Q5
+i 5 pmos 5 6 31 31 " m 1 l 180e-9 w 3.6e-6 "
+; pmos4 Instance /+53 = auLvs device Q6
+i 6 pmos 6 7 31 31 " m 1 l 180e-9 w 3.6e-6 "
+; pmos4 Instance /+52 = auLvs device Q7
+i 7 pmos 7 8 31 31 " m 1 l 180e-9 w 3.6e-6 "
+; pmos4 Instance /+51 = auLvs device Q8
+i 8 pmos 8 9 31 31 " m 1 l 180e-9 w 3.6e-6 "
+; pmos4 Instance /+50 = auLvs device Q9
+i 9 pmos 9 10 31 31 " m 1 l 180e-9 w 3.6e-6 "
+; pmos4 Instance /+49 = auLvs device Q10
+i 10 pmos 10 11 31 31 " m 1 l 180e-9 w 3.6e-6 "
+; pmos4 Instance /+48 = auLvs device Q11
+i 11 pmos 11 12 31 31 " m 1 l 180e-9 w 3.6e-6 "
+; pmos4 Instance /+47 = auLvs device Q12
+i 12 pmos 12 13 31 31 " m 1 l 180e-9 w 3.6e-6 "
+; pmos4 Instance /+46 = auLvs device Q13
+i 13 pmos 13 14 31 31 " m 1 l 180e-9 w 3.6e-6 "
+; pmos4 Instance /+45 = auLvs device Q14
+i 14 pmos 14 15 31 31 " m 1 l 180e-9 w 3.6e-6 "
+; pmos4 Instance /+44 = auLvs device Q15
+i 15 pmos 15 16 31 31 " m 1 l 180e-9 w 3.6e-6 "
+; pmos4 Instance /+43 = auLvs device Q16
+i 16 pmos 16 17 31 31 " m 1 l 180e-9 w 3.6e-6 "
+; pmos4 Instance /+42 = auLvs device Q17
+i 17 pmos 17 18 31 31 " m 1 l 180e-9 w 3.6e-6 "
+; pmos4 Instance /+41 = auLvs device Q18
+i 18 pmos 18 19 31 31 " m 1 l 180e-9 w 3.6e-6 "
+; pmos4 Instance /+40 = auLvs device Q19
+i 19 pmos 19 20 31 31 " m 1 l 180e-9 w 3.6e-6 "
+; pmos4 Instance /+39 = auLvs device Q20
+i 20 pmos 20 21 31 31 " m 1 l 180e-9 w 3.6e-6 "
+; pmos4 Instance /+38 = auLvs device Q21
+i 21 pmos 21 22 31 31 " m 1 l 180e-9 w 3.6e-6 "
+; pmos4 Instance /+37 = auLvs device Q22
+i 22 pmos 22 23 31 31 " m 1 l 180e-9 w 3.6e-6 "
+; pmos4 Instance /+36 = auLvs device Q23
+i 23 pmos 23 24 31 31 " m 1 l 180e-9 w 3.6e-6 "
+; pmos4 Instance /+35 = auLvs device Q24
+i 24 pmos 24 25 31 31 " m 1 l 180e-9 w 3.6e-6 "
+; pmos4 Instance /+34 = auLvs device Q25
+i 25 pmos 25 26 31 31 " m 1 l 180e-9 w 3.6e-6 "
+; pmos4 Instance /+33 = auLvs device Q26
+i 26 pmos 26 27 31 31 " m 1 l 180e-9 w 3.6e-6 "
+; pmos4 Instance /+32 = auLvs device Q27
+i 27 pmos 27 28 31 31 " m 1 l 180e-9 w 3.6e-6 "
+; pmos4 Instance /+31 = auLvs device Q28
+i 28 pmos 28 29 31 31 " m 1 l 180e-9 w 3.6e-6 "
+; pmos4 Instance /+30 = auLvs device Q29
+i 29 pmos 29 33 31 31 " m 1 l 180e-9 w 3.6e-6 "
+; nmos4 Instance /+29 = auLvs device Q30
+d nmos D G S B (p D S)
+i 30 nmos 33 0 30 30 " m 1 l 180e-9 w 1.8e-6 "
+; nmos4 Instance /+28 = auLvs device Q31
+i 31 nmos 1 2 30 30 " m 1 l 180e-9 w 1.8e-6 "
+; nmos4 Instance /+27 = auLvs device Q32
+i 32 nmos 2 3 30 30 " m 1 l 180e-9 w 1.8e-6 "
+; nmos4 Instance /+26 = auLvs device Q33
+i 33 nmos 3 4 30 30 " m 1 l 180e-9 w 1.8e-6 "
+; nmos4 Instance /+25 = auLvs device Q34
+i 34 nmos 4 5 30 30 " m 1 l 180e-9 w 1.8e-6 "
+; nmos4 Instance /+24 = auLvs device Q35
+i 35 nmos 5 6 30 30 " m 1 l 180e-9 w 1.8e-6 "
+; nmos4 Instance /+23 = auLvs device Q36
+i 36 nmos 6 7 30 30 " m 1 l 180e-9 w 1.8e-6 "
+; nmos4 Instance /+22 = auLvs device Q37
+i 37 nmos 7 8 30 30 " m 1 l 180e-9 w 1.8e-6 "
+; nmos4 Instance /+21 = auLvs device Q38
+i 38 nmos 8 9 30 30 " m 1 l 180e-9 w 1.8e-6 "
+; nmos4 Instance /+20 = auLvs device Q39
+i 39 nmos 9 10 30 30 " m 1 l 180e-9 w 1.8e-6 "
+; nmos4 Instance /+19 = auLvs device Q40
+i 40 nmos 10 11 30 30 " m 1 l 180e-9 w 1.8e-6 "
+; nmos4 Instance /+18 = auLvs device Q41
+i 41 nmos 11 12 30 30 " m 1 l 180e-9 w 1.8e-6 "
+; nmos4 Instance /+17 = auLvs device Q42
+i 42 nmos 12 13 30 30 " m 1 l 180e-9 w 1.8e-6 "
+; nmos4 Instance /+16 = auLvs device Q43
+i 43 nmos 13 14 30 30 " m 1 l 180e-9 w 1.8e-6 "
+; nmos4 Instance /+15 = auLvs device Q44
+i 44 nmos 14 15 30 30 " m 1 l 180e-9 w 1.8e-6 "
+; nmos4 Instance /+14 = auLvs device Q45
+i 45 nmos 15 16 30 30 " m 1 l 180e-9 w 1.8e-6 "
+; nmos4 Instance /+13 = auLvs device Q46
+i 46 nmos 16 17 30 30 " m 1 l 180e-9 w 1.8e-6 "
+; nmos4 Instance /+12 = auLvs device Q47
+i 47 nmos 17 18 30 30 " m 1 l 180e-9 w 1.8e-6 "
+; nmos4 Instance /+11 = auLvs device Q48
+i 48 nmos 18 19 30 30 " m 1 l 180e-9 w 1.8e-6 "
+; nmos4 Instance /+10 = auLvs device Q49
+i 49 nmos 19 20 30 30 " m 1 l 180e-9 w 1.8e-6 "
+; nmos4 Instance /+9 = auLvs device Q50
+i 50 nmos 20 21 30 30 " m 1 l 180e-9 w 1.8e-6 "
+; nmos4 Instance /+8 = auLvs device Q51
+i 51 nmos 21 22 30 30 " m 1 l 180e-9 w 1.8e-6 "
+; nmos4 Instance /+7 = auLvs device Q52
+i 52 nmos 22 23 30 30 " m 1 l 180e-9 w 1.8e-6 "
+; nmos4 Instance /+6 = auLvs device Q53
+i 53 nmos 23 24 30 30 " m 1 l 180e-9 w 1.8e-6 "
+; nmos4 Instance /+5 = auLvs device Q54
+i 54 nmos 24 25 30 30 " m 1 l 180e-9 w 1.8e-6 "
+; nmos4 Instance /+4 = auLvs device Q55
+i 55 nmos 25 26 30 30 " m 1 l 180e-9 w 1.8e-6 "
+; nmos4 Instance /+3 = auLvs device Q56
+i 56 nmos 26 27 30 30 " m 1 l 180e-9 w 1.8e-6 "
+; nmos4 Instance /+2 = auLvs device Q57
+i 57 nmos 27 28 30 30 " m 1 l 180e-9 w 1.8e-6 "
+; nmos4 Instance /+1 = auLvs device Q58
+i 58 nmos 28 29 30 30 " m 1 l 180e-9 w 1.8e-6 "
+; nmos4 Instance /+0 = auLvs device Q59
+i 59 nmos 29 33 30 30 " m 1 l 180e-9 w 1.8e-6 "

@@ -1,0 +1,92 @@
+\# Program start time:     UTC 2020.04.02 23:21:57.957
+\# Local time: PDT (UTC-07:00) 2020.04.02 16:21:57.957
+\o Program:		@(#)$CDS: virtuoso version 6.1.7-64b 09/27/2016 19:46 (sjfhw302) $
+\o Hierarchy:		/software/cadence/installs/IC617/tools.lnx86/dfII/
+\o Sub version:		sub-version  IC6.1.7-64b.500.7  (64-bit addresses)
+\# Command line:	/software/cadence/installs/IC617/tools.lnx86/dfII/bin/64bit/virtuoso -noautostart -mpssession virtuoso463 -mpshost thea.ecs.csus.edu -davinciService DaVinciService_463_1585869515 -log /gaia/class/student/tiradom/demo_151/logs_tiradom/logs0/Job1.log -licenseLockFileName /gaia/class/student/tiradom/demo_151/.tmp_tiradom/.thea.ecs.csus.edu_463 -nograph -nostdin -axlChildIdFlag 1
+\# Host name (type):	thea.ecs.csus.edu (x86_64)
+\# Operating system:	Linux 2.6.32-754.28.1.el6.x86_64 #1 SMP Wed Mar 11 18:38:45 UTC 2020
+\# Linux /etc/issue:	CentOS release 6.10 (Final)
+\# Linux /etc/issue:	Kernel \r on an \m
+\# X display name (WxH):	thea.ecs.csus.edu:80 (1024x868)
+\# Available geometry:			TL(0:0) BR(1023:867)
+\# X server:			RealVNC Ltd (VNC nograph server, PID 1642)
+\# Depth of Visual (Root):	16 (16)
+\# Number of Planes Used:	16
+\# X version:		11.0 (vendor release 3370)
+\# X resource pool:	base 0x800000, mask 0x3fffff (4194303), shift 0
+\# 			current id 0x0, current max 0x3ffffa (4194298)
+\# Max data seg size:	     unlimited
+\# Max process size:	     unlimited
+\# Initial sbrk value:	        377 MB
+\# Available memory:	     32,179 MB
+\# System memory:	     36,335 MB
+\# Maximum memory size:	     36,037 MB
+\# Max mem available:	     32,258 MB
+\# Initial memory used:	         79 MB
+\#        process size:	        917 MB
+\# Qt version:		4.8.5
+\# Window Manager:	other
+\# User Name:		tiradom
+\o Working Directory:	thea.ecs.csus.edu:/gaia/class/student/tiradom/demo_151
+\# Process Id:		1663
+\o 
+\o COPYRIGHT (C) 1992-2016  CADENCE DESIGN SYSTEMS INC.  ALL RIGHTS RESERVED.
+\o           (C) 1992-2016  UNIX SYSTEMS Laboratories INC.,
+\o                          Reproduced with permission.
+\o 
+\o This Cadence Design Systems program and online documentation are
+\o proprietary/confidential information and may be disclosed/used only
+\o as authorized in a license agreement controlling such use and disclosure.
+\o 
+\o           RESTRICTED RIGHTS NOTICE (SHORT FORM)
+\o Use/reproduction/disclosure is subject to restriction
+\o set forth at FAR 1252.227-19 or its equivalent.
+\o Loading geView.cxt 
+\o Loading menuBuilder.cxt 
+\o Loading schView.cxt 
+\o Loading selectSv.cxt 
+\o Loading wireEdit.cxt 
+\o Loading pte2.cxt 
+\o Loading xlUI.cxt 
+\o Loading auCore.cxt 
+\o Loading vhdl.cxt 
+\o Loading seismic.cxt 
+\o Loading ci.cxt 
+\o Loading ams.cxt 
+\o Loading oasis.cxt 
+\o Loading analog.cxt 
+\o Loading asimenv.cxt 
+\o Loading socket.cxt 
+\o Loading dal.cxt 
+\o Loading awv.cxt 
+\o Loading par.cxt 
+\o Loading alvs.cxt 
+\o Loading caa.cxt 
+\o Loading adexlCore.cxt 
+\o Loading adexl.cxt 
+\o *Info*    Exporting services from client ... 
+\o 
+\o Loading NCSU CDK 1.6.0-beta customizations...
+\o loading vars from /gaia/home/project/msdl/CDS6/cdk-ncsu/cdssetup/cdsenv for tool adle
+\o loading vars from /gaia/home/project/msdl/CDS6/cdk-ncsu/cdssetup/cdsenv for tool asimenv
+\o loading vars from /gaia/home/project/msdl/CDS6/cdk-ncsu/cdssetup/cdsenv for tool ddserv
+\o loading vars from /gaia/home/project/msdl/CDS6/cdk-ncsu/cdssetup/cdsenv for tool layout
+\o loading vars from /gaia/home/project/msdl/CDS6/cdk-ncsu/cdssetup/cdsenv for tool schematic
+\o loading vars from /gaia/home/project/msdl/CDS6/cdk-ncsu/cdssetup/cdsenv for tool ui
+\o Loading NCSU SKILL routines...
+\o function pwd redefined
+\o Done loading NCSU_CDK customizations.
+\o *Info*    Client has finished starting ... 
+\o 
+\p > 
+\o Loading pe.cxt 
+\a _treeSetOpcGUI(t)
+\r t
+\# Available memory:         32,064 MB at UTC 2020.04.02 23:22:09.841
+\# Memory report: Maximum memory size now 32,263 MB at UTC 2020.04.02 23:22:09.842
+\# Thread usage report: 13 active threads, active load 1.00 at UTC 2020.04.02 23:22:09.842
+\# Memory report: using         199 MB, process size 1,174 MB at UTC 2020.04.02 23:22:09.842
+\o Job 1 timed out after no activity in 300 seconds.
+\# Memory report: on exit            199 MB, process size 1,174 MB at UTC 2020.04.02 23:27:01.727
+\# Memory report: peak usage         199 MB, process size 1,174 MB

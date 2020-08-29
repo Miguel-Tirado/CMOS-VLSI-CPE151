@@ -1,0 +1,110 @@
+@(#)$CDS: LVS version 6.1.7-64b 09/27/2016 19:41 (sjfhw305) $
+
+Command line: /software/cadence/installs/IC617/tools.lnx86/dfII/bin/64bit/LVS -dir /gaia/class/student/tiradom/demo_151/LVS -l -s -t /gaia/class/student/tiradom/demo_151/LVS/layout /gaia/class/student/tiradom/demo_151/LVS/schematic
+Like matching is enabled.
+Net swapping is enabled.
+Using terminal names as correspondence points.
+Compiling Diva LVS rules...
+
+    Net-list summary for /gaia/class/student/tiradom/demo_151/LVS/layout/netlist
+       count
+        34              nets
+        2               terminals
+        30              pmos
+        30              nmos
+
+    Net-list summary for /gaia/class/student/tiradom/demo_151/LVS/schematic/netlist
+       count
+        33              nets
+        2               terminals
+        31              pmos
+        31              nmos
+
+Devices in the rules but not in the netlist:
+        cap nfet pfet nmos4 pmos4
+
+
+        Device summary for layout
+                   bad  total
+            pmos    30     30
+            nmos    30     30
+
+
+        Device summary for schematic
+                   bad  total
+            pmos    31     31
+            nmos    31     31
+
+The net-lists failed to match.
+
+                             layout  schematic
+                                instances
+        un-matched              60      62     
+        rewired                 0       0      
+        size errors             0       0      
+        pruned                  0       0      
+        active                  60      62     
+        total                   60      62     
+
+                                  nets
+        un-matched              34      33     
+        merged                  0       0      
+        pruned                  0       0      
+        active                  34      33     
+        total                   34      33     
+
+                                terminals
+        un-matched              2       0      
+        matched but
+        different type          0       0      
+        total                   2       2      
+
+
+Probe files from /gaia/class/student/tiradom/demo_151/LVS/schematic
+
+devbad.out:
+The no. of lines exceeded than specified by the variable lvsLimitLinesInOutFile.
+To see the complete information please see the file:
+/gaia/class/student/tiradom/demo_151/LVS/schematic/devbad.out
+
+netbad.out:
+The no. of lines exceeded than specified by the variable lvsLimitLinesInOutFile.
+To see the complete information please see the file:
+/gaia/class/student/tiradom/demo_151/LVS/schematic/netbad.out
+
+mergenet.out:
+
+termbad.out:
+
+prunenet.out:
+
+prunedev.out:
+
+audit.out:
+
+
+Probe files from /gaia/class/student/tiradom/demo_151/LVS/layout
+
+devbad.out:
+The no. of lines exceeded than specified by the variable lvsLimitLinesInOutFile.
+To see the complete information please see the file:
+/gaia/class/student/tiradom/demo_151/LVS/layout/devbad.out
+
+netbad.out:
+The no. of lines exceeded than specified by the variable lvsLimitLinesInOutFile.
+To see the complete information please see the file:
+/gaia/class/student/tiradom/demo_151/LVS/layout/netbad.out
+
+mergenet.out:
+
+termbad.out:
+T -1  Osc_out /Osc_out
+? Terminal Osc_out in the layout is not present in the schematic.
+T -1  vdd /vdd
+? Terminal vdd in the layout is not present in the schematic.
+
+prunenet.out:
+
+prunedev.out:
+
+audit.out:
