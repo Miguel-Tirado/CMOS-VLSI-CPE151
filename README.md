@@ -1,2 +1,2 @@
 # CMOS VLSI CPE151
- 
+ This repository contains labs and files that I have completed for my Computer Engineering Course CPE151. Designed 0.18um chips (NAND, Inverter, and Ring Oscillator) that use CMOS and VLSI concepts, methodologies, and techniques. The project had requirements such as midpoint voltage values, rise, and fall time values while following the design rules of the CMOS process. The chips were tested and validated by going through and DRC and LVS chip layout verification. Note: that I have fewer labs completed because this course was affected by the Covid-19 pandemic which lowered the amount of assigments due for the course. 
